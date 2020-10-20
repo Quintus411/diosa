@@ -1,15 +1,45 @@
-import processing.serial.Serial; // serial library
-import controlP5.*; // controlP5 library
+import processing.core.*; 
+import processing.xml.*; 
+
+import processing.serial.Serial; 
+import controlP5.*; 
 import processing.opengl.*; 
-import java.lang.StringBuffer; // for efficient String concatemation
-import javax.swing.SwingUtilities; // required for swing and EDT
-import javax.swing.JFileChooser; // Saving dialogue
-import javax.swing.filechooser.FileFilter; // for our configuration file filter "*.mwi"
-import javax.swing.JOptionPane; // for message dialogue
+import java.lang.StringBuffer; 
+import javax.swing.SwingUtilities; 
+import javax.swing.JFileChooser; 
+import javax.swing.filechooser.FileFilter; 
+import javax.swing.JOptionPane; 
+import java.util.*; 
+import java.io.*; 
+
+import java.applet.*; 
+import java.awt.Dimension; 
+import java.awt.Frame; 
+import java.awt.event.MouseEvent; 
+import java.awt.event.KeyEvent; 
+import java.awt.event.FocusEvent; 
+import java.awt.Image; 
+import java.io.*; 
+import java.net.*; 
+import java.text.*; 
+import java.util.*; 
+import java.util.zip.*; 
+import java.util.regex.*; 
+
+public class MultiWiiConf extends PApplet {
+
+ // serial library
+ // controlP5 library
+ 
+ // for efficient String concatemation
+ // required for swing and EDT
+ // Saving dialogue
+ // for our configuration file filter "*.mwi"
+ // for message dialogue
 
 //Added For  Processing 2.0.x compabillity
-import java.util.*;
-import java.io.*;
+
+
 //****************************
 
 // TODO add new msp :  pid description with bound and scale
@@ -166,7 +196,7 @@ Toggle tACC_ROLL, tACC_PITCH, tACC_Z, tGYRO_ROLL, tGYRO_PITCH, tGYRO_YAW, tBARO,
 Toggle motToggle[] = new Toggle[8];
 
 // Colors
-color yellow_ = color(200, 200, 20), green_ = color(30, 120, 30), red_ = color(120, 30, 30), blue_ = color(50, 50, 100),
+int yellow_ = color(200, 200, 20), green_ = color(30, 120, 30), red_ = color(120, 30, 30), blue_ = color(50, 50, 100),
        grey_ = color(30, 30, 30),black_ = color(0, 0, 0),orange_ =color(200,128,0);
 
 PFont font8, font9, font12, font15;
@@ -177,7 +207,7 @@ Button buttonCheckbox[], BtServo[], BtAUX[];
 Numberbox RateSlider[];
 
 // TODO New part
-void create_GimbalGraphics(){
+public void create_GimbalGraphics(){
   if(gimbal){
   gimbalConfig = true;
   int sMin=1020;int sMax=2000;
@@ -204,7 +234,7 @@ void create_GimbalGraphics(){
   }
 }
   
-void create_ServoGraphics(){
+public void create_ServoGraphics(){
   BtServo = new Button[8];
   BtAUX   = new Button[5];
   checkboxRev = new CheckBox[8];
@@ -344,7 +374,7 @@ controlP5.getTab("ServoSettings").show();
  //************************ End of servoGrapics********************** 
 }
 
-void create_checkboxes(String[] names) {
+public void create_checkboxes(String[] names) {
   /* destroy old buttons */
   for (int i=0; i<CHECKBOXITEMS; i++) {
     buttonCheckbox[i].remove();
@@ -369,7 +399,7 @@ void create_checkboxes(String[] names) {
 
 // coded by Eberhard Rensch
 // Truncates a long port name for better (readable) display in the GUI
-String shortifyPortName(String portName, int maxlen)  {
+public String shortifyPortName(String portName, int maxlen)  {
   String shortName = portName;
   if(shortName.startsWith("/dev/cu.")) shortName = "";// only collect the corresponding tty. devices
   return shortName;
@@ -384,15 +414,15 @@ String shortifyPortName(String portName, int maxlen)  {
   */
 }
 
-controlP5.Controller hideLabel(controlP5.Controller c) {
+public controlP5.Controller hideLabel(controlP5.Controller c) {
   c.setLabel("");
   c.setLabelVisible(false);
   return c;
 }
 
-void setup() {
+public void setup() {
   // Trying to make both worlds happy..
-  if( P3D == OPENGL ) pVersion = 2.0; else pVersion = 1.5;
+  if( P3D == OPENGL ) pVersion = 2.0f; else pVersion = 1.5f;
 
   size(windowsX,windowsY,OPENGL);
   frameRate(20);
@@ -463,7 +493,7 @@ void setup() {
   buttonSonar = controlP5.addButton("bSonar",1,xButton+50,yButton+17,45,15).setColorBackground(red_).setLabel("SONAR");
   buttonOptic = controlP5.addButton("bOptic",1,xButton+100,yButton+17,45,15).setColorBackground(grey_).setLabel("OPTIC");
 
-  color c,black;
+  int c,black;
   black = color(0,0,0);
   int xo = xGraph-7;
   int x = xGraph+40;
@@ -530,9 +560,9 @@ void setup() {
 
   for( i=0;i<PIDITEMS;i++) {
     confP[i] = (controlP5.Numberbox) hideLabel(controlP5.addNumberbox("confP"+i,0,xParam+40,yParam+20+i*17,30,14));
-    confP[i].setColorBackground(red_).setMin(0).setDirection(Controller.HORIZONTAL).setDecimalPrecision(1).setMultiplier(0.1).setMax(20);
+    confP[i].setColorBackground(red_).setMin(0).setDirection(Controller.HORIZONTAL).setDecimalPrecision(1).setMultiplier(0.1f).setMax(20);
     confI[i] = (controlP5.Numberbox) hideLabel(controlP5.addNumberbox("confI"+i,0,xParam+75,yParam+20+i*17,40,14));
-    confI[i].setColorBackground(red_).setMin(0).setDirection(Controller.HORIZONTAL).setDecimalPrecision(3).setMultiplier(0.001).setMax(0.250);
+    confI[i].setColorBackground(red_).setMin(0).setDirection(Controller.HORIZONTAL).setDecimalPrecision(3).setMultiplier(0.001f).setMax(0.250f);
     confD[i] = (controlP5.Numberbox) hideLabel(controlP5.addNumberbox("confD"+i,0,xParam+120,yParam+20+i*17,30,14));
     confD[i].setColorBackground(red_).setMin(0).setDirection(Controller.HORIZONTAL).setDecimalPrecision(0).setMultiplier(1).setMax(100);
   }
@@ -547,34 +577,34 @@ void setup() {
   confINF[3].setLabel("FS Thr").setMin(1200).setMax(2000).moveTo("Config");
   confINF[4].setLabel("Armed count").setMin(0).setMax(10000).setColorBackground(red_).moveTo("Config");
   confINF[5].setLabel("Acc ArmedTime").setMin(0).setMax(360000).setColorBackground(red_).moveTo("Config");
-  confINF[6].setLabel("MAG Decl").setMin(-30).setMax(30).setDecimalPrecision(1).setMultiplier(.1).moveTo("Config");
+  confINF[6].setLabel("MAG Decl").setMin(-30).setMax(30).setDecimalPrecision(1).setMultiplier(.1f).moveTo("Config");
  
   confI[8].hide();confD[8].hide();confD[4].hide();
   confP[9].hide();confI[9].hide();confD[9].hide();
   //change bounds for POS-4 POSR-5 and NAV-6
-  confP[4].setDecimalPrecision(2).setMultiplier(0.01).setMax(5);
-  confI[4].setDecimalPrecision(1).setMultiplier(0.1) .setMax(2.5);
+  confP[4].setDecimalPrecision(2).setMultiplier(0.01f).setMax(5);
+  confI[4].setDecimalPrecision(1).setMultiplier(0.1f) .setMax(2.5f);
   
-  confP[5].setDecimalPrecision(1).setMultiplier(0.1) .setMax(25);
-  confI[5].setDecimalPrecision(2).setMultiplier(0.01).setMax(2.5);
-  confD[5].setDecimalPrecision(3).setMultiplier(.001).setMax(.250);
+  confP[5].setDecimalPrecision(1).setMultiplier(0.1f) .setMax(25);
+  confI[5].setDecimalPrecision(2).setMultiplier(0.01f).setMax(2.5f);
+  confD[5].setDecimalPrecision(3).setMultiplier(.001f).setMax(.250f);
   
-  confP[6].setDecimalPrecision(1).setMultiplier(0.1) .setMax(25);
-  confI[6].setDecimalPrecision(2).setMultiplier(0.01).setMax(2.5);
-  confD[6].setDecimalPrecision(3).setMultiplier(.001).setMax(.250);
+  confP[6].setDecimalPrecision(1).setMultiplier(0.1f) .setMax(25);
+  confI[6].setDecimalPrecision(2).setMultiplier(0.01f).setMax(2.5f);
+  confD[6].setDecimalPrecision(3).setMultiplier(.001f).setMax(.250f);
 
   rollPitchRate = (controlP5.Numberbox) hideLabel(controlP5.addNumberbox("rollPitchRate",0,xParam+160,yParam+30,30,14)).setDecimalPrecision(2);
-  rollPitchRate.setDirection(Controller.HORIZONTAL).setMin(0).setMax(1).setColorBackground(red_).setMultiplier(0.01);
+  rollPitchRate.setDirection(Controller.HORIZONTAL).setMin(0).setMax(1).setColorBackground(red_).setMultiplier(0.01f);
   
   yawRate = (controlP5.Numberbox) hideLabel(controlP5.addNumberbox("yawRate",0,xParam+160,yParam+54,30,14)).setDecimalPrecision(2);
-  yawRate.setDirection(Controller.HORIZONTAL).setMin(0).setMax(1).setColorBackground(red_).setMultiplier(0.01); 
+  yawRate.setDirection(Controller.HORIZONTAL).setMin(0).setMax(1).setColorBackground(red_).setMultiplier(0.01f); 
   
   dynamic_THR_PID = (controlP5.Numberbox) hideLabel(controlP5.addNumberbox("dynamic_THR_PID",0,xParam+215,yParam+22,30,14)).setDecimalPrecision(2);
-  dynamic_THR_PID.setMultiplier(0.01).setDirection(Controller.HORIZONTAL).setMin(0).setMax(1).setColorBackground(red_);
+  dynamic_THR_PID.setMultiplier(0.01f).setDirection(Controller.HORIZONTAL).setMin(0).setMax(1).setColorBackground(red_);
 
-  confRC_RATE = controlP5.addNumberbox("RC RATE",1,xParam+40,yParam+220,30,14).setDecimalPrecision(2).setMultiplier(0.01).setLabel("");
-  confRC_RATE.setDirection(Controller.HORIZONTAL).setMin(0).setMax(2.5).setColorBackground(red_);
-  confRC_EXPO = controlP5.addNumberbox("RC EXPO",0,xParam+40,yParam+237,30,14).setDecimalPrecision(2).setMultiplier(0.01).setLabel("");
+  confRC_RATE = controlP5.addNumberbox("RC RATE",1,xParam+40,yParam+220,30,14).setDecimalPrecision(2).setMultiplier(0.01f).setLabel("");
+  confRC_RATE.setDirection(Controller.HORIZONTAL).setMin(0).setMax(2.5f).setColorBackground(red_);
+  confRC_EXPO = controlP5.addNumberbox("RC EXPO",0,xParam+40,yParam+237,30,14).setDecimalPrecision(2).setMultiplier(0.01f).setLabel("");
   confRC_EXPO.setDirection(Controller.HORIZONTAL).setMin(0).setMax(1).setColorBackground(red_);
 
   confSetting = controlP5.addNumberbox("_SETTING",0,xParam+2,yParam+2,30,14).setDecimalPrecision(0).setMultiplier(1).setLabel("")
@@ -583,10 +613,10 @@ void setup() {
   confSelectSetting = controlP5.addNumberbox("S_SETTING",0,xParam+520,yParam+260,30,14).setDecimalPrecision(0).setMultiplier(1).setLabel("")
   .setDirection(Controller.HORIZONTAL).setMin(0).setMax(2).setColorBackground(red_);//.hide();
 
-  throttle_MID = controlP5.addNumberbox("T MID",0.5,xParam+40,yParam+180,30,14).setDecimalPrecision(2).setMultiplier(0.01).setLabel("")
+  throttle_MID = controlP5.addNumberbox("T MID",0.5f,xParam+40,yParam+180,30,14).setDecimalPrecision(2).setMultiplier(0.01f).setLabel("")
   .setDirection(Controller.HORIZONTAL).setMin(0).setMax(1).setColorBackground(red_);
   
-  throttle_EXPO = controlP5.addNumberbox("T EXPO",0,xParam+40,yParam+197,30,14).setDecimalPrecision(2).setMultiplier(0.01).setLabel("")
+  throttle_EXPO = controlP5.addNumberbox("T EXPO",0,xParam+40,yParam+197,30,14).setDecimalPrecision(2).setMultiplier(0.01f).setLabel("")
   .setDirection(Controller.HORIZONTAL).setMin(0).setMax(1).setColorBackground(red_);
   
   buttonREAD =          controlP5.addButton("READ" , 1, xParam+5,   yParam+260, 50, 16)  .setColorBackground(red_);
@@ -632,9 +662,9 @@ void setup() {
     VBat[i].setColorBackground(red_).setMin(0).setMax(20).setDirection(Controller.HORIZONTAL).setDecimalPrecision(1).setMultiplier(1).moveTo("Config").hide();
   }
   VBat[0].setCaptionLabel("VBatscale").setDecimalPrecision(0).setMin(0).setMax(200);
-  VBat[1].setCaptionLabel("Warning 1").setMultiplier(0.1);
-  VBat[2].setCaptionLabel("Warning 2").setMultiplier(0.1);
-  VBat[3].setCaptionLabel("Critical").setMultiplier(0.1);
+  VBat[1].setCaptionLabel("Warning 1").setMultiplier(0.1f);
+  VBat[2].setCaptionLabel("Warning 2").setMultiplier(0.1f);
+  VBat[3].setCaptionLabel("Critical").setMultiplier(0.1f);
   VBat[4].setCaptionLabel("Volt").setColorBackground(red_).setDecimalPrecision(2);
   VBat[5].setCaptionLabel("RSSI").setColorBackground(red_).setDecimalPrecision(0).setMin(0).setMax(1023);
    
@@ -716,9 +746,9 @@ byte[] inBuf = new byte[256];
 
 
 int p;
-int read32() {return (inBuf[p++]&0xff) + ((inBuf[p++]&0xff)<<8) + ((inBuf[p++]&0xff)<<16) + ((inBuf[p++]&0xff)<<24); }
-int read16() {return (inBuf[p++]&0xff) + ((inBuf[p++])<<8); }
-int read8()  {return  inBuf[p++]&0xff;}
+public int read32() {return (inBuf[p++]&0xff) + ((inBuf[p++]&0xff)<<8) + ((inBuf[p++]&0xff)<<16) + ((inBuf[p++]&0xff)<<24); }
+public int read16() {return (inBuf[p++]&0xff) + ((inBuf[p++])<<8); }
+public int read8()  {return  inBuf[p++]&0xff;}
 
 int mode;
 boolean toggleRead = false,toggleReset = false,toggleCalibAcc = false,toggleCalibMag = false,toggleWrite = false,
@@ -749,7 +779,7 @@ private List<Byte> requestMSP (int msp, Character[] payload) {
   }
   
   byte checksum=0;
-  byte pl_size = (byte)((payload != null ? int(payload.length) : 0)&0xFF);
+  byte pl_size = (byte)((payload != null ? PApplet.parseInt(payload.length) : 0)&0xFF);
   bf.add(pl_size);
   checksum ^= (pl_size&0xFF);
   
@@ -766,7 +796,7 @@ private List<Byte> requestMSP (int msp, Character[] payload) {
   return (bf);
 }
 
-void sendRequestMSP(List<Byte> msp) {
+public void sendRequestMSP(List<Byte> msp) {
   byte[] arr = new byte[msp.size()];
   int i = 0;
   for (byte b: msp) {
@@ -845,19 +875,19 @@ public void evaluateCommand(byte cmd, int dataSize) {
         pMeterSum = read16();
         rssi = read16(); if(rssi!=0)VBat[5].setValue(rssi).show();  // rssi
         amperage = read16(); // amperage
-        VBat[4].setValue(bytevbat/10.0);    // Volt
+        VBat[4].setValue(bytevbat/10.0f);    // Volt
         break;
     case MSP_RC_TUNING:
         byteRC_RATE = read8();byteRC_EXPO = read8();byteRollPitchRate = read8();
         byteYawRate = read8();byteDynThrPID = read8();
         byteThrottle_MID = read8();byteThrottle_EXPO = read8();
-        confRC_RATE.setValue(byteRC_RATE/100.0);
-        confRC_EXPO.setValue(byteRC_EXPO/100.0);
-        rollPitchRate.setValue(byteRollPitchRate/100.0);
-        yawRate.setValue(byteYawRate/100.0);
-        dynamic_THR_PID.setValue(byteDynThrPID/100.0);
-        throttle_MID.setValue(byteThrottle_MID/100.0);
-        throttle_EXPO.setValue(byteThrottle_EXPO/100.0);
+        confRC_RATE.setValue(byteRC_RATE/100.0f);
+        confRC_EXPO.setValue(byteRC_EXPO/100.0f);
+        rollPitchRate.setValue(byteRollPitchRate/100.0f);
+        yawRate.setValue(byteYawRate/100.0f);
+        dynamic_THR_PID.setValue(byteDynThrPID/100.0f);
+        throttle_MID.setValue(byteThrottle_MID/100.0f);
+        throttle_EXPO.setValue(byteThrottle_EXPO/100.0f);
         confRC_RATE.setColorBackground(green_);confRC_EXPO.setColorBackground(green_);rollPitchRate.setColorBackground(green_);
         yawRate.setColorBackground(green_);dynamic_THR_PID.setColorBackground(green_);
         throttle_MID.setColorBackground(green_);throttle_EXPO.setColorBackground(green_);
@@ -869,17 +899,17 @@ public void evaluateCommand(byte cmd, int dataSize) {
         for(i=0;i<PIDITEMS;i++) {
           byteP[i] = read8();byteI[i] = read8();byteD[i] = read8();
           switch (i) {
-           case 0:confP[i].setValue(byteP[i]/10.0);confI[i].setValue(byteI[i]/1000.0);confD[i].setValue(byteD[i]);break;
-           case 1:confP[i].setValue(byteP[i]/10.0);confI[i].setValue(byteI[i]/1000.0);confD[i].setValue(byteD[i]);break;
-           case 2:confP[i].setValue(byteP[i]/10.0);confI[i].setValue(byteI[i]/1000.0);confD[i].setValue(byteD[i]);break;
-           case 3:confP[i].setValue(byteP[i]/10.0);confI[i].setValue(byteI[i]/1000.0);confD[i].setValue(byteD[i]);break;
-           case 7:confP[i].setValue(byteP[i]/10.0);confI[i].setValue(byteI[i]/1000.0);confD[i].setValue(byteD[i]);break;
-           case 8:confP[i].setValue(byteP[i]/10.0);confI[i].setValue(byteI[i]/1000.0);confD[i].setValue(byteD[i]);break;
-           case 9:confP[i].setValue(byteP[i]/10.0);confI[i].setValue(byteI[i]/1000.0);confD[i].setValue(byteD[i]);break;
+           case 0:confP[i].setValue(byteP[i]/10.0f);confI[i].setValue(byteI[i]/1000.0f);confD[i].setValue(byteD[i]);break;
+           case 1:confP[i].setValue(byteP[i]/10.0f);confI[i].setValue(byteI[i]/1000.0f);confD[i].setValue(byteD[i]);break;
+           case 2:confP[i].setValue(byteP[i]/10.0f);confI[i].setValue(byteI[i]/1000.0f);confD[i].setValue(byteD[i]);break;
+           case 3:confP[i].setValue(byteP[i]/10.0f);confI[i].setValue(byteI[i]/1000.0f);confD[i].setValue(byteD[i]);break;
+           case 7:confP[i].setValue(byteP[i]/10.0f);confI[i].setValue(byteI[i]/1000.0f);confD[i].setValue(byteD[i]);break;
+           case 8:confP[i].setValue(byteP[i]/10.0f);confI[i].setValue(byteI[i]/1000.0f);confD[i].setValue(byteD[i]);break;
+           case 9:confP[i].setValue(byteP[i]/10.0f);confI[i].setValue(byteI[i]/1000.0f);confD[i].setValue(byteD[i]);break;
            //Different rates fot POS-4 POSR-5 NAVR-6
-           case 4:confP[i].setValue(byteP[i]/100.0);confI[i].setValue(byteI[i]/100.0);confD[i].setValue(byteD[i]/1000.0);break;
-           case 5:confP[i].setValue(byteP[i]/10.0);confI[i].setValue(byteI[i]/100.0);confD[i].setValue(byteD[i]/1000.0);break;
-           case 6:confP[i].setValue(byteP[i]/10.0);confI[i].setValue(byteI[i]/100.0);confD[i].setValue(byteD[i]/1000.0);break;
+           case 4:confP[i].setValue(byteP[i]/100.0f);confI[i].setValue(byteI[i]/100.0f);confD[i].setValue(byteD[i]/1000.0f);break;
+           case 5:confP[i].setValue(byteP[i]/10.0f);confI[i].setValue(byteI[i]/100.0f);confD[i].setValue(byteD[i]/1000.0f);break;
+           case 6:confP[i].setValue(byteP[i]/10.0f);confI[i].setValue(byteI[i]/100.0f);confD[i].setValue(byteD[i]/1000.0f);break;
           }
           confP[i].setColorBackground(green_);confI[i].setColorBackground(green_);confD[i].setColorBackground(green_);
         }
@@ -1060,7 +1090,7 @@ public void evaluateCommand(byte cmd, int dataSize) {
  
         // VBAT
         int q = read8();if(toggleVbat){VBat[0].setValue(q).setColorBackground(green_);toggleVbat=false; // i
-        for( i=1;i<4;i++) VBat[i].setValue(read8()/10.0).setColorBackground(green_);}  // j,k,l
+        for( i=1;i<4;i++) VBat[i].setValue(read8()/10.0f).setColorBackground(green_);}  // j,k,l
         if(q > 1) for( i=0;i<5;i++) VBat[i].show();
         
         controlP5.addTab("Config").show();
@@ -1085,7 +1115,7 @@ public void evaluateCommand(byte cmd, int dataSize) {
 private int present = 0;
 int time,time2,time3,time4,time5,time6;
 
-void draw() {
+public void draw() {
   List<Character> payload;
   int i,aa;
   float val,inter,a,b,h;
@@ -1125,9 +1155,9 @@ void draw() {
           payload = new ArrayList<Character>();
           for( i=0;i<8;i++){
             if (motToggle[i].getState()) {
-              payload.add(char (int(motorControlSlider.getValue()) % 256) ); payload.add(char (int(motorControlSlider.getValue()) / 256)  );
+              payload.add(PApplet.parseChar (PApplet.parseInt(motorControlSlider.getValue()) % 256) ); payload.add(PApplet.parseChar (PApplet.parseInt(motorControlSlider.getValue()) / 256)  );
             } else {
-              payload.add(char (1000 % 256) ); payload.add(char (1000 / 256)  );
+              payload.add(PApplet.parseChar (1000 % 256) ); payload.add(PApplet.parseChar (1000 / 256)  );
             }
           }
           sendRequestMSP(requestMSP(MSP_SET_MOTOR,payload.toArray( new Character[payload.size()]) ));
@@ -1174,7 +1204,7 @@ void draw() {
       toggleSetSetting=false;
       toggleRead=true;
       payload = new ArrayList<Character>();
-      payload.add(char( round(confSelectSetting.value())) );
+      payload.add(PApplet.parseChar( round(confSelectSetting.value())) );
       sendRequestMSP(requestMSP(MSP_SELECT_SETTING,payload.toArray( new Character[payload.size()]) )); 
     }
     if (toggleCalibAcc) {
@@ -1192,11 +1222,11 @@ void draw() {
       payload = new ArrayList<Character>();
       if (multiType == AIRPLANE || multiType == PPM_TO_SERVO || multiType == HELI_120_CCPM || multiType == HELI_90_DEG){
         for( i=0;i<8;i++){
-          int q= (int)ServoSliderMIN[i].value(); payload.add(char (q % 256) ); payload.add(char (q / 256)  ); // Min
-          q= (int)ServoSliderMAX[i].value(); payload.add(char (q % 256) ); payload.add(char (q / 256)  ); // Max
-          q= (int)(ServoSliderC[i].value()); payload.add(char (q % 256) ); payload.add(char (q / 256)  ); // Servo centers
+          int q= (int)ServoSliderMIN[i].value(); payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); // Min
+          q= (int)ServoSliderMAX[i].value(); payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); // Max
+          q= (int)(ServoSliderC[i].value()); payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); // Servo centers
   
-          servoRATE[i] = int(RateSlider[i].value());
+          servoRATE[i] = PApplet.parseInt(RateSlider[i].value());
           if ((int)Bbox.getArrayValue()[i]==1){ servoRATE[i] = abs(servoRATE[i]);}else{ servoRATE[i] = abs(servoRATE[i])*-1;}// Direction
   
           if(i==5 && ( multiType == HELI_120_CCPM || multiType == HELI_90_DEG) )servoRATE[5] =(int)Bbox.getArrayValue()[5]; // Yaw servo Direction
@@ -1206,14 +1236,14 @@ void draw() {
             if(i==6  ){servoRATE[6] = (int)Mbox.getArrayValue()[8]+(int)Mbox.getArrayValue()[7]*2+(int)Mbox.getArrayValue()[6]*4;}
             //bbb
           }
-          payload.add(char(servoRATE[i])); // servoRATE
+          payload.add(PApplet.parseChar(servoRATE[i])); // servoRATE
         }
       }
        //******************************************************************************************
       else{
-        for( i=0;i<8;i++){ servoRATE[i]=round(RateSlider[i].value()); payload.add(char(servoRATE[i]));}// servoRATE
-        for( i=0;i<8;i++) { int q= (int)(ServoSliderC[i].value())+512; payload.add(char (q % 256) ); payload.add(char (q / 256)  ); } // Servo centers...
-        for( i=0;i<8;i++){ if ((int)Bbox.getArrayValue()[i]==1){ payload.add(char(11)); }else{ payload.add(char(9));} } // Direction
+        for( i=0;i<8;i++){ servoRATE[i]=round(RateSlider[i].value()); payload.add(PApplet.parseChar(servoRATE[i]));}// servoRATE
+        for( i=0;i<8;i++) { int q= (int)(ServoSliderC[i].value())+512; payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); } // Servo centers...
+        for( i=0;i<8;i++){ if ((int)Bbox.getArrayValue()[i]==1){ payload.add(PApplet.parseChar(11)); }else{ payload.add(PApplet.parseChar(9));} } // Direction
       }
       sendRequestMSP(requestMSP(MSP_SET_SERVO_CONF,payload.toArray( new Character[payload.size()]) ));
       toggleWriteServoLive=false;      
@@ -1260,13 +1290,13 @@ void draw() {
         }
         
         for( i=0;i<8;i++){
-          int q= (int)ServoSliderMIN[i].value(); payload.add(char (q % 256) ); payload.add(char (q / 256)  ); // Min
-          q= (int)ServoSliderMAX[i].value(); payload.add(char (q % 256) ); payload.add(char (q / 256)  ); // Max
-          q= (int)(ServoSliderC[i].value()); payload.add(char (q % 256) ); payload.add(char (q / 256)  ); // Servo centers
+          int q= (int)ServoSliderMIN[i].value(); payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); // Min
+          q= (int)ServoSliderMAX[i].value(); payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); // Max
+          q= (int)(ServoSliderC[i].value()); payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); // Servo centers
 
-          servoRATE[i] = int(RateSlider[i].value());
+          servoRATE[i] = PApplet.parseInt(RateSlider[i].value());
           
-          payload.add(char(servoRATE[i])); // servoRATE
+          payload.add(PApplet.parseChar(servoRATE[i])); // servoRATE
         }
         sendRequestMSP(requestMSP(MSP_SET_SERVO_CONF,payload.toArray( new Character[payload.size()]) )); // Send settings
       }
@@ -1280,10 +1310,10 @@ void draw() {
         
         for( i=0;i<8;i++) {
           int q;
-          q= (int)ServoMIN[i]; payload.add(char (q % 256) ); payload.add(char (q / 256)  ); // Min
-          q= (int)ServoMAX[i]; payload.add(char (q % 256) ); payload.add(char (q / 256)  ); // Max
-          q= (int)ServoMID[i]; payload.add(char (q % 256) ); payload.add(char (q / 256)  ); // Servo centers
-          payload.add(char(servoRATE[i])); // servoRATE
+          q= (int)ServoMIN[i]; payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); // Min
+          q= (int)ServoMAX[i]; payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); // Max
+          q= (int)ServoMID[i]; payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); // Servo centers
+          payload.add(PApplet.parseChar(servoRATE[i])); // servoRATE
         }
         sendRequestMSP(requestMSP(MSP_SET_SERVO_CONF,payload.toArray( new Character[payload.size()]) )); // Send settings    
     }
@@ -1363,13 +1393,13 @@ void draw() {
       
       // MSP_SET_RC_TUNING
       payload = new ArrayList<Character>();
-      payload.add(char( round(confRC_RATE.value()*100)) );
-      payload.add(char( round(confRC_EXPO.value()*100)) );
-      payload.add(char( round(rollPitchRate.value()*100)) );
-      payload.add(char( round(yawRate.value()*100)) );
-      payload.add(char( round(dynamic_THR_PID.value()*100)) );
-      payload.add(char( round(throttle_MID.value()*100)) );
-      payload.add(char( round(throttle_EXPO.value()*100)) );
+      payload.add(PApplet.parseChar( round(confRC_RATE.value()*100)) );
+      payload.add(PApplet.parseChar( round(confRC_EXPO.value()*100)) );
+      payload.add(PApplet.parseChar( round(rollPitchRate.value()*100)) );
+      payload.add(PApplet.parseChar( round(yawRate.value()*100)) );
+      payload.add(PApplet.parseChar( round(dynamic_THR_PID.value()*100)) );
+      payload.add(PApplet.parseChar( round(throttle_MID.value()*100)) );
+      payload.add(PApplet.parseChar( round(throttle_EXPO.value()*100)) );
       sendRequestMSP(requestMSP(MSP_SET_RC_TUNING,payload.toArray( new Character[payload.size()]) ));
 
       // MSP_SET_PID
@@ -1381,21 +1411,21 @@ void draw() {
       }
 
       //POS-4 POSR-5 NAVR-6 use different dividers
-      byteP[4] = (round(confP[4].value()*100.0));
-      byteI[4] = (round(confI[4].value()*100.0));
+      byteP[4] = (round(confP[4].value()*100.0f));
+      byteI[4] = (round(confI[4].value()*100.0f));
 
-      byteP[5] = (round(confP[5].value()*10.0));
-      byteI[5] = (round(confI[5].value()*100.0));
-      byteD[5] = (round(confD[5].value()*10000.0))/10;
+      byteP[5] = (round(confP[5].value()*10.0f));
+      byteI[5] = (round(confI[5].value()*100.0f));
+      byteD[5] = (round(confD[5].value()*10000.0f))/10;
 
-      byteP[6] = (round(confP[6].value()*10.0));
-      byteI[6] = (round(confI[6].value()*100.0));
-      byteD[6] = (round(confD[6].value()*10000.0))/10;
+      byteP[6] = (round(confP[6].value()*10.0f));
+      byteI[6] = (round(confI[6].value()*100.0f));
+      byteD[6] = (round(confD[6].value()*10000.0f))/10;
 
       for(i=0;i<PIDITEMS;i++) {
-          payload.add(char(byteP[i]));  
-          payload.add(char(byteI[i]));  
-          payload.add(char(byteD[i])); 
+          payload.add(PApplet.parseChar(byteP[i]));  
+          payload.add(PApplet.parseChar(byteI[i]));  
+          payload.add(PApplet.parseChar(byteD[i])); 
       }
       sendRequestMSP(requestMSP(MSP_SET_PID,payload.toArray(new Character[payload.size()])));
 
@@ -1407,7 +1437,7 @@ void draw() {
           activation[i] += (int)(checkbox[i].arrayValue()[aa]*(1<<aa));
           //MWI.setProperty("box."+i+".aux"+i/3+"."+(aa%3),String.valueOf(checkbox[i].arrayValue()[aa]*(1<<aa)));
         }
-        payload.add(char (activation[i] % 256) ); payload.add(char (activation[i] / 256)  );
+        payload.add(PApplet.parseChar (activation[i] % 256) ); payload.add(PApplet.parseChar (activation[i] / 256)  );
       }
       sendRequestMSP(requestMSP(MSP_SET_BOX,payload.toArray(new Character[payload.size()])));
      
@@ -1416,28 +1446,28 @@ void draw() {
       payload = new ArrayList<Character>();
       
       intPowerTrigger = (round(confPowerTrigger.value()));
-      payload.add(char(intPowerTrigger % 256)); payload.add(char(intPowerTrigger / 256)); //a
+      payload.add(PApplet.parseChar(intPowerTrigger % 256)); payload.add(PApplet.parseChar(intPowerTrigger / 256)); //a
 
       
       // ThrVal   minthrottle,maxthrottle,mincommand,FSthrottle   b,c,d,e
-      for( i=0;i<4;i++) {int q= (int)(confINF[i].value()); payload.add(char (q % 256) ); payload.add(char (q / 256)  ); }
+      for( i=0;i<4;i++) {int q= (int)(confINF[i].value()); payload.add(PApplet.parseChar (q % 256) ); payload.add(PApplet.parseChar (q / 256)  ); }
       
       // PermanentLog
-      int nn= round(confINF[4].value()*10); payload.add(char (nn - ((nn>>8)<<8) )); payload.add(char (nn>>8));// f
+      int nn= round(confINF[4].value()*10); payload.add(PApplet.parseChar (nn - ((nn>>8)<<8) )); payload.add(PApplet.parseChar (nn>>8));// f
      
        
        nn= round(confINF[5].value());
-       payload.add(char (nn - ((nn>>8)<<8)));   payload.add(char (nn>>8)); // g 32b
-       payload.add(char (nn - ((nn>>16)<<16))); payload.add(char (nn>>16));
+       payload.add(PApplet.parseChar (nn - ((nn>>8)<<8)));   payload.add(PApplet.parseChar (nn>>8)); // g 32b
+       payload.add(PApplet.parseChar (nn - ((nn>>16)<<16))); payload.add(PApplet.parseChar (nn>>16));
       
       
       // MagDec
-      nn= round(confINF[6].value()*10); payload.add(char (nn - ((nn>>8)<<8) )); payload.add(char (nn>>8)); // h
+      nn= round(confINF[6].value()*10); payload.add(PApplet.parseChar (nn - ((nn>>8)<<8) )); payload.add(PApplet.parseChar (nn>>8)); // h
 
       
       // VBatscale
-      nn= round(VBat[0].value()); payload.add(char (nn)); // i
-      for( i=1;i<4;i++) { int q= int(VBat[i].value()*10); payload.add(char (q)); } // j,k,l
+      nn= round(VBat[0].value()); payload.add(PApplet.parseChar (nn)); // i
+      for( i=1;i<4;i++) { int q= PApplet.parseInt(VBat[i].value()*10); payload.add(PApplet.parseChar (q)); } // j,k,l
       
       sendRequestMSP(requestMSP(MSP_SET_MISC,payload.toArray(new Character[payload.size()])));
       
@@ -1560,13 +1590,13 @@ void draw() {
   textFont(font9);
   
   text("   Voltage:", xGraph -5, yGraph -55);
-  text(bytevbat/10.0 + " V", xGraph +50, yGraph -55);
+  text(bytevbat/10.0f + " V", xGraph +50, yGraph -55);
   
   text("   Current:", xGraph -5, yGraph -45);
-  text(amperage/10.0 + " A", xGraph +50, yGraph -45);
+  text(amperage/10.0f + " A", xGraph +50, yGraph -45);
   
   text("   Total:", xGraph -5, yGraph -35);
-  text(pMeterSum * 1.0 + " mAh", xGraph +50, yGraph -35);
+  text(pMeterSum * 1.0f + " mAh", xGraph +50, yGraph -35);
 
   fill(255,255,255);
 
@@ -1699,11 +1729,11 @@ void draw() {
   // ---------------------------------------------------------------------------------------------
   // DRAW MULTICOPTER TYPE
   // ---------------------------------------------------------------------------------------------
-  float size = 38.0;
+  float size = 38.0f;
   // object
   fill(255,255,255);
   pushMatrix();
-  camera(xObj,yObj,300/tan(PI*60.0/360.0),xObj/2+30,yObj/2-40,0,0,1,0);
+  camera(xObj,yObj,300/tan(PI*60.0f/360.0f),xObj/2+30,yObj/2-40,0,0,1,0);
   translate(xObj,yObj);
   directionalLight(200,200,200, 0, 0, -1);
   rotateZ(h);rotateX(b);rotateY(a);
@@ -1784,7 +1814,7 @@ void draw() {
   } else if (multiType == BI) { //BI
     drawMotor(-size, 0, byteMP[0], 'R');
     drawMotor(+size, 0, byteMP[1], 'L');
-    line(0-size,0, 0,0);  line(0+size,0, 0,0);line(0,size*1.5, 0,0);
+    line(0-size,0, 0,0);  line(0+size,0, 0,0);line(0,size*1.5f, 0,0);
     noLights();text("BICOPTER", -30,-20);camera();popMatrix();
    
     motSlider[0].setPosition(xMot,yMot+30).setHeight(55).setCaptionLabel("").show();
@@ -1833,13 +1863,13 @@ void draw() {
     motToggle[4].setPosition(xMot+100-MotToggleMove,yMot+23).show();
     motToggle[5].setPosition(xMot-MotToggleMove,yMot+23).show();
   } else if (multiType == HEX6) { //HEX6
-    drawMotor(+size, +0.55*size, byteMP[0], 'L');
-    drawMotor(+size, -0.55*size, byteMP[1], 'R');
-    drawMotor(-size, +0.55*size, byteMP[2], 'L');
-    drawMotor(-size, -0.55*size, byteMP[3], 'R');
+    drawMotor(+size, +0.55f*size, byteMP[0], 'L');
+    drawMotor(+size, -0.55f*size, byteMP[1], 'R');
+    drawMotor(-size, +0.55f*size, byteMP[2], 'L');
+    drawMotor(-size, -0.55f*size, byteMP[3], 'R');
     drawMotor(    0,      -size, byteMP[4], 'L');
     drawMotor(    0,      +size, byteMP[5], 'R');
-    line(-size,-0.55*size,0,0);line(size,-0.55*size,0,0);line(-size,+0.55*size,0,0);line(size,+0.55*size,0,0);line(0,+size,0,0);line(0,-size,0,0);
+    line(-size,-0.55f*size,0,0);line(size,-0.55f*size,0,0);line(-size,+0.55f*size,0,0);line(size,+0.55f*size,0,0);line(0,+size,0,0);line(0,-size,0,0);
     noLights();text("HEXACOPTER", -40,-50);camera();popMatrix();
 
     motSlider[0].setPosition(xMot+90,yMot+65).setHeight(50).setCaptionLabel("REAR_R").show();
@@ -1856,8 +1886,8 @@ void draw() {
     motToggle[4].setPosition(xMot+50-MotToggleMove,yMot-20).show(); 
     motToggle[5].setPosition(xMot+50-MotToggleMove,yMot+90).show();
   } else if (multiType == FLYING_WING) { //FLYING_WING
-    line(0,0, 1.8*size,size);line(1.8*size,size,1.8*size,size-30);  line(1.8*size,size-30,0,-1.5*size);
-    line(0,0, -1.8*size,+size);line(-1.8*size,size,-1.8*size,+size-30);    line(-1.8*size,size-30,0,-1.5*size);
+    line(0,0, 1.8f*size,size);line(1.8f*size,size,1.8f*size,size-30);  line(1.8f*size,size-30,0,-1.5f*size);
+    line(0,0, -1.8f*size,+size);line(-1.8f*size,size,-1.8f*size,+size-30);    line(-1.8f*size,size-30,0,-1.5f*size);
     noLights();text("FLYING WING", -40,-50);camera();popMatrix();
 
     servoSliderV[3].setPosition(xMot+5,yMot+10).setCaptionLabel("LEFT").show(); 
@@ -1897,14 +1927,14 @@ void draw() {
     motToggle[3].setPosition(xMot+10-MotToggleMove,yMot-15).show(); 
 
   } else if (multiType == 18) { //HEX6 H
-    drawMotor(+size, +1.2*size, byteMP[0], 'R');
-    drawMotor(+size, -1.2*size, byteMP[1], 'L');
-    drawMotor(-size, +1.2*size, byteMP[2], 'L');
-    drawMotor(-size, -1.2*size, byteMP[3], 'R');
+    drawMotor(+size, +1.2f*size, byteMP[0], 'R');
+    drawMotor(+size, -1.2f*size, byteMP[1], 'L');
+    drawMotor(-size, +1.2f*size, byteMP[2], 'L');
+    drawMotor(-size, -1.2f*size, byteMP[3], 'R');
     drawMotor(-size,         0, byteMP[4], 'L');
     drawMotor(+size,         0, byteMP[5], 'R');
 
-    line(+size, +1.2*size,+size, -1.2*size);line(-size, +1.2*size,-size, -1.2*size);
+    line(+size, +1.2f*size,+size, -1.2f*size);line(-size, +1.2f*size,-size, -1.2f*size);
     line(+size,0,0,0);  line(-size,0,0,0);
     noLights();text("HEXACOPTER H", -45,-60);camera();popMatrix();
 
@@ -1922,14 +1952,14 @@ void draw() {
     motToggle[4].setPosition(xMot+90-MotToggleMove,yMot+35).show();
     motToggle[5].setPosition(xMot+5 -MotToggleMove,yMot+35).show();
   } else if (multiType == HEX6X) { //HEX6 X
-    drawMotor(+0.55*size, +size, byteMP[0], 'L');
-    drawMotor(+0.55*size, -size, byteMP[1], 'L');
-    drawMotor(-0.55*size, +size, byteMP[2], 'R');
-    drawMotor(-0.55*size, -size, byteMP[3], 'R');
+    drawMotor(+0.55f*size, +size, byteMP[0], 'L');
+    drawMotor(+0.55f*size, -size, byteMP[1], 'L');
+    drawMotor(-0.55f*size, +size, byteMP[2], 'R');
+    drawMotor(-0.55f*size, -size, byteMP[3], 'R');
     drawMotor(     +size, 0,     byteMP[4], 'R');
     drawMotor(     -size, 0,     byteMP[5], 'L');
 
-    line(-0.55*size,-size,0,0);line(-0.55*size,size,0,0);line(+0.55*size,-size,0,0);line(+0.55*size,size,0,0);line(+size,0,0,0);  line(-size,0,0,0);
+    line(-0.55f*size,-size,0,0);line(-0.55f*size,size,0,0);line(+0.55f*size,-size,0,0);line(+0.55f*size,size,0,0);line(+size,0,0,0);  line(-size,0,0,0);
     noLights();text("HEXACOPTER X", -45,-50);camera();popMatrix();
 
     motSlider[0].setPosition(xMot+80,yMot+90).setHeight(45).setCaptionLabel("REAR_R").show();
@@ -1992,14 +2022,14 @@ void draw() {
     */
     noLights();text("OCTOCOPTER X", -45,-50);camera();popMatrix();
   } else if (multiType == AIRPLANE) { //AIRPLANE
-    float Span = size*1.3;  
-    float VingRoot = Span*0.25;  
+    float Span = size*1.3f;  
+    float VingRoot = Span*0.25f;  
     // Wing
     line(0,0,  Span,0);   line(Span,0, Span, VingRoot);       line(Span, VingRoot, 0,VingRoot); 
     line(0,0,  -Span,0);   line(-Span,0, -Span, VingRoot);       line(-Span, VingRoot, 0,VingRoot);    
     // Stab
-    line(-(size*0.4),size,  (size*0.4),size);   line(-(size*0.4),size+5,  (size*0.4),size+5); 
-    line(-(size*0.4),size,  -(size*0.4),size+5);      line((size*0.4),size,  (size*0.4),size+5);     
+    line(-(size*0.4f),size,  (size*0.4f),size);   line(-(size*0.4f),size+5,  (size*0.4f),size+5); 
+    line(-(size*0.4f),size,  -(size*0.4f),size+5);      line((size*0.4f),size,  (size*0.4f),size+5);     
     // Body  
     line(-2,size,  -2,-size+5); line(2,size,  2,-size+5); line( -2,-size+5,  2,-size+5);    
     // Fin 
@@ -2031,21 +2061,21 @@ void draw() {
 
   }else if (multiType == HELI_120_CCPM) { // 120 CCPM
     // HeliGraphics    
-    float scalesize=size*0.8;
+    float scalesize=size*0.8f;
     // Rotor
     ellipse(0, 0, 2*scalesize, 2*scalesize);
     // Body  
-    line(0,1.5*scalesize,-5,  -2,-0.5*scalesize,-5); line(0,1.5*scalesize,-5,  2,-0.5*scalesize,-5); line( -2,-0.5*scalesize,-5,  2,-0.5*scalesize,-5);    
+    line(0,1.5f*scalesize,-5,  -2,-0.5f*scalesize,-5); line(0,1.5f*scalesize,-5,  2,-0.5f*scalesize,-5); line( -2,-0.5f*scalesize,-5,  2,-0.5f*scalesize,-5);    
     // Fin 
-    float finpos = scalesize * 1.3;
+    float finpos = scalesize * 1.3f;
     int HFin=0;
     int LFin=15;  
     line(0,finpos-3,0,  0,finpos+7,-LFin); line(0,finpos+7,-LFin,  0,finpos+10,-LFin);line(0,finpos+10,-LFin,  0,finpos+5,0); 
     line(0,finpos-3,0,  0,finpos,HFin); line(0,finpos,HFin,  0,finpos+5,HFin);line(0,finpos+5,HFin,  0,finpos+5,0); 
  
     // Stab
-    line(-(scalesize*0.3),scalesize,-5,  (scalesize*0.3),scalesize,-5);   line(-(scalesize*0.3),scalesize+3,-5, (scalesize*0.3),scalesize+3,-5); 
-    line(-(scalesize*0.3),scalesize,-5, -(scalesize*0.3),scalesize+3,-5); line((scalesize*0.3),scalesize,-5,    (scalesize*0.3),scalesize+3,-5);  
+    line(-(scalesize*0.3f),scalesize,-5,  (scalesize*0.3f),scalesize,-5);   line(-(scalesize*0.3f),scalesize+3,-5, (scalesize*0.3f),scalesize+3,-5); 
+    line(-(scalesize*0.3f),scalesize,-5, -(scalesize*0.3f),scalesize+3,-5); line((scalesize*0.3f),scalesize,-5,    (scalesize*0.3f),scalesize+3,-5);  
    
     noLights();
     textFont(font12);
@@ -2090,21 +2120,21 @@ void draw() {
     
     
     // HeliGraphics    
-    float scalesize=size*0.8;
+    float scalesize=size*0.8f;
     // Rotor
     ellipse(0, 0, 2*scalesize, 2*scalesize);
     // Body  
-    line(0,1.5*scalesize,  -2,-0.5*scalesize); line(0,1.5*scalesize,  2,-0.5*scalesize); line( -2,-0.5*scalesize,  2,-0.5*scalesize);    
+    line(0,1.5f*scalesize,  -2,-0.5f*scalesize); line(0,1.5f*scalesize,  2,-0.5f*scalesize); line( -2,-0.5f*scalesize,  2,-0.5f*scalesize);    
     // Fin 
-    float finpos = scalesize * 1.3;
+    float finpos = scalesize * 1.3f;
     int HFin=5;
     int LFin=10;  
     line(0,finpos-3,0,  0,finpos+7,-LFin); line(0,finpos+7,-LFin,  0,finpos+10,-LFin);line(0,finpos+10,-LFin,  0,finpos+5,0); 
     line(0,finpos-3,0,  0,finpos,HFin); line(0,finpos,HFin,  0,finpos+5,HFin);line(0,finpos+5,HFin,  0,finpos+5,0); 
  
      // Stab
-    line(-(scalesize*0.3),scalesize,  (scalesize*0.3),scalesize);   line(-(scalesize*0.3),scalesize+3, (scalesize*0.3),scalesize+3); 
-    line(-(scalesize*0.3),scalesize, -(scalesize*0.3),scalesize+3); line((scalesize*0.3),scalesize,    (scalesize*0.3),scalesize+3);  
+    line(-(scalesize*0.3f),scalesize,  (scalesize*0.3f),scalesize);   line(-(scalesize*0.3f),scalesize+3, (scalesize*0.3f),scalesize+3); 
+    line(-(scalesize*0.3f),scalesize, -(scalesize*0.3f),scalesize+3); line((scalesize*0.3f),scalesize,    (scalesize*0.3f),scalesize+3);  
  
     noLights();
     textFont(font12);
@@ -2117,11 +2147,11 @@ void draw() {
     servoSliderH[5].setPosition(xMot+15,yMot+130).setCaptionLabel("Yaw") .show();
     servoSliderV[6].setPosition(xMot+40,yMot)    .setCaptionLabel("COLL").show();
   }  else if (multiType == VTAIL4) { //Vtail   
-    drawMotor(+0.55*size, +size, byteMP[0], 'R');
+    drawMotor(+0.55f*size, +size, byteMP[0], 'R');
     drawMotor(     +size, -size, byteMP[1], 'L');
-    drawMotor(-0.55*size, +size, byteMP[2], 'L');
+    drawMotor(-0.55f*size, +size, byteMP[2], 'L');
     drawMotor(     -size, -size, byteMP[3], 'R');
-    line(-0.55*size,size,0,0);line(+0.55*size,size,0,0);    
+    line(-0.55f*size,size,0,0);line(+0.55f*size,size,0,0);    
     line(-size,-size, 0,0); line(+size,-size, 0,0);  
     noLights();
     textFont(font12);
@@ -2129,7 +2159,7 @@ void draw() {
     motSlider[0].setPosition(xMot+80,yMot+70 ).setHeight(60).setCaptionLabel("REAR_R").show();
     motSlider[1].setPosition(xMot+100,yMot-15).setHeight(60).setCaptionLabel("RIGHT" ).show();
     motSlider[2].setPosition(xMot+25,yMot+70 ).setHeight(60).setCaptionLabel("REAR_L").show();
-    drawMotor(+size, +0.55*size, byteMP[0], 'L');
+    drawMotor(+size, +0.55f*size, byteMP[0], 'L');
     motSlider[3].setPosition(xMot+2,yMot-15  ).setHeight(60).setCaptionLabel("LEFT"  ).show(); 
     
     motToggle[0].setPosition(xMot+70-MotToggleMove,yMot+75).show();
@@ -2147,12 +2177,12 @@ void draw() {
     BtServo[i].setLabel("   CH "+(i+1));
     ind+=20; }
   } else if (multiType == DUALCOPTER) { //Dualcopter
-    float Span = size*1.3;  
-    float VingRoot = Span*0.25;  
+    float Span = size*1.3f;  
+    float VingRoot = Span*0.25f;  
     // Stab
-    line(0,VingRoot,  (size*0.4),size);   line(-(size*0.4),size+5,  (size*0.4),size+5); 
-    line(0,VingRoot,  -(size*0.4),size);
-    line(-(size*0.4),size,  -(size*0.4),size+5); line((size*0.4),size,  (size*0.4),size+5);     
+    line(0,VingRoot,  (size*0.4f),size);   line(-(size*0.4f),size+5,  (size*0.4f),size+5); 
+    line(0,VingRoot,  -(size*0.4f),size);
+    line(-(size*0.4f),size,  -(size*0.4f),size+5); line((size*0.4f),size,  (size*0.4f),size+5);     
     // Body  
     line(-2,size,  -2,-size+5); line(2,size,  2,-size+5); line( -2,-size+5,  2,-size+5);    
     // Fins
@@ -2182,12 +2212,12 @@ void draw() {
     motToggle[0].setPosition(xMot-MotToggleMove,yMot+30).setCaptionLabel("").show();
     motToggle[1].setPosition(xMot+100-MotToggleMove,yMot+30).setCaptionLabel("").show();
   } else if (multiType == SINGLECOPTER) {
-    float Span = size*1.3;  
-    float VingRoot = Span*0.25;  
+    float Span = size*1.3f;  
+    float VingRoot = Span*0.25f;  
     // Stab
-    line(0,VingRoot,  (size*0.4),size);   line(-(size*0.4),size+5,  (size*0.4),size+5); 
-    line(0,VingRoot,  -(size*0.4),size);
-    line(-(size*0.4),size,  -(size*0.4),size+5); line((size*0.4),size,  (size*0.4),size+5);     
+    line(0,VingRoot,  (size*0.4f),size);   line(-(size*0.4f),size+5,  (size*0.4f),size+5); 
+    line(0,VingRoot,  -(size*0.4f),size);
+    line(-(size*0.4f),size,  -(size*0.4f),size+5); line((size*0.4f),size,  (size*0.4f),size+5);     
     // Body  
     line(-2,size,  -2,-size+5); line(2,size,  2,-size+5); line( -2,-size+5,  2,-size+5);    
     // Fins
@@ -2220,8 +2250,8 @@ void draw() {
   // info angles
   fill(255,255,127);
   textFont(font12);
-  text((int)angy + "°", xLevelObj+38, yLevelObj+78); //pitch
-  text((int)angx + "°", xLevelObj-62, yLevelObj+78); //roll
+  text((int)angy + "\u00b0", xLevelObj+38, yLevelObj+78); //pitch
+  text((int)angx + "\u00b0", xLevelObj-62, yLevelObj+78); //roll
 
   pushMatrix();
   translate(xLevelObj-34,yLevelObj+112);
@@ -2231,7 +2261,7 @@ void draw() {
   rotate(a);
   fill(255,255,127);
   textFont(font12);text("ROLL", -13, 15);
-  strokeWeight(1.5);
+  strokeWeight(1.5f);
   stroke(127,127,127);
   line(-30,1,30,1);
   stroke(255,255,255);
@@ -2246,7 +2276,7 @@ void draw() {
   rotate(b);
   fill(255,255,127);
   textFont(font12);text("PITCH", -18, 15);
-  strokeWeight(1.5);
+  strokeWeight(1.5f);
   stroke(127,127,127);
   line(-30,1,30,1);
   stroke(255,255,255);
@@ -2353,9 +2383,9 @@ void draw() {
   strokeWeight(3);stroke(0);
   rectMode(CORNERS);
   size=29;
-  rect(-size*2.5,-size*2.5,size*2.5,size*2.5);
+  rect(-size*2.5f,-size*2.5f,size*2.5f,size*2.5f);
   // GPS quadrant
-  strokeWeight(1.5);
+  strokeWeight(1.5f);
   if (GPS_update == 1) {
     fill(125);stroke(125);
   } else {
@@ -2364,40 +2394,40 @@ void draw() {
   ellipse(0,  0,   4*size+7, 4*size+7);
   // GPS rotating pointer
   rotate(GPS_directionToHome*PI/180);
-  strokeWeight(4);stroke(255,255,100);line(0,0, 0,-2.4*size);line(0,-2.4*size, -5 ,-2.4*size+10); line(0,-2.4*size, +5 ,-2.4*size+10);  
+  strokeWeight(4);stroke(255,255,100);line(0,0, 0,-2.4f*size);line(0,-2.4f*size, -5 ,-2.4f*size+10); line(0,-2.4f*size, +5 ,-2.4f*size+10);  
   rotate(-GPS_directionToHome*PI/180);
   // compass quadrant
-  strokeWeight(1.5);fill(0);stroke(0);
-  ellipse(0,  0,   2.6*size+7, 2.6*size+7);
+  strokeWeight(1.5f);fill(0);stroke(0);
+  ellipse(0,  0,   2.6f*size+7, 2.6f*size+7);
   // Compass rotating pointer
   stroke(255);
   rotate(head*PI/180);
-  line(0,size*0.2, 0,-size*1.3); line(0,-size*1.3, -5 ,-size*1.3+10); line(0,-size*1.3, +5 ,-size*1.3+10);
+  line(0,size*0.2f, 0,-size*1.3f); line(0,-size*1.3f, -5 ,-size*1.3f+10); line(0,-size*1.3f, +5 ,-size*1.3f+10);
   popMatrix();
   // angles 
   for (i=0;i<=12;i++) {
     angCalc=i*PI/6;
     if (i%3!=0) {
       stroke(75);
-      line(xCompass+cos(angCalc)*size*2,yCompass+sin(angCalc)*size*2,xCompass+cos(angCalc)*size*1.6,yCompass+sin(angCalc)*size*1.6);
+      line(xCompass+cos(angCalc)*size*2,yCompass+sin(angCalc)*size*2,xCompass+cos(angCalc)*size*1.6f,yCompass+sin(angCalc)*size*1.6f);
     } else {
       stroke(255);
-      line(xCompass+cos(angCalc)*size*2.2,yCompass+sin(angCalc)*size*2.2,xCompass+cos(angCalc)*size*1.9,yCompass+sin(angCalc)*size*1.9);
+      line(xCompass+cos(angCalc)*size*2.2f,yCompass+sin(angCalc)*size*2.2f,xCompass+cos(angCalc)*size*1.9f,yCompass+sin(angCalc)*size*1.9f);
     }
   }
   textFont(font15);
-  text("N", xCompass-5, yCompass-22-size*0.9);text("S", xCompass-5, yCompass+32+size*0.9);
-  text("W", xCompass-33-size*0.9, yCompass+6);text("E", xCompass+21+size*0.9, yCompass+6);
+  text("N", xCompass-5, yCompass-22-size*0.9f);text("S", xCompass-5, yCompass+32+size*0.9f);
+  text("W", xCompass-33-size*0.9f, yCompass+6);text("E", xCompass+21+size*0.9f, yCompass+6);
   // head indicator
   textFont(font12);
   noStroke();
   fill(80,80,80,130);
   rect(xCompass-22,yCompass-8,xCompass+22,yCompass+9);
   fill(255,255,127);
-  text(head + "°",xCompass-11-(head>=10.0 ? (head>=100.0 ? 6 : 3) : 0),yCompass+6);
+  text(head + "\u00b0",xCompass-11-(head>=10.0f ? (head>=100.0f ? 6 : 3) : 0),yCompass+6);
   // GPS direction indicator
   fill(255,255,0);
-  text(GPS_directionToHome + "°",xCompass-6-size*2.1,yCompass+7+size*2);
+  text(GPS_directionToHome + "\u00b0",xCompass-6-size*2.1f,yCompass+7+size*2);
   // GPS fix
   if (GPS_fix==0) {
      fill(127,0,0);
@@ -2405,14 +2435,14 @@ void draw() {
      fill(0,255,0);
   }
   //ellipse(xCompass+3+size*2.1,yCompass+3+size*2,12,12);
-  rect(xCompass-28+size*2.1,yCompass+1+size*2,xCompass+9+size*2.1,yCompass+13+size*2);
+  rect(xCompass-28+size*2.1f,yCompass+1+size*2,xCompass+9+size*2.1f,yCompass+13+size*2);
   textFont(font9);
   if (GPS_fix==0) {
     fill(255,255,0);
   } else {
     fill(0,50,0);
   }
-  text("GPS_fix",xCompass-27+size*2.1,yCompass+10+size*2);
+  text("GPS_fix",xCompass-27+size*2.1f,yCompass+10+size*2);
 
 
   // ---------------------------------------------------------------------------------------------
@@ -2422,7 +2452,7 @@ void draw() {
   fill(255, 255, 255);
   g_graph.drawGraphBox();
   
-  strokeWeight(1.5);
+  strokeWeight(1.5f);
   stroke(255, 0, 0); if (axGraph) g_graph.drawLine(accROLL, -1000, +1000);
   stroke(0, 255, 0); if (ayGraph) g_graph.drawLine(accPITCH, -1000, +1000);
   stroke(0, 0, 255);
@@ -2472,14 +2502,14 @@ if(!hideDraw){
   strokeWeight(3);stroke(30,120,30);
   
   int lookupR[] = new int[6];
-  for(i=0;i<6;i++) lookupR[i] = int( (2500+b*100*(i*i-25))*i*a*100/2500 );
+  for(i=0;i<6;i++) lookupR[i] = PApplet.parseInt( (2500+b*100*(i*i-25))*i*a*100/2500 );
   
   for(i=0;i<70;i++) {
     int tmp = 500/70*i;
     int tmp2 = tmp/100;
     int rccommand = 2*lookupR[tmp2] + 2*(tmp-tmp2*100) * (lookupR[tmp2+1]-lookupR[tmp2]) / 100;
     val = rccommand*70/1000;
-    point(xSens1+i,ySens1+(70-val)*3.5/7);
+    point(xSens1+i,ySens1+(70-val)*3.5f/7);
   }
   if (confRC_RATE.value()>1) { 
     stroke(220,100,100);
@@ -2498,20 +2528,20 @@ if(!hideDraw){
 
   int lookupT[] = new int[11];
   for(i=0;i<11;i++) {
-    int mid = int(100*a);
-    int expo = int(100*b);
+    int mid = PApplet.parseInt(100*a);
+    int expo = PApplet.parseInt(100*b);
     int tmp = 10*i-mid;
     int y=1;
     if (tmp>0) y = 100-mid;
     if (tmp<0) y = mid;
-    lookupT[i] = int( 10*mid +  tmp*( 100-expo+tmp*tmp*expo/(y*y) )/10  );
+    lookupT[i] = PApplet.parseInt( 10*mid +  tmp*( 100-expo+tmp*tmp*expo/(y*y) )/10  );
   }
   for(i=0;i<70;i++) {
     int tmp = 1000/70*i;
     int tmp2 = tmp/100;
     int rccommand = lookupT[tmp2] + (tmp-tmp2*100) * (lookupT[tmp2+1]-lookupT[tmp2]) / 100;
     val = rccommand*70/1000;
-    point(xSens2+i,ySens2+(70-val)*3.5/7);
+    point(xSens2+i,ySens2+(70-val)*3.5f/7);
   }
   line(xSens2+(max(1100,RCChan[RCThro])-1100)*70/900,ySens2+25,xSens2+(max(1100,RCChan[RCThro])-1100)*70/900,ySens2+35);
 
@@ -2549,11 +2579,11 @@ if(!hideDraw){
   pushMatrix();
   translate(0,0,0);
   popMatrix();
-  if (versionMisMatch == 1) {textFont(font15);fill(#000000);text("GUI vs. Arduino: Version or Buffer size mismatch",180,420); return;}
+  if (versionMisMatch == 1) {textFont(font15);fill(0xff000000);text("GUI vs. Arduino: Version or Buffer size mismatch",180,420); return;}
 }
 
-void drawMotor(float x1, float y1, int mot_num, char dir) {   //Code by Danal
-  float size = 30.0;
+public void drawMotor(float x1, float y1, int mot_num, char dir) {   //Code by Danal
+  float size = 30.0f;
   pushStyle();
   float d = 0;
   if (dir == 'L') {d = +5; fill(254, 221, 44);} 
@@ -2571,21 +2601,21 @@ void drawMotor(float x1, float y1, int mot_num, char dir) {   //Code by Danal
   popStyle();
 }
 
-void ACC_ROLL(boolean theFlag) {axGraph = theFlag;}
-void ACC_PITCH(boolean theFlag) {ayGraph = theFlag;}
-void ACC_Z(boolean theFlag) {azGraph = theFlag;}
-void GYRO_ROLL(boolean theFlag) {gxGraph = theFlag;}
-void GYRO_PITCH(boolean theFlag) {gyGraph = theFlag;}
-void GYRO_YAW(boolean theFlag) {gzGraph = theFlag;}
-void BARO(boolean theFlag) {altGraph = theFlag;}
-void HEAD(boolean theFlag) {headGraph = theFlag;}
-void MAGX(boolean theFlag) {magxGraph = theFlag;}
-void MAGY(boolean theFlag) {magyGraph = theFlag;}
-void MAGZ(boolean theFlag) {magzGraph = theFlag;}
-void DEBUG1(boolean theFlag) {debug1Graph = theFlag;}
-void DEBUG2(boolean theFlag) {debug2Graph = theFlag;}
-void DEBUG3(boolean theFlag) {debug3Graph = theFlag;}
-void DEBUG4(boolean theFlag) {debug4Graph = theFlag;}
+public void ACC_ROLL(boolean theFlag) {axGraph = theFlag;}
+public void ACC_PITCH(boolean theFlag) {ayGraph = theFlag;}
+public void ACC_Z(boolean theFlag) {azGraph = theFlag;}
+public void GYRO_ROLL(boolean theFlag) {gxGraph = theFlag;}
+public void GYRO_PITCH(boolean theFlag) {gyGraph = theFlag;}
+public void GYRO_YAW(boolean theFlag) {gzGraph = theFlag;}
+public void BARO(boolean theFlag) {altGraph = theFlag;}
+public void HEAD(boolean theFlag) {headGraph = theFlag;}
+public void MAGX(boolean theFlag) {magxGraph = theFlag;}
+public void MAGY(boolean theFlag) {magyGraph = theFlag;}
+public void MAGZ(boolean theFlag) {magzGraph = theFlag;}
+public void DEBUG1(boolean theFlag) {debug1Graph = theFlag;}
+public void DEBUG2(boolean theFlag) {debug2Graph = theFlag;}
+public void DEBUG3(boolean theFlag) {debug3Graph = theFlag;}
+public void DEBUG4(boolean theFlag) {debug4Graph = theFlag;}
 
 String ActiveTab="default";
 public void controlEvent(ControlEvent theEvent) {
@@ -2638,11 +2668,11 @@ public void bSTOP() {
 public void SETTING() {
   toggleSetSetting = true;
 }
-void GIMBAL(){
+public void GIMBAL(){
   toggleGimbal = !toggleGimbal;
   if(toggleGimbal){toggleServo=false;toggleWing=false;toggleTrigger=false;}
 }
-void TRIGGER(){
+public void TRIGGER(){
   toggleTrigger=!toggleTrigger;
   if(toggleTrigger){toggleServo=false;toggleWing=false;toggleGimbal=false;}
 }
@@ -2690,9 +2720,9 @@ public void CALIB_ACC() {toggleCalibAcc = true;}
 public void CALIB_MAG() {toggleCalibMag = true;}
 
 // initialize the serial port selected in the listBox
-void InitSerial(float portValue) {
+public void InitSerial(float portValue) {
   if (portValue < commListMax) {
-    String portPos = Serial.list()[int(portValue)];
+    String portPos = Serial.list()[PApplet.parseInt(portValue)];
     txtlblWhichcom.setValue("COM = " + shortifyPortName(portPos, 8));
     g_serial = new Serial(this, portPos, GUI_BaudRate);
     SaveSerialPort(portPos);
@@ -2714,18 +2744,18 @@ void InitSerial(float portValue) {
   }
 }
 
-void SaveSerialPort(String port ) {
+public void SaveSerialPort(String port ) {
     output = createWriter(portnameFile);
     output.print( port + ';' + GUI_BaudRate); // Write the comport to the file
     output.flush(); // Writes the remaining data to the file
     output.close(); // Finishes the file
  }
- void  Eport_Servo(){
+ public void  Eport_Servo(){
    READ();
    ExportServo=true;
  }
 
-void SAVE_SERVO_CONFIG() {  // Save a config file for servos
+public void SAVE_SERVO_CONFIG() {  // Save a config file for servos
     ExportServo=false;
     output = createWriter("Servos.txt");
     String sServo[];
@@ -2748,14 +2778,14 @@ public void bQCONN(){
   toggleRead=true;
 }
 
-void Cau0(){ServoSliderC[2].setMin(4).setMax(10).setValue(4);CauClear(); BtAUX[0].setColorBackground(orange_);}
-void Cau1(){ServoSliderC[2].setMin(4).setMax(10).setValue(5);CauClear(); BtAUX[1].setColorBackground(orange_);}
-void Cau2(){ServoSliderC[2].setMin(4).setMax(10).setValue(6);CauClear(); BtAUX[2].setColorBackground(orange_);}
-void Cau3(){ServoSliderC[2].setMin(4).setMax(10).setValue(7);CauClear(); BtAUX[3].setColorBackground(orange_);}
-void Cau4(){ServoSliderC[2].setMin(Centerlimits[0]).setMax(Centerlimits[1]).setValue(1500);CauClear();}
-void CauClear(){ for (i=0;i<4;i++) BtAUX[i].setColorBackground(red_);}
+public void Cau0(){ServoSliderC[2].setMin(4).setMax(10).setValue(4);CauClear(); BtAUX[0].setColorBackground(orange_);}
+public void Cau1(){ServoSliderC[2].setMin(4).setMax(10).setValue(5);CauClear(); BtAUX[1].setColorBackground(orange_);}
+public void Cau2(){ServoSliderC[2].setMin(4).setMax(10).setValue(6);CauClear(); BtAUX[2].setColorBackground(orange_);}
+public void Cau3(){ServoSliderC[2].setMin(4).setMax(10).setValue(7);CauClear(); BtAUX[3].setColorBackground(orange_);}
+public void Cau4(){ServoSliderC[2].setMin(Centerlimits[0]).setMax(Centerlimits[1]).setValue(1500);CauClear();}
+public void CauClear(){ for (i=0;i<4;i++) BtAUX[i].setColorBackground(red_);}
 
-void ReadSerialPort() {
+public void ReadSerialPort() {
     reader = createReader(portnameFile);  
     String line; 
   try {
@@ -2770,8 +2800,8 @@ void ReadSerialPort() {
    return;
   } else {
     String[] pieces = split(line, ';');
-    int Port = int(pieces[0]);
-    GUI_BaudRate= int(pieces[1]);
+    int Port = PApplet.parseInt(pieces[0]);
+    GUI_BaudRate= PApplet.parseInt(pieces[1]);
     if (commListMax==1){}
     String pPort=pieces[0];
     for( i=0;i<commListMax;i++) {
@@ -2978,7 +3008,7 @@ class cDataArray {
     m_maxSize = maxSize;
     m_data = new float[maxSize];
   }
-  void addVal(float val) {
+  public void addVal(float val) {
     m_data[m_endIndex] = val;
     m_endIndex = (m_endIndex+1)%m_maxSize;
     if (m_curSize == m_maxSize) {
@@ -2987,20 +3017,20 @@ class cDataArray {
       m_curSize++;
     }
   }
-  float getVal(int index) {return m_data[(m_startIndex+index)%m_maxSize];}
-  int getCurSize(){return m_curSize;}
-  int getMaxSize() {return m_maxSize;}
-  float getMaxVal() {
-    float res = 0.0;
+  public float getVal(int index) {return m_data[(m_startIndex+index)%m_maxSize];}
+  public int getCurSize(){return m_curSize;}
+  public int getMaxSize() {return m_maxSize;}
+  public float getMaxVal() {
+    float res = 0.0f;
     for( i=0; i<m_curSize-1; i++) if ((m_data[i] > res) || (i==0)) res = m_data[i];
     return res;
   }
-  float getMinVal() {
-    float res = 0.0;
+  public float getMinVal() {
+    float res = 0.0f;
     for( i=0; i<m_curSize-1; i++) if ((m_data[i] < res) || (i==0)) res = m_data[i];
     return res;
   }
-  float getRange() {return getMaxVal() - getMinVal();}
+  public float getRange() {return getMaxVal() - getMinVal();}
 }
 
 // This class takes the data and helps graph it
@@ -3014,13 +3044,13 @@ class cGraph {
     m_gTop       = y + h;
   }
   
-  void drawGraphBox() {
+  public void drawGraphBox() {
     stroke(0, 0, 0);
     rectMode(CORNERS);
     rect(m_gLeft, m_gBottom, m_gRight, m_gTop);
   }
   
-  void drawLine(cDataArray data, float minRange, float maxRange) {
+  public void drawLine(cDataArray data, float minRange, float maxRange) {
     float graphMultX = m_gWidth/data.getMaxSize();
     float graphMultY = m_gHeight/(maxRange-minRange);
     
@@ -3103,7 +3133,7 @@ public void addTabs(){
   ;
   
   int tHeight = 20;
-  if( pVersion == 1.5 ) {
+  if( pVersion == 1.5f ) {
     controlP5.window().setPositionOfTabs(6, 13);
     tHeight = 17;
   }
@@ -3126,3 +3156,7 @@ public void Tooltips(){
   controlP5.getTooltip().register("SETTING","Save Multiple settings.") ;
   controlP5.getTooltip().register("MOTORS","Send Motors values to Copter.") ;  
   }
+  static public void main(String args[]) {
+    PApplet.main(new String[] { "--bgcolor=#F0F0F0", "MultiWiiConf" });
+  }
+}
