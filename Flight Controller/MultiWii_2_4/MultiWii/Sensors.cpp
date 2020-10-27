@@ -1010,7 +1010,7 @@ void Mag_init() {
 #define HMC_POS_BIAS 1
 #define HMC_NEG_BIAS 2
 
-#define MAG_ADDRESS 0x1E
+#define MAG_ADDRESS 0x0D
 #define MAG_DATA_REGISTER 0x03
 
 static int32_t xyz_total[3]={0,0,0};  // 32 bit totals so they won't overflow.
