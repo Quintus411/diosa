@@ -182,12 +182,12 @@
       //#define MMA8451Q
 
       /* I2C barometer */
-      #define BMP085
+      //#define BMP085
       //#define MS561101BA
 
       /* I2C magnetometer */
       //#define HMC5843
-      #define HMC5883
+      //#define HMC5883
       //#define AK8975
       //#define MAG3110
 
