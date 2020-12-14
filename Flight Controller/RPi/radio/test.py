@@ -25,6 +25,10 @@ import time
 from SX127x.LoRa import *
 #from SX127x.LoRaArgumentParser import LoRaArgumentParser
 from SX127x.board_config import BOARD
+import configparser
+
+config = configparser.ConfigParser()
+config.read('config.ini')
 
 BOARD.setup()
 BOARD.reset()
@@ -36,7 +40,10 @@ class mylora(LoRa):
         super(mylora, self).__init__(verbose)
         self.set_mode(MODE.SLEEP)
         self.set_dio_mapping([0] * 6)
-        self.var=0
+        self.bound = 0
+        self.fc_id = int(config['fc_radio_main']['fc_id'])
+        self.radio_id = 0
+        self.broadcast_id = 255
 
     def on_rx_done(self):
         BOARD.led_on()
@@ -44,13 +51,40 @@ class mylora(LoRa):
         self.clear_irq_flags(RxDone=1)
         payload = self.read_payload(nocheck=True)
         print ("Receive: ")
-        print(bytes(payload).decode("utf-8",'ignore')) # Receive DATA
+        print(payload)
+        sender = payload[0]
+        recipient = payload[1]
+        message_type_A = payload[2]
+        message_type_B = payload[3]
         BOARD.led_off()
-        time.sleep(2) # Wait for the client be ready
-        print ("Send: ACK")
-        self.write_payload([255, 255, 0, 0, 65, 67, 75, 0]) # Send ACK
-        self.set_mode(MODE.TX)
-        self.var=1
+        if (recipient == self.fc_id or recipient == 255):
+            if (message_type_A == 0 and message_type_B == 0 and self.bound == 0): # BIND REQUEST
+                print("Bind request found from radio: " + str(sender))
+                self.set_mode(MODE.TX)
+                self.write_payload([self.fc_id, sender, 0, 1]) # Send BIND ACCEPT
+                print("Accept sent")
+            elif (message_type_A == 0 and message_type_B == 2 and self.bound == 0): # BIND ACCEPTANCE ACKNOWLEDGED
+                print("Bind accept acknowledged")
+                self.radio_id = sender
+                self.bound = 1
+                print("Now bound to radio" + str(sender))
+                self.set_mode(MODE.TX)
+                self.write_payload([self.fc_id, sender, 0, 4]) # Send REQUEST AXES
+            elif (message_type_A == 0 and message_type_B == 3 and self.bound == 1): # AXIS CONTROL
+                pitch = payload[4]
+                roll = payload[5]
+                throttle = payload[6]
+                yaw = payload[7]
+                aux1 = payload[8]
+                aux2 = payload[9]
+                aux3 = payload[10]
+                aux4 = payload[11]
+                print("pitch: " + str(pitch) + "    roll: " + str(roll) + "    throttle: " + str(throttle) + "    yaw: " + str(yaw) + "    aux1: " + str(aux1) + "    aux2: " + str(aux2) + "    aux3: " + str(aux3) + "    aux4: " + str(aux4))
+                self.set_mode(MODE.TX)
+                self.write_payload([self.fc_id, sender, 0, 4]) # Send REQUEST AXES
+        
+        self.reset_ptr_rx()
+        self.set_mode(MODE.RXCONT)
 
     def on_tx_done(self):
         print("\nTxDone")
@@ -78,35 +112,24 @@ class mylora(LoRa):
 
     def start(self):          
         while True:
-            while (self.var==0):
-                print ("Send: INF")
-                self.write_payload([255, 255, 0, 0, 73, 78, 70, 0]) # Send INF
-                self.set_mode(MODE.TX)
-                time.sleep(3) # there must be a better solution but sleep() works
-                self.reset_ptr_rx()
-                self.set_mode(MODE.RXCONT) # Receiver mode
-            
-                start_time = time.time()
-                while (time.time() - start_time < 10): # wait until receive data or 10s
-                    pass;
-            
-            self.var=0
             self.reset_ptr_rx()
             self.set_mode(MODE.RXCONT) # Receiver mode
-            time.sleep(10)
+            while True:
+                pass
 
 lora = mylora(verbose=False)
 #args = parser.parse_args(lora) # configs in LoRaArgumentParser.py
 
 #     Slow+long range  Bw = 125 kHz, Cr = 4/8, Sf = 4096chips/symbol, CRC on. 13 dBm
 lora.set_pa_config(pa_select=1, max_power=21, output_power=15)
-lora.set_bw(BW.BW125)
-lora.set_coding_rate(CODING_RATE.CR4_8)
-lora.set_spreading_factor(12)
+lora.set_bw(BW.BW500)
+#lora.set_freq(433.0) 
+lora.set_coding_rate(CODING_RATE.CR4_5)
+lora.set_spreading_factor(7)
 lora.set_rx_crc(True)
 #lora.set_lna_gain(GAIN.G1)
 #lora.set_implicit_header_mode(False)
-lora.set_low_data_rate_optim(True)
+#lora.set_low_data_rate_optim(True)
 
 #  Medium Range  Defaults after init are 434.0MHz, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on 13 dBm
 #lora.set_pa_config(pa_select=1)
