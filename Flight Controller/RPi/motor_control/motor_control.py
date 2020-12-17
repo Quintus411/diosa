@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 import rospy
 import RPi.GPIO as IO
 import time
@@ -42,11 +42,11 @@ if __name__ == '__main__':
     aux2.start(0)
 
     while not rospy.is_shutdown():
-        throttle.ChangeDutyCycle(87)
-        roll.ChangeDutyCycle(74)
-        pitch.ChangeDutyCycle(67)
-        yaw.ChangeDutyCycle(60)
-        aux1.ChangeDutyCycle(53)
-        aux2.ChangeDutyCycle(46)
+        throttle.ChangeDutyCycle(53)
+        #roll.ChangeDutyCycle(74)
+        #pitch.ChangeDutyCycle(67)
+        #yaw.ChangeDutyCycle(60)
+        #aux1.ChangeDutyCycle(53)
+        #aux2.ChangeDutyCycle(46)
         rospy.loginfo('Hello')
         rate.sleep()
