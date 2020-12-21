@@ -26,6 +26,8 @@ from SX127x.LoRa import *
 #from SX127x.LoRaArgumentParser import LoRaArgumentParser
 from SX127x.board_config import BOARD
 import configparser
+import rospy
+from std_msgs.msg import Int16MultiArray
 
 config = configparser.ConfigParser()
 config.read('config.ini')
@@ -71,14 +73,17 @@ class mylora(LoRa):
                 self.set_mode(MODE.TX)
                 self.write_payload([self.fc_id, sender, 0, 4]) # Send REQUEST AXES
             elif (message_type_A == 0 and message_type_B == 3 and self.bound == 1): # AXIS CONTROL
-                pitch = payload[4]
-                roll = payload[5]
-                throttle = payload[6]
-                yaw = payload[7]
-                aux1 = payload[8]
-                aux2 = payload[9]
-                aux3 = payload[10]
-                aux4 = payload[11]
+                pitch = payload[4] * 256 + payload[5]
+                roll = payload[6] * 256 + payload[7]
+                throttle = payload[8] * 256 + payload[9]
+                yaw = payload[10] * 256 + payload[11]
+                aux1 = payload[12] * 256 + payload[13]
+                aux2 = payload[14] * 256 + payload[15]
+                aux3 = payload[16] * 256 + payload[17]
+                aux4 = payload[18] * 256 + payload[19]
+                msg = Int16MultiArray()
+                msg.data = [throttle, roll, pitch, yaw, aux1, aux2, aux3, aux4]
+                pub.publish(msg)
                 print("pitch: " + str(pitch) + "    roll: " + str(roll) + "    throttle: " + str(throttle) + "    yaw: " + str(yaw) + "    aux1: " + str(aux1) + "    aux2: " + str(aux2) + "    aux3: " + str(aux3) + "    aux4: " + str(aux4))
                 self.set_mode(MODE.TX)
                 self.write_payload([self.fc_id, sender, 0, 4]) # Send REQUEST AXES
@@ -111,41 +116,37 @@ class mylora(LoRa):
         print(self.get_irq_flags())
 
     def start(self):          
+        
+        rospy.init_node('lora_transceiver')
+        self.pub = rospy.Publisher('/rx_tx', Int16MultiArray, queue_size=10)
+        rate = rospy.Rate(2)
+
         while True:
             self.reset_ptr_rx()
             self.set_mode(MODE.RXCONT) # Receiver mode
             while True:
                 pass
 
-lora = mylora(verbose=False)
-#args = parser.parse_args(lora) # configs in LoRaArgumentParser.py
+if __name__ == '__main__':
 
-#     Slow+long range  Bw = 125 kHz, Cr = 4/8, Sf = 4096chips/symbol, CRC on. 13 dBm
-lora.set_pa_config(pa_select=1, max_power=21, output_power=15)
-lora.set_bw(BW.BW500)
-#lora.set_freq(433.0) 
-lora.set_coding_rate(CODING_RATE.CR4_5)
-lora.set_spreading_factor(7)
-lora.set_rx_crc(True)
-#lora.set_lna_gain(GAIN.G1)
-#lora.set_implicit_header_mode(False)
-#lora.set_low_data_rate_optim(True)
+    lora = mylora(verbose=False)
+    #args = parser.parse_args(lora) # configs in LoRaArgumentParser.py
 
-#  Medium Range  Defaults after init are 434.0MHz, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on 13 dBm
-#lora.set_pa_config(pa_select=1)
+    #     Slow+long range  Bw = 125 kHz, Cr = 4/8, Sf = 4096chips/symbol, CRC on. 13 dBm
+    lora.set_pa_config(pa_select=1, max_power=21, output_power=15)
+    lora.set_bw(BW.BW500)
+    lora.set_freq(433.0) 
+    lora.set_coding_rate(CODING_RATE.CR4_8)
+    lora.set_spreading_factor(7)
+    lora.set_rx_crc(True)
+    #lora.set_lna_gain(GAIN.G1)
+    #lora.set_implicit_header_mode(False)
+    #lora.set_low_data_rate_optim(True)
 
+    #  Medium Range  Defaults after init are 434.0MHz, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on 13 dBm
+    #lora.set_pa_config(pa_select=1)
 
-assert(lora.get_agc_auto_on() == 1)
+    assert(lora.get_agc_auto_on() == 1)
 
-try:
-    print("START")
     lora.start()
-except KeyboardInterrupt:
-    sys.stdout.flush()
-    print("Exit")
-    sys.stderr.write("KeyboardInterrupt\n")
-finally:
-    sys.stdout.flush()
-    print("Exit")
-    lora.set_mode(MODE.SLEEP)
-    BOARD.teardown()
+    

@@ -58,19 +58,35 @@ class mylora(LoRa):
                 self.write_payload([self.radio_id, self.fc_id, 0, 2]) # Send BIND ACK
             elif (message_type_A == 0 and message_type_B == 4 and self.bound == 1): # AXES REQUESTED
                 for i in range(4):
-                    stick_readings[i] = round((adc.read_adc(i, gain=GAIN) / 30700) * 255)
+                    stick_readings[i] = round((adc.read_adc(i, gain=GAIN) / 30700) * 1000)
                 print (stick_readings)
-                pitch = stick_readings[0]
-                roll = stick_readings[1]
-                throttle = stick_readings[2]
-                yaw = stick_readings[3]
-                aux1 = 0
-                aux2 = 0
-                aux3 = 0
-                aux4 = 0
+                pitch = stick_readings[0] + 1000
+                pitch_lsb = pitch & 255
+                pitch_msb = (pitch & 65280) >> 8
+                roll = stick_readings[1] + 1000
+                roll_lsb = roll & 255
+                roll_msb = (roll & 65280) >> 8
+                throttle = stick_readings[2] + 1000
+                throttle_lsb = throttle & 255
+                throttle_msb = (throttle & 65280) >> 8
+                yaw = stick_readings[3] + 1000
+                yaw_lsb = yaw & 255
+                yaw_msb = (yaw & 65280) >> 8
+                aux1 = 200 + 1000
+                aux1_lsb = aux1 & 255
+                aux1_msb = (aux1 & 65280) >> 8
+                aux2 = 0 + 1000
+                aux2_lsb = aux2 & 255
+                aux2_msb = (aux2 & 65280) >> 8
+                aux3 = 0 + 1000
+                aux3_lsb = aux3 & 255
+                aux3_msb = (aux3 & 65280) >> 8
+                aux4 = 0 + 1000
+                aux4_lsb = aux4 & 255
+                aux4_msb = (aux4 & 65280) >> 8
                 self.set_mode(MODE.TX)
-                self.write_payload([self.radio_id, self.fc_id, 0, 3, pitch, roll, throttle, yaw, aux1, aux2, aux3, aux4]) # Send axis commands
-            
+                self.write_payload([self.radio_id, self.fc_id, 0, 3, pitch_msb, pitch_lsb, roll_msb, roll_lsb, throttle_msb, throttle_lsb, yaw_msb, yaw_lsb, aux1_msb, aux1_lsb, aux2_msb, aux2_lsb, aux3_msb, aux3_lsb, aux4_msb, aux4_lsb]) # Send axis commands
+                
             #time.sleep(2)
             #for i in range(4):
             #    stick_readings[i] = round((adc.read_adc(i, gain=GAIN) / 30700) * 255)
@@ -78,7 +94,7 @@ class mylora(LoRa):
         #time.sleep(1)
         self.reset_ptr_rx()
         self.set_mode(MODE.RXCONT)
-        #time.sleep(0.5)
+        time.sleep(0.5)
 
     def on_tx_done(self):
         
@@ -111,7 +127,7 @@ class mylora(LoRa):
                 print ("Sending bind request")
                 self.set_mode(MODE.TX)
                 self.write_payload([self.radio_id, self.broadcast_id, 0, 0]) # Broadcast BIND REQUEST
-                #time.sleep(3) # there must be a better solution but sleep() works
+                time.sleep(3) # there must be a better solution but sleep() works
                 self.reset_ptr_rx()
                 self.set_mode(MODE.RXCONT)
             
@@ -123,38 +139,54 @@ class mylora(LoRa):
 
             while (self.bound == 1):
                 for i in range(4):
-                    stick_readings[i] = round((adc.read_adc(i, gain=GAIN) / 30700) * 255)
+                    stick_readings[i] = round((adc.read_adc(i, gain=GAIN) / 30700) * 1000)
                 print (stick_readings)
-                pitch = stick_readings[0]
-                roll = stick_readings[1]
-                throttle = stick_readings[2]
-                yaw = stick_readings[3]
-                aux1 = 0
-                aux2 = 0
-                aux3 = 0
-                aux4 = 0
+                pitch = stick_readings[0] + 1000
+                pitch_lsb = pitch & 255
+                pitch_msb = (pitch & 65280) >> 8
+                roll = stick_readings[1] + 1000
+                roll_lsb = roll & 255
+                roll_msb = (roll & 65280) >> 8
+                throttle = stick_readings[2] + 1000
+                throttle_lsb = throttle & 255
+                throttle_msb = (throttle & 65280) >> 8
+                yaw = stick_readings[3] + 1000
+                yaw_lsb = yaw & 255
+                yaw_msb = (yaw & 65280) >> 8
+                aux1 = 200 + 1000
+                aux1_lsb = aux1 & 255
+                aux1_msb = (aux1 & 65280) >> 8
+                aux2 = 0 + 1000
+                aux2_lsb = aux2 & 255
+                aux2_msb = (aux2 & 65280) >> 8
+                aux3 = 0 + 1000
+                aux3_lsb = aux3 & 255
+                aux3_msb = (aux3 & 65280) >> 8
+                aux4 = 0 + 1000
+                aux4_lsb = aux4 & 255
+                aux4_msb = (aux4 & 65280) >> 8
                 self.set_mode(MODE.TX)
-                self.write_payload([self.radio_id, self.fc_id, 0, 3, pitch, roll, throttle, yaw, aux1, aux2, aux3, aux4]) # Send axis commands
+                self.write_payload([self.radio_id, self.fc_id, 0, 3, pitch_msb, pitch_lsb, roll_msb, roll_lsb, throttle_msb, throttle_lsb, yaw_msb, yaw_lsb, aux1_msb, aux1_lsb, aux2_msb, aux2_lsb, aux3_msb, aux3_lsb, aux4_msb, aux4_lsb]) # Send axis commands
                 self.reset_ptr_rx()
                 self.set_mode(MODE.RXCONT)
-            
+                
                 start_time = time.time()
-                while (time.time() - start_time < 4): # wait until receive data or 10s
+                while (time.time() - start_time < 0.1): # wait until receive data or 10s
                     pass
 
-            self.bound=0
-            self.reset_ptr_rx()
-            self.set_mode(MODE.RXCONT) # Receiver mode
-            time.sleep(10)
+            #self.bound=0
+            #self.reset_ptr_rx()
+            #self.set_mode(MODE.RXCONT) # Receiver mode
+            #time.sleep(10)
 
 lora = mylora(verbose=False)
 #args = parser.parse_args(lora) # configs in LoRaArgumentParser.py
 
 #     Slow+long range  Bw = 125 kHz, Cr = 4/8, Sf = 4096chips/symbol, CRC on. 13 dBm
 lora.set_pa_config(pa_select=1, max_power=21, output_power=15)
-#lora.set_freq(433.0) 
+lora.set_freq(433) 
 lora.set_bw(BW.BW500)
-lora.set_coding_rate(CODING_RATE.CR4_5)
+lora.set_coding_rate(CODING_RATE.CR4_8)
 lora.set_spreading_factor(7)
 lora.set_rx_crc(True)
 #lora.set_lna_gain(GAIN.G1)

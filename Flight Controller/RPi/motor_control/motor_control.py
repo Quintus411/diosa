@@ -1,52 +1,40 @@
-#!/usr/bin/env python3
+#!/usr/bin/python
 import rospy
 import RPi.GPIO as IO
+import pigpio
 import time
+import PPM
+from std_msgs.msg import Int16MultiArray
 
 #Pin configuration
 throttle_pin = 26
-roll_pin = 19
-pitch_pin = 13
-yaw_pin = 12
-aux1_pin = 6
-aux2_pin = 5
 
-pwm_freq = 490
+def axis_control_callback(msg):
+    #rospy.loginfo(msg.data[1])
+    throttle = msg.data[0]
+    roll = msg.data[1]
+    pitch = msg.data[2]
+    yaw = msg.data[3]
+    aux1 = msg.data[4]
+    aux2 = msg.data[5]
+    aux3 = msg.data[6]
+    aux4 = msg.data[7]
+    print("pitch: " + str(pitch) + "    roll: " + str(roll) + "    throttle: " + str(throttle) + "    yaw: " + str(yaw) + "    aux1: " + str(aux1) + "    aux2: " + str(aux2) + "    aux3: " + str(aux3) + "    aux4: " + str(aux4))
+    ppm.update_channels([throttle, roll, pitch, yaw, aux1, aux2, aux3, aux4])
+
 
 if __name__ == '__main__':
     rospy.init_node('motor_control_node')
     rospy.loginfo('motor_control_node started')
-    IO.setwarnings(False)
-    IO.setmode (IO.BCM)
     rate = rospy.Rate(10)
+    sub = rospy.Subscriber('/rx_tx', Int16MultiArray, axis_control_callback)
 
-    IO.setup(throttle_pin, IO.OUT)
-    IO.setup(roll_pin, IO.OUT)
-    IO.setup(pitch_pin, IO.OUT)
-    IO.setup(yaw_pin, IO.OUT)
-    IO.setup(aux1_pin, IO.OUT)
-    IO.setup(aux2_pin, IO.OUT)
+    pi = pigpio.pi()
+    pi.wave_tx_stop()
+    global ppm
+    ppm = PPM.X(pi, throttle_pin, frame_ms=20)
 
-    throttle = IO.PWM(throttle_pin,pwm_freq)
-    roll = IO.PWM(roll_pin,pwm_freq)
-    pitch = IO.PWM(pitch_pin,pwm_freq)
-    yaw = IO.PWM(yaw_pin,pwm_freq)
-    aux1 = IO.PWM(aux1_pin,pwm_freq)
-    aux2 = IO.PWM(aux2_pin,pwm_freq)
-
-    throttle.start(0)
-    roll.start(0)
-    pitch.start(0)
-    yaw.start(0)
-    aux1.start(0)
-    aux2.start(0)
-
-    while not rospy.is_shutdown():
-        throttle.ChangeDutyCycle(53)
-        #roll.ChangeDutyCycle(74)
-        #pitch.ChangeDutyCycle(67)
-        #yaw.ChangeDutyCycle(60)
-        #aux1.ChangeDutyCycle(53)
-        #aux2.ChangeDutyCycle(46)
-        rospy.loginfo('Hello')
-        rate.sleep()
+    rospy.spin()
+    
+    ppm.cancel()
+    pi.stop()
