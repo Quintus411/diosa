@@ -319,5 +319,75 @@
   Multi-Camera Systems}
     \field{year}{2017}
   \endentry
+
+  \entry{Fuel2020}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=ZB}{%
+         family={Zhou},
+         familyi={Z\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
+      }}%
+      {{hash=ZY}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=CX}{%
+         family={Chen},
+         familyi={C\bibinitperiod},
+         given={X.},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=SS}{%
+         family={Shen},
+         familyi={S\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZBZYCXSS1}
+    \strng{fullhash}{ZBZYCXSS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://arxiv.org/abs/2010.11561}}
+    \field{title}{FUEL: Fast UAV Exploration using Incremental Frontier
+  Structure and Hierarchical Planning}
+    \field{year}{2020}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{ProbNav}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=XZ}{%
+         family={Xu},
+         familyi={X\bibinitperiod},
+         given={Z.},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=DD}{%
+         family={Deng},
+         familyi={D\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+      {{hash=SK}{%
+         family={Shimada},
+         familyi={S\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{XZDDSK1}
+    \strng{fullhash}{XZDDSK1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://arxiv.org/abs/2010.07429}}
+    \field{title}{Autonomous UAV Exploration of Dynamic Environments via
+  Incremental Sampling and Probabilistic Roadmap}
+    \field{year}{2020}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
 \enddatalist
 \endinput

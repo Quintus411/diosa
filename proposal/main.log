@@ -1,14 +1,14 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.22)  31 DEC 2020 17:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.22)  1 JAN 2021 18:04
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/asus/Desktop/Diosa_Proposal/main.tex
-(c:/Users/asus/Desktop/Diosa_Proposal/main.tex
+**c:/Users/asus/Documents/GitHub/diosa/proposal/main.tex
+(c:/Users/asus/Documents/GitHub/diosa/proposal/main.tex
 LaTeX2e <2020-10-01> patch level 2
-L3 programming layer <2020-12-07> xparse <2020-03-03> (c:/Users/asus/Desktop/Diosa_Proposal/upeeei.cls
+L3 programming layer <2020-12-07> xparse <2020-03-03> (c:/Users/asus/Documents/GitHub/diosa/proposal/upeeei.cls
 Document Class: upeeei 2011/11/22 v0.1 UP EEEI Thesis Class
-(c:/Users/asus/Desktop/Diosa_Proposal/uct11_new.clo (c:/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+(c:/Users/asus/Documents/GitHub/diosa/proposal/uct11_new.clo (c:/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
  (c:/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
 Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
@@ -877,7 +877,7 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 56.
 (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-) (c:/Users/asus/Desktop/Diosa_Proposal/main.aux)
+) (c:/Users/asus/Documents/GitHub/diosa/proposal/main.aux)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
@@ -966,7 +966,7 @@ Package biblatex Info: Data encoding 'latin9' specified.
 
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'main.bbl' found.
- (c:/Users/asus/Desktop/Diosa_Proposal/main.bbl
+ (c:/Users/asus/Documents/GitHub/diosa/proposal/main.bbl
 
 Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with 'Dowling2018':
@@ -1002,6 +1002,16 @@ Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with 'FastSlam2':
 (biblatex)                - Invalid format of field 'month'.
 
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'Fuel2020':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'ProbNav':
+(biblatex)                - Invalid format of field 'month'.
+
 )
 Package biblatex Info: Reference section=0 on input line 56.
 Package biblatex Info: Reference segment=0 on input line 56.
@@ -1020,7 +1030,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [1] (c:/Users/asus/Desktop/Diosa_Proposal/main.toc)
+ [1] (c:/Users/asus/Documents/GitHub/diosa/proposal/main.toc)
 \tf@toc=\write5
 \openout5 = `main.toc'.
 
@@ -1029,7 +1039,7 @@ Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
  [1
 
-] (c:/Users/asus/Desktop/Diosa_Proposal/main.lot)
+] (c:/Users/asus/Documents/GitHub/diosa/proposal/main.lot)
 \tf@lot=\write6
 \openout6 = `main.lot'.
 
@@ -1038,7 +1048,7 @@ Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
  [2
 
-] (c:/Users/asus/Desktop/Diosa_Proposal/main.lof)
+] (c:/Users/asus/Documents/GitHub/diosa/proposal/main.lof)
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
@@ -1062,12 +1072,12 @@ Chapter 2.
 <images/base_FC_diagram.png, id=31, 469.755pt x 207.8967pt>
 File: images/base_FC_diagram.png Graphic file (type png)
 <use images/base_FC_diagram.png>
-Package pdftex.def Info: images/base_FC_diagram.png  used on input line 166.
+Package pdftex.def Info: images/base_FC_diagram.png  used on input line 167.
 (pdftex.def)             Requested size: 234.87692pt x 103.94809pt.
 <images/fc_with_rpi.png, id=32, 623.4492pt x 351.9549pt>
 File: images/fc_with_rpi.png Graphic file (type png)
 <use images/fc_with_rpi.png>
-Package pdftex.def Info: images/fc_with_rpi.png  used on input line 172.
+Package pdftex.def Info: images/fc_with_rpi.png  used on input line 173.
 (pdftex.def)             Requested size: 311.72383pt x 175.97702pt.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
@@ -1077,10 +1087,10 @@ Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
  [3
 
- <c:/Users/asus/Desktop/Diosa_Proposal/images/base_FC_diagram.png>]
+ <c:/Users/asus/Documents/GitHub/diosa/proposal/images/base_FC_diagram.png>]
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [4 <c:/Users/asus/Desktop/Diosa_Proposal/images/fc_with_rpi.png>]
+ [4 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/fc_with_rpi.png>]
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
  [5]
@@ -1112,11 +1122,11 @@ Overfull \vbox (7.46777pt too high) has occurred while \output is active []
  [9
 
 ]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 214.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 236.
  (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (2.66777pt too wide) in paragraph at lines 217--217
+Overfull \hbox (7.66777pt too wide) in paragraph at lines 239--239
 []\OT1/ptm/m/n/10 Electronoobs, \OT1/ptm/m/it/10 Ar-duino Mul-ti-Wii Flight Con-troller\OT1/ptm/m/n/10 , $\OT1/pcr/m/n/10 http : / / www . electronoobs . com / eng _ robotica _
  []
 
@@ -1125,21 +1135,21 @@ Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
  [10
 
-] (c:/Users/asus/Desktop/Diosa_Proposal/main.aux)
+] (c:/Users/asus/Documents/GitHub/diosa/proposal/main.aux)
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46248 strings out of 479382
- 1179974 string characters out of 5873307
- 1946098 words of memory out of 5000000
- 62731 multiletter control sequences out of 15000+600000
+ 46254 strings out of 479382
+ 1180392 string characters out of 5873307
+ 1947192 words of memory out of 5000000
+ 62737 multiletter control sequences out of 15000+600000
  431393 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,8n,98p,1890b,1750s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 94i,8n,98p,1899b,1750s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users/asus/Desktop/Diosa_Proposal/main.pdf (15 pages, 138438 bytes).
+Output written on c:/Users/asus/Documents/GitHub/diosa/proposal/main.pdf (15 pages, 140743 bytes).
 PDF statistics:
  75 PDF objects out of 1000 (max. 8388607)
  51 compressed objects within 1 object stream
