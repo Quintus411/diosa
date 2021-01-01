@@ -1,0 +1,1598 @@
+#LyX 2.2 created this file. For more info see http://www.lyx.org/
+\lyxformat 508
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass upeeei
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\graphics default
+\default_output_format default
+\output_sync 1
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize default
+\use_geometry false
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\quotes_language english
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%% UP EEEI undergraduate project proposal template
+\end_layout
+
+\begin_layout Plain Layout
+
+%% adapted from the
+\end_layout
+
+\begin_layout Plain Layout
+
+%% UP EEEI undergraduate project template
+\end_layout
+
+\begin_layout Plain Layout
+
+%% v0.1 by Louis P.
+ Alarcon 11/22/2011
+\end_layout
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%% LyX template - use with the following files:
+\end_layout
+
+\begin_layout Plain Layout
+
+%% 	uct10_new.clo, uct11_new.clo, uct12_new.clo, upeeei.cls, upeeei.layout
+\end_layout
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%% Place project title here
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+title{The EEE 190 Undergraduate Project Proposal Template} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%% Author information
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+author{
+\end_layout
+
+\begin_layout Plain Layout
+
+Roel M.
+ Ocampo
+\backslash
+
+\backslash
+ xxxx-xxxxx
+\backslash
+
+\backslash
+ 
+\backslash
+emph{B.S.
+ Electrical Engineering} 
+\backslash
+and 
+\end_layout
+
+\begin_layout Plain Layout
+
+John Richard Ereso Hizon
+\backslash
+
+\backslash
+ xxxx-xxxxx
+\backslash
+
+\backslash
+ 
+\backslash
+emph{B.S.
+ Electronics and Communications Engineering} 
+\backslash
+and
+\end_layout
+
+\begin_layout Plain Layout
+
+Ivan Benedict Nilo Calalang Cruz
+\backslash
+
+\backslash
+ xxxx-xxxxx
+\backslash
+
+\backslash
+ 
+\backslash
+emph{B.S.
+ Electrical Engineering} 
+\backslash
+and
+\end_layout
+
+\begin_layout Plain Layout
+
+Raymund Christian Koon Roque
+\backslash
+
+\backslash
+ xxxx-xxxxx
+\backslash
+
+\backslash
+ 
+\backslash
+emph{B.S.
+ Electronics and Communications Engineering} 
+\backslash
+and
+\end_layout
+
+\begin_layout Plain Layout
+
+Romarie U.
+ Lorenzo
+\backslash
+
+\backslash
+ xxxx-xxxxx
+\backslash
+
+\backslash
+ 
+\backslash
+emph{B.S.
+ Computer Engineering} 
+\backslash
+and
+\end_layout
+
+\begin_layout Plain Layout
+
+Federico Mendoza Ang
+\backslash
+
+\backslash
+ xxxx-xxxxx
+\backslash
+
+\backslash
+ 
+\backslash
+emph{B.S.
+ Computer Engineering} 
+\backslash
+and
+\end_layout
+
+\begin_layout Plain Layout
+
+Siegfred Daquiang Balon
+\backslash
+
+\backslash
+ xxxx-xxxxx
+\backslash
+
+\backslash
+ 
+\backslash
+emph{B.S.
+ Electronics and Communications Engineering}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+and
+\end_layout
+
+\begin_layout Plain Layout
+
+}
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%%
+\end_layout
+
+\begin_layout Plain Layout
+
+%% Month and year of submission/graduation
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+degreeyear{2012} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+degreesemester{April} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+% Put your advisers here:
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+chair{Professor Louis Poblete Alarc
+\backslash
+'on} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+othermembers{ Professor Joel Joseph Sacro Marciano, Jr.
+ 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+Professor Anastacia Ballesil Alvarez } 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+numberofmembers{3} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+field{Electrical/Computer/Electronics and Communications Engineering} 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+campus{Diliman} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+maketitle 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abstract} 
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+%Your abstract goes here...
+\end_layout
+
+\begin_layout Plain Layout
+
+In a 
+\backslash
+emph{single} well-written paragraph, this is what we'd like to do.
+  Try to cover Need, Solution, Differentiation, Benefit (NSDB).
+  Use the content of this template as an example for formatting your proposal
+ document, 
+\backslash
+textbf{NOT} as a strict guide for the flow of your discussion and what your
+ proposal must contain.
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+abstractsignature
+\backslash
+end{abstract}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{frontmatter} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setlength{
+\backslash
+parskip}{0pt}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList figure
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FloatList table
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{frontmatter} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+def
+\backslash
+MASTERDOC{true}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Introduction
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Introduction"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The ability to design and build logic and computational elements that operate
+ at extremely low energy levels is seen as a very important enabler for
+ systems in various application domains such as mobile devices, wireless
+ sensor networks and bio-medical systems 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Sakurai2003"
+
+\end_inset
+
+.
+ Devices operating at these low energy levels can also take advantage of
+ alternative energy storage and scavenging methods that can lead to almost
+ indefinite operational lifetimes 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Chen2010"
+
+\end_inset
+
+, as well as new computing and system paradigms.
+\end_layout
+
+\begin_layout Standard
+Technology scaling and supply voltage reduction have been responsible for
+ the continued energy reduction and performance improvement in complementary
+ static CMOS circuits, the most popular logic topology in use today.
+ However, the increased leakage energy brought about by scaling and 
+\begin_inset Formula $V_{DD}$
+\end_inset
+
+ reduction is starting to limit the minimum energy that static CMOS circuits
+ can achieve.
+ One low-energy alternative to complementary static CMOS circuits is the
+ sense amplifier-based pass transistor logic (SAPTL) topology.
+ 
+\end_layout
+
+\begin_layout Section
+Overview
+\end_layout
+
+\begin_layout Standard
+This work presents the sense amplifier-based pass transistor logic (SAPTL)
+ as a low energy alternative logic topology to fully complementary static
+ CMOS logic.
+ The SAPTL takes advantage of the inherent decoupling of logic functionality
+ and circuit gain in pass transistor circuits in order to achieve ultra-low
+ energy operation that is lower than static CMOS, especially in cases where
+ leakage energy becomes a significant component of total circuit energy.
+ This decoupling also allows the improvement of performance through threshold
+ voltage reduction without increasing the total SAPTL energy consumption.
+\end_layout
+
+\begin_layout Section
+Proposal Flow and Organization
+\end_layout
+
+\begin_layout Standard
+Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:ProbStatement"
+
+\end_inset
+
+ presents an overview of the low energy design, starting with the basics
+ of how energy is consumed in digital circuits.
+ Techniques on how energy consumption can be reduced, such as sub-threshold
+ leakage current mitigation, as well as the challenges involved, are mentioned.
+ Metrics showing how these reductions affect the performance of these circuits
+ are then introduced.
+\end_layout
+
+\begin_layout Standard
+Pass transistor logic is introduced in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:RRW"
+
+\end_inset
+
+ as a low leakage alternative to complementary static CMOS logic, since
+ it operates inherently without built-in gain elements.
+ The penalties of operating without gain, as well as ways to introduce more
+ gain into the circuit are also presented.
+\end_layout
+
+\begin_layout Standard
+Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Prelims"
+
+\end_inset
+
+ introduces the basic organization of the sense amplifier-based pass transistor
+ logic (SAPTL) circuit, which is built using (1) an inverted pass transistors
+ tree, or stack, and (2) gain elements in the form of drivers and sense
+ amplifiers.
+ This is followed by an analysis of the delay and energy of these SAPTL
+ building blocks and the implications of combining these two blocks in order
+ to implement boolean functions.
+\end_layout
+
+\begin_layout Standard
+The timing behavior of SAPTL is shown in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Methodology"
+
+\end_inset
+
+.
+ A two-phase clocking scheme as well as two asynchronous handshaking schemes
+ are presented.
+ The energy and delay characteristics of logic functions using these timing
+ schemes are then compared with their corresponding complementary static
+ CMOS implementations, highlighting design areas where using SAPTL will
+ be advantageous.
+ Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Prelims"
+
+\end_inset
+
+ shows several examples of the SAPTL circuits, including practical design
+ and implementation issues as well as measurement results of fabricated
+ circuits.
+\end_layout
+
+\begin_layout Standard
+Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Project-Sked"
+
+\end_inset
+
+ presents the Gantt Chart for the project, highlighting the milestones and
+ the deliverables in full detail.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Related Work
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:RRW"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Pass transistor logic (PTL) has been the focus of many research projects
+ 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Taki1998"
+
+\end_inset
+
+ ranging from their use as static CMOS replacement circuits for specialized
+ applications, to computer-aided design (CAD) methodologies that take advantage
+ of various PTL characteristics such as area efficiency and regularity 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yano1990"
+
+\end_inset
+
+.
+ In this chapter, a sampling of various pass transistor logic implementations
+ are described, with the intention of highlighting the relationship between
+ logic functionality, gain stages, performance and energy.
+\end_layout
+
+\begin_layout Section
+Basic PTL Topologies
+\end_layout
+
+\begin_layout Standard
+Various pass transistor logic implementations have been reported and can
+ be broadly grouped into two classes based on the pass transistor network
+ (PTN) used: (1) NMOS-only PTNs and (2) PTNs that use both NMOS and PMOS
+ transistors 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Markovic2000"
+
+\end_inset
+
+.
+ NMOS-only pass transistor networks are less complex, resulting in (1) lower
+ input and signal path capacitances and (2) smaller area.
+ However, due to the threshold voltage drop needed to keep the NMOS network
+ conducting, the high or logic `1' output voltage will be less than the
+ supply voltage, 
+\begin_inset Formula $V_{DD}$
+\end_inset
+
+.
+ In order to recover a rail-to-rail output swing, a simple inverter or buffer
+ can be added at the output of the PTN.
+ 
+\end_layout
+
+\begin_layout Standard
+One common form of the NMOS-only PTL topology is the complementary pass
+ transistor logic (CPL) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yano1990"
+
+\end_inset
+
+.
+ CPL has complementary inputs and outputs, and usually has CMOS inverters
+ at its outputs to restore the degraded PTL voltage swing due to the NMOS
+ threshold voltage (
+\begin_inset Formula $V_{TH}$
+\end_inset
+
+) drop.
+ Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:CPL_or"
+
+\end_inset
+
+ shows a CPL implementation of an OR/NOR gate.
+ A number of arithmetic building blocks have been reported using CPL 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Yano1990,Abu-Khater1996,Cheung1997"
+
+\end_inset
+
+, taking advantage of the low input capacitance and reduced transistor count
+ to increase performance.
+\end_layout
+
+\begin_layout Standard
+A variation of CPL is the double pass transistor logic (DPL) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Suzuki1993,Cheung1997"
+
+\end_inset
+
+.
+ It is composed of an NMOS PTN and its PMOS equivalent, as shown in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:DPL_or"
+
+\end_inset
+
+.
+ The additional PMOS PTN (1) doubles the signal transmission path, compensating
+ for the performance degradation due to increased path capacitance and (2)
+ allows full swing at the output of the PTN, improving the performance at
+ low supply voltage even with limited threshold voltage scaling.
+ DPL however, has increased input capacitance due to the redundant signal
+ paths present.
+\end_layout
+
+\begin_layout Standard
+Dual value logic (DVL) 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Oklobdzija1995,Oklobdzija1997"
+
+\end_inset
+
+, shown in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:DVL_or"
+
+\end_inset
+
+, is a pass transistor-based logic style derived from DPL by eliminating
+ redundant and slower branches while still maintaining full-rail voltage
+ swing at the output of the PTN.
+ Note that since DPL and DVL circuits use both NMOS and PMOS PTNs, no buffering
+ or voltage swing restoration circuitry is required at their outputs.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename CMOS_or_nor.eps
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:CMOS_or"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 3em
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename CPL_or.eps
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:CPL_or"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename DPL_or.eps
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:DPL_or"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset space \hspace{}
+\length 3em
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename DVL_or.eps
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:DVL_or"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+OR/NOR implementations in (a) CMOS, (b) CPL, (c) DPL and (d) DVL.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Flo:PTL_or_nor"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Decoupled Operation
+\end_layout
+
+\begin_layout Standard
+Separate optimization strategies for the pass transistor network and the
+ gain stages can be employed due to the reduced coupling between functionality
+ and gain.
+ For example, consider the case of subthreshold leakage and performance.
+ The energy consumed by the CPL multiplexer in Fig.
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Flo:PTL_or_nor"
+
+\end_inset
+
+ can be expressed as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E=E_{dynamic}+E_{leakage}
+\end{equation}
+
+\end_inset
+
+where 
+\begin_inset Formula $E_{dynamic}$
+\end_inset
+
+ is the energy needed to charge and discharge the capacitances in the circuit,
+ while 
+\begin_inset Formula $E_{leakage}$
+\end_inset
+
+ is the leakage energy dissipated by the circuit.
+ 
+\begin_inset Formula $E_{dynamic}$
+\end_inset
+
+ and 
+\begin_inset Formula $E_{leakage}$
+\end_inset
+
+ for a certain operation period, 
+\begin_inset Formula $T_{op}$
+\end_inset
+
+, and output swing, 
+\begin_inset Formula $dV$
+\end_inset
+
+, can be further expressed as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E_{dynamic}=\alpha\,C_{int,driver}\,V_{DD}^{2}+\alpha\,C_{PTN}\,V_{DD}\,dV+\alpha\left(C_{int,buf\!fer}+C_{load}\right)V_{DD}^{2}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+E_{leakage}=V_{DD}\,I_{leak,driver}\,T_{op}+V_{DD}\,I_{leak,buf\!fer}\,T_{op}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Since the subthreshold leakage energy has been confined to the gain elements,
+ and assuming sneak paths can be eliminated as described in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:Prelims"
+
+\end_inset
+
+, the various low leakage techniques presented in Chapter 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "cha:ProbStatement"
+
+\end_inset
+
+ can be applied selectively to these circuits, such as increasing threshold
+ voltages, forced stacking or adding header and footer switches.
+ Since these techniques are local to the gain elements, their impact on
+ the pass transistor network are reduced.
+ 
+\end_layout
+
+\begin_layout Standard
+The delay of the CPL multiplexer on the other hand, can be expressed as:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D=D_{driver}+D_{PTN}+D_{buf\!fer}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+A first order model 
+\begin_inset CommandInset citation
+LatexCommand cite
+key "Rabaey2003"
+
+\end_inset
+
+ for the delay of the pass transistor network and the CMOS inverters serving
+ as drivers and buffers gives:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{equation}
+D\approxeq\frac{C_{int,driver}\,V_{DD}}{I_{ON,driver}}+\frac{C_{PTN}\,dV}{I_{ON,driver}}+R_{ef\!f,PTN}\,C_{PTN}\,\ln2+\frac{\left(C_{int,buf\!fer}+C_{load}\right)V_{DD}}{I_{ON,buf\!fer}}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+The pass transistor network can be optimized for performance by using lower
+ 
+\begin_inset Formula $V_{TH}$
+\end_inset
+
+ devices, reducing the effective resistance, 
+\begin_inset Formula $R_{ef\!f}$
+\end_inset
+
+, of the PTN.
+ This decoupling of subthreshold leakage and performance is normally not
+ possible in static CMOS circuits since the leakage path is the same as
+ the signal path.
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Problem Statement and Objectives 
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:ProbStatement"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Preliminary Findings
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Prelims"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Methodology
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Methodology"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Project Schedule and Deliverables
+\begin_inset CommandInset label
+LatexCommand label
+name "cha:Project-Sked"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Tabular
+<lyxtabular version="3" rows="5" columns="5">
+<features tabularvalignment="middle">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<column alignment="center" valignment="top">
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Row 1, Column 1
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Row 1, Column 2
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Row 1, Column 3
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Row 1, Column 4
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+Row 1, Column 5
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+<row>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+<cell alignment="center" valignment="top" topline="true" bottomline="true" leftline="true" rightline="true" usebox="none">
+\begin_inset Text
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+</cell>
+</row>
+</lyxtabular>
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Sample Table
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "Tab:SampleTable"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "Tab:SampleTable"
+
+\end_inset
+
+ shows the sample table.
+ You can control its position by right clicking the float and choosing Settings.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+bibfiles "Proposal_Part1,Proposal_Part2"
+options "ieeetr"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage cleardoublepage
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

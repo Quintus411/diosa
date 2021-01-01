@@ -1,0 +1,323 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.1 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{none/global//global/global}
+  \entry{Dowling2018}{inproceedings}{}
+    \name{author}{7}{}{%
+      {{hash=DL}{%
+         family={Dowling},
+         familyi={D\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=PT}{%
+         family={Poblete},
+         familyi={P\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=HI}{%
+         family={Hook},
+         familyi={H\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=TH}{%
+         family={Tang},
+         familyi={T\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=TY}{%
+         family={Tan},
+         familyi={T\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GW}{%
+         family={Glenn},
+         familyi={G\bibinitperiod},
+         given={W.},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=UR}{%
+         family={Unnithan},
+         familyi={U\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \keyw{indoor mapping, autonomous navigation}
+    \strng{namehash}{DLPTHITHTYGWUR1}
+    \strng{fullhash}{DLPTHITHTYGWUR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{issn}{0193-6530}
+    \field{title}{Accurate indoor mapping using an autonomous unmanned aerial
+  vehicle}
+    \field{year}{2018}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{OrbSlam2}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=MaR}{%
+         family={Mur-artal},
+         familyi={M\bibinithyphendelim a\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=TJ}{%
+         family={Tardos},
+         familyi={T\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MaRTJ1}
+    \strng{fullhash}{MaRTJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1109/TRO.2017.2705103
+    \endverb
+    \field{title}{ORB-SLAM2: an Open-Source SLAM System for Monocular, Stereo
+  and RGB-D Cameras}
+    \field{year}{2017}
+  \endentry
+
+  \entry{MultiwiiFC}{misc}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={Electronoobs},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E1}
+    \strng{fullhash}{E1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{http://www.electronoobs.com/eng_robotica_tut5_3.php}}
+    \field{title}{Arduino MultiWii Flight Controller}
+    \field{year}{2017}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{RPiMavlink2019}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=AKS}{%
+         family={Al-Kadhim},
+         familyi={A\bibinithyphendelim K\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{AKS1}
+    \strng{fullhash}{AKS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.2139/ssrn.3318130
+    \endverb
+    \field{title}{Communicating with Raspberry Pi via MAVLink}
+    \field{year}{2019}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Redtail2017}{misc}{}
+    \name{author}{3}{}{%
+      {{hash=SN}{%
+         family={Smolyanskiy},
+         familyi={S\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=KA}{%
+         family={Kamenev},
+         familyi={K\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Smith},
+         familyi={S\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SNKASJ1}
+    \strng{fullhash}{SNKASJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://github.com/NVIDIA-AI-IOT/redtail}}
+    \field{title}{Project Redtail}
+    \field{year}{2017}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Tuning2017}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=SW}{%
+         family={Saengphet},
+         familyi={S\bibinitperiod},
+         given={W.},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=TS}{%
+         family={Tantrairatn},
+         familyi={T\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=TC}{%
+         family={Thumtae},
+         familyi={T\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=SJ}{%
+         family={Srisertpol},
+         familyi={S\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SWTSTCSJ1}
+    \strng{fullhash}{SWTSTCSJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2017 3rd International Conference on Control, Automation
+  and Robotics (ICCAR)}
+    \field{pages}{678\bibrangedash 683}
+    \field{title}{Implementation of system identification and flight control
+  system for UAV}
+    \field{year}{2017}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{OrbSlam1}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=MaR}{%
+         family={Mur-artal},
+         familyi={M\bibinithyphendelim a\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=JT}{%
+         family={Juan},
+         familyi={J\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Montiel},
+         familyi={M\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MaRJTMJ1}
+    \strng{fullhash}{MaRJTMJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1109/TRO.2015.2463671
+    \endverb
+    \field{title}{ORB-SLAM: a Versatile and Accurate Monocular SLAM System}
+    \field{year}{2015}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{FastSlam2}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=SA}{%
+         family={Serrata},
+         familyi={S\bibinitperiod},
+         given={A.},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=YS}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=LR}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SAYSLR1}
+    \strng{fullhash}{SAYSLR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1186/s13639-017-0075-9
+    \endverb
+    \field{title}{An intelligible implementation of FastSLAM2.0 on a low-power
+  embedded architecture}
+    \field{year}{2017}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{SVO2017}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=FC}{%
+         family={Firster},
+         familyi={F\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=ZZ}{%
+         family={Zhang},
+         familyi={Z\bibinitperiod},
+         given={Z.},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Gassner},
+         familyi={G\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=WM}{%
+         family={Werlberger},
+         familyi={W\bibinitperiod},
+         given={M.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=SD}{%
+         family={Scaramuzza},
+         familyi={S\bibinitperiod},
+         given={D.},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{FCZZGMWMSD1}
+    \strng{fullhash}{FCZZGMWMSD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{http://rpg.ifi.uzh.ch/svo2.html}}
+    \field{title}{SVO: Semi-Direct Visual Odometry for Monocular and
+  Multi-Camera Systems}
+    \field{year}{2017}
+  \endentry
+\enddatalist
+\endinput
