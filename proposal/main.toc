@@ -25,12 +25,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Methodology}{7}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Timeline}{8}{}%
+\contentsline {section}{\numberline {4.1}Flight Controller Design and Fabrication}{7}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.1}Gantt Chart}{8}{}%
+\contentsline {section}{\numberline {4.2}SLAM Integration}{8}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5.2}Halfway Deliverables}{8}{}%
+\contentsline {section}{\numberline {4.3}Autonomous Navigation and Exploration}{8}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {6}Experimentation and Results}{9}{}%
+\contentsline {chapter}{\numberline {5}Timeline}{9}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.1}Gantt Chart}{9}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5.2}Halfway Deliverables}{9}{}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Bibliography}{10}{}%

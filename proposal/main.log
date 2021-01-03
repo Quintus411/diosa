@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.22)  1 JAN 2021 18:04
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.22)  2 JAN 2021 18:23
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1102,31 +1102,45 @@ Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
 ]
 Chapter 4.
+<images/final_FC diagram.png, id=45, 578.16pt x 306.6657pt>
+File: images/final_FC diagram.png Graphic file (type png)
+<use images/final_FC diagram.png>
+Package pdftex.def Info: images/final_FC diagram.png  used on input line 253.
+(pdftex.def)             Requested size: 289.07928pt x 153.33246pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--272
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--272
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 
 Overfull \vbox (7.31458pt too high) has occurred while \output is active []
 
  [7
 
 ]
-Chapter 5.
-
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [8
-
-]
-Chapter 6.
+ [8 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/final_FC diagram.png>]
+Chapter 5.
 
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
  [9
 
 ]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 236.
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 284.
  (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (7.66777pt too wide) in paragraph at lines 239--239
+Overfull \hbox (7.66777pt too wide) in paragraph at lines 287--287
 []\OT1/ptm/m/n/10 Electronoobs, \OT1/ptm/m/it/10 Ar-duino Mul-ti-Wii Flight Con-troller\OT1/ptm/m/n/10 , $\OT1/pcr/m/n/10 http : / / www . electronoobs . com / eng _ robotica _
  []
 
@@ -1141,18 +1155,18 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46254 strings out of 479382
- 1180392 string characters out of 5873307
- 1947192 words of memory out of 5000000
- 62737 multiletter control sequences out of 15000+600000
+ 46261 strings out of 479382
+ 1180590 string characters out of 5873307
+ 1948202 words of memory out of 5000000
+ 62743 multiletter control sequences out of 15000+600000
  431393 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  94i,8n,98p,1899b,1750s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users/asus/Documents/GitHub/diosa/proposal/main.pdf (15 pages, 140743 bytes).
+Output written on c:/Users/asus/Documents/GitHub/diosa/proposal/main.pdf (15 pages, 181199 bytes).
 PDF statistics:
- 75 PDF objects out of 1000 (max. 8388607)
+ 76 PDF objects out of 1000 (max. 8388607)
  51 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 28 words of extra memory for PDF output out of 10000 (max. 10000000)
 

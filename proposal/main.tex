@@ -226,13 +226,61 @@ of alternative global and local paths that the UAV can take. However the authors
 locate all obstacles 100\% of the time, raising concerns with regards to the safety of the UAV while navigating.
 \chapter{Problem Statement and Objectives}
 
+This project aims to develop a low-cost UAV capable of autonomous 3D indoor mapping. 
 \chapter{Methodology}
+This project can be divided into three milestones; flight controller design and fabrication, integration of SLAM, and
+finally, integration of autonomous navigation system.
+\section{Flight Controller Design and Fabrication}
+Cost, size, and weight will be the primary deciding factors for the flight controller design. For the base flight
+controller, the MultiWii will be implemented as demonstrated by \cite{MultiwiiFC}. This allows for a much more flexible
+and cost effective solution. The microcontroller to be used will be the Arduino Pro Mini, which provides a small
+footprint. It will then be wired to send pwm signals to a 4-in-1 ESC board. A 4-in-1 ESC board was selected over
+individual ESC modules because the board is lighter, smaller, and is less costly. Furthermore, less wiring will need to
+be done, leading to easier mass production. The motors will be 2400KV brushless motors suitable for 5 inch propellers.
+For the inertial measurement unit, the MultiWii will be connected to an MPU6050 via an I2C interface. The MPU6050 includes
+both an accelerometer and a gyroscope. The arduino will be receiving instructions from a Raspberry Pi 4. There are two
+options for communication between the Raspberry Pi and the Arduino; single wire PPM and PWM over multiple wires. Both
+methods will be tested to find the method with the most stable signal. The Raspberry Pi will also be receiving data from
+a GY-87 module, which contains an accelerometer, gyroscope, barometer, and magnetometer which are all accessible via
+I2C protocol. This will aid the UAV with regards to SLAM and navigation. Aside from this, the Raspberry Pi will also be
+connected to a GPS module which, while inoperable during indoor operations, will prove to be essential during outdoor
+missions especially when locating the UAV. For communication, the flight controller will be employing a LoRa RA-02 module,
+which was chosen for its long range capabilities. The LoRa module will be communicating with a similar module connected to
+the base station. A diagram of the system may be seen in figure \ref{fig:final_FC_diagram}. The goal of this milestone is
+to design and fabricate a Raspberry Pi hat that contains all the necessary components of the flight controller.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/final_FC diagram.png}
+    \caption{Flight controller diagram with ESC module and motors}
+    \label{fig:final_FC_diagram}
+\end{figure}
+\newline
+\newline
+The Raspberry Pi will be running the latest version of Raspbian. It will then be using ROS (robot operating system) for
+the UAV's processes. ROS is an open source robotics framework that was designed to be modular and flexible, taking into
+account the multitude of processes that a robot needs to run. In the case of this project, the modularity allows for
+easier integration of different modules and functions. This in turn means that the source code will be easier to maintain
+as more and more functions are added.
+\newline
+\newline
+Once the flight controller has been assembled, it then needs to be calibrated and tuned. Fortunately, the MultiWii also
+comes with a GUI that allows users to calibrate and tune the sensors and PID values. The gyroscope and accelerometer may
+be calibrated automatically via the GUI however the PID values must be calibrated manually. Typical heuristic methods
+involve test flights where a pilot performs sharp maneuvers in order to see how the UAV reacts. They then come back to the
+interface and adjust the PID values based on trial and error. Fortunately, \cite{Tuning2017} provides a more robust method
+of tuning. After calibration and tuning, the UAV should function similarly to an off-the-shelf quadcopter.
+\section{SLAM Integration}
+There are two outstanding choices for SLAM; Orb SLAM 2 \cite{OrbSlam2} and SVO \cite{SVO2017}. Orb SLAM 2 provides a
+powerful and fast out-of-the-box solution for SLAM however due to the processing power restrictions, SVO proves to be the
+more ideal system. Luckily, the developers have already provided a means to integrate SVO into the ROS framework.
+Therefore, applying SVO to the UAV should be a trivial matter. Data from SVO will then be communicated via the RA-02
+module back to the base station so that the pilot may have a real-time view of how the mapping operation is progressing.
+\section{Autonomous Navigation and Exploration}
 
 \chapter{Timeline}
 \section{Gantt Chart}
 \section{Halfway Deliverables}
 
-\chapter{Experimentation and Results}
 \printbibliography[
 heading=bibintoc,
 title={Bibliography}
