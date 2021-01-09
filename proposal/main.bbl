@@ -17,6 +17,88 @@
 \endgroup
 
 \datalist[entry]{none/global//global/global}
+  \entry{ICNSC2010}{inproceedings}{}
+    \name{author}{5}{}{%
+      {{hash=KX}{%
+         family={Kuai},
+         familyi={K\bibinitperiod},
+         given={X.},
+         giveni={X\bibinitperiod},
+      }}%
+      {{hash=YK}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={K.},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=FS}{%
+         family={Fu},
+         familyi={F\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=ZR}{%
+         family={Zheng},
+         familyi={Z\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=YG}{%
+         family={Yang},
+         familyi={Y\bibinitperiod},
+         given={G.},
+         giveni={G\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{KXYKFSZRYG1}
+    \strng{fullhash}{KXYKFSZRYG1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{2010 International Conference on Networking, Sensing and
+  Control (ICNSC)}
+    \field{pages}{128\bibrangedash 132}
+    \field{title}{Simultaneous localization and mapping (SLAM) for indoor
+  autonomous mobile robot navigation in wireless sensor networks}
+    \field{year}{2010}
+  \endentry
+
+  \entry{AutoFunc}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=MTT}{%
+         family={Mac},
+         familyi={M\bibinitperiod},
+         given={T.\bibnamedelima T.},
+         giveni={T\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=CC}{%
+         family={Copot},
+         familyi={C\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=TDT}{%
+         family={Tran},
+         familyi={T\bibinitperiod},
+         given={D.\bibnamedelima T.},
+         giveni={D\bibinitperiod\bibinitdelim T\bibinitperiod},
+      }}%
+      {{hash=DKR}{%
+         family={De\bibnamedelima Keyser},
+         familyi={D\bibinitperiod\bibinitdelim K\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{MTTCCTDTDKR1}
+    \strng{fullhash}{MTTCCTDTDKR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{booktitle}{Robotics and Autonomous Systems, vol. 86}
+    \field{pages}{13\bibrangedash 28}
+    \field{title}{Heuristic approaches in robot path planning: A survey}
+    \field{year}{2016}
+  \endentry
+
   \entry{Dowling2018}{inproceedings}{}
     \name{author}{7}{}{%
       {{hash=DL}{%
@@ -280,7 +362,7 @@
   \entry{SVO2017}{inproceedings}{}
     \name{author}{5}{}{%
       {{hash=FC}{%
-         family={Firster},
+         family={Forster},
          familyi={F\bibinitperiod},
          given={C.},
          giveni={C\bibinitperiod},
