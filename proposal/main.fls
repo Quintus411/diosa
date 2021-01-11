@@ -931,11 +931,11 @@ INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmsy10.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/cm/cmex10.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
+INPUT c:/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
+INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
+INPUT c:/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
+INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 OUTPUT c:/Users/asus/Documents/GitHub/diosa/proposal/main.toc
-INPUT c:/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
-INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
-INPUT c:/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmb7t.vf
-INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmb8r.tfm
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/main.lof
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/main.lof
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/main.lof
@@ -998,6 +998,11 @@ INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/final_FC diagram.png
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/final_FC diagram.png
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/final_FC diagram.png
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/final_FC diagram.png
+INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/board.PNG
+INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/board.PNG
+INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/board.PNG
+INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/board.PNG
+INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/board.PNG
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/gantt_chart.PNG
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/gantt_chart.PNG
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/gantt_chart.PNG
