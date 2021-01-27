@@ -1009,7 +1009,6 @@ INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/gantt_chart.PNG
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/gantt_chart.PNG
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/images/gantt_chart.PNG
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmri7t.tfm
-INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm
 INPUT c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 INPUT c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 INPUT c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
@@ -1023,14 +1022,15 @@ INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam5.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm10.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm7.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/public/amsfonts/symbols/msbm5.tfm
+INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmrc7t.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmr7t.vf
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmri7t.vf
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmri8r.tfm
-INPUT c:/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
-INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT c:/texlive/2020/texmf-dist/fonts/vf/adobe/courier/pcrr7t.vf
 INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/courier/pcrr8r.tfm
+INPUT c:/texlive/2020/texmf-dist/fonts/vf/adobe/times/ptmrc7t.vf
+INPUT c:/texlive/2020/texmf-dist/fonts/tfm/adobe/times/ptmr8r.tfm
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/main.aux
 INPUT c:/Users/asus/Documents/GitHub/diosa/proposal/main.run.xml
 OUTPUT c:/Users/asus/Documents/GitHub/diosa/proposal/main.run.xml

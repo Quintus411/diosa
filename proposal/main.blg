@@ -19,47 +19,54 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: main-blx.bib
 Database file #2: Proposal_Part1.bib
+Warning--I didn't find a database entry for "OrbSlam2"
+Warning--I didn't find a database entry for "OrbSlam1"
+Warning--I didn't find a database entry for "FastSlam2"
+Warning--I didn't find a database entry for "SVO2017"
+Warning--I didn't find a database entry for "Fuel2020"
+Warning--I didn't find a database entry for "ProbNav"
 Biblatex version: 3.15
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 14 entries,
+You've used 8 entries,
             6393 wiz_defined-function locations,
-            1283 strings with 11319 characters,
-and the built_in function-call counts, 87442 in all, are:
-= -- 5896
-> -- 2140
-< -- 355
-+ -- 2838
-- -- 1073
-* -- 6295
-:= -- 10515
+            1261 strings with 10370 characters,
+and the built_in function-call counts, 49924 in all, are:
+= -- 3369
+> -- 1310
+< -- 197
++ -- 1690
+- -- 703
+* -- 3590
+:= -- 6148
 add.period$ -- 0
-call.type$ -- 14
-change.case$ -- 91
-chr.to.int$ -- 59
-cite$ -- 26
-duplicate$ -- 9661
-empty$ -- 7211
-format.name$ -- 1179
-if$ -- 17210
+call.type$ -- 8
+change.case$ -- 49
+chr.to.int$ -- 55
+cite$ -- 14
+duplicate$ -- 5294
+empty$ -- 4079
+format.name$ -- 649
+if$ -- 9765
 int.to.chr$ -- 0
-int.to.str$ -- 26
+int.to.str$ -- 14
 missing$ -- 0
-newline$ -- 465
-num.names$ -- 494
-pop$ -- 4859
+newline$ -- 263
+num.names$ -- 266
+pop$ -- 2645
 preamble$ -- 1
-purify$ -- 226
+purify$ -- 124
 quote$ -- 0
-skip$ -- 2512
+skip$ -- 1402
 stack$ -- 0
-substring$ -- 9569
-swap$ -- 1885
-text.length$ -- 410
+substring$ -- 5632
+swap$ -- 1040
+text.length$ -- 236
 text.prefix$ -- 0
 top$ -- 1
-type$ -- 464
+type$ -- 260
 warning$ -- 0
-while$ -- 1515
+while$ -- 864
 width$ -- 0
-write$ -- 452
+write$ -- 256
+(There were 6 warnings)
