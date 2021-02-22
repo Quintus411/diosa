@@ -62,98 +62,133 @@
     \field{year}{2010}
   \endentry
 
-  \entry{AutoFunc}{inproceedings}{}
-    \name{author}{4}{}{%
-      {{hash=MTT}{%
-         family={Mac},
-         familyi={M\bibinitperiod},
-         given={T.\bibnamedelima T.},
-         giveni={T\bibinitperiod\bibinitdelim T\bibinitperiod},
+  \entry{diosa2020}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=dlPJF}{%
+         prefix={de\bibnamedelima la},
+         prefixi={d\bibinitperiod\bibinitdelim l\bibinitperiod},
+         family={Pena\bibnamedelima Jr.},
+         familyi={P\bibinitperiod\bibinitdelim J\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
       }}%
-      {{hash=CC}{%
-         family={Copot},
-         familyi={C\bibinitperiod},
-         given={C.},
-         giveni={C\bibinitperiod},
-      }}%
-      {{hash=TDT}{%
-         family={Tran},
-         familyi={T\bibinitperiod},
-         given={D.\bibnamedelima T.},
-         giveni={D\bibinitperiod\bibinitdelim T\bibinitperiod},
-      }}%
-      {{hash=DKR}{%
-         family={De\bibnamedelima Keyser},
-         familyi={D\bibinitperiod\bibinitdelim K\bibinitperiod},
-         given={R.},
-         giveni={R\bibinitperiod},
+      {{hash=PJ}{%
+         family={Pechardo},
+         familyi={P\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
       }}%
     }
-    \strng{namehash}{MTTCCTDTDKR1}
-    \strng{fullhash}{MTTCCTDTDKR1}
+    \strng{namehash}{PJFdlPJ1}
+    \strng{fullhash}{PJFdlPJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+  \field{howpublished}{\url{http://epublications.marquette.edu/theses_open/370}}
+    \field{pages}{2\bibrangedash 5}
+    \field{title}{Design and Fabrication of a Rotary Wing UAV Using Low-Cost
+  Materials}
+  \endentry
+
+  \entry{zimmerman2016}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=ZN}{%
+         family={Zimmerman},
+         familyi={Z\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{ZN1}
+    \strng{fullhash}{ZN1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{booktitle}{Robotics and Autonomous Systems, vol. 86}
+  \field{howpublished}{\url{http://epublications.marquette.edu/theses_open/370}}
     \field{pages}{13\bibrangedash 28}
-    \field{title}{Heuristic approaches in robot path planning: A survey}
+    \field{title}{Flight Control and Hardware Design of MultiRotor Systems}
     \field{year}{2016}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{Dowling2018}{inproceedings}{}
-    \name{author}{7}{}{%
-      {{hash=DL}{%
-         family={Dowling},
-         familyi={D\bibinitperiod},
-         given={L.},
-         giveni={L\bibinitperiod},
+  \entry{fcDesign2019}{article}{}
+    \name{author}{4}{}{%
+      {{hash=SA}{%
+         family={Sigalos},
+         familyi={S\bibinitperiod},
+         given={Athanasios},
+         giveni={A\bibinitperiod},
       }}%
-      {{hash=PT}{%
-         family={Poblete},
+      {{hash=PM}{%
+         family={Papoutsidakis},
          familyi={P\bibinitperiod},
-         given={T.},
-         giveni={T\bibinitperiod},
+         given={Michail},
+         giveni={M\bibinitperiod},
       }}%
-      {{hash=HI}{%
-         family={Hook},
-         familyi={H\bibinitperiod},
-         given={I.},
-         giveni={I\bibinitperiod},
+      {{hash=CA}{%
+         family={Chatzopoulos},
+         familyi={C\bibinitperiod},
+         given={Abraham},
+         giveni={A\bibinitperiod},
       }}%
-      {{hash=TH}{%
-         family={Tang},
-         familyi={T\bibinitperiod},
-         given={H.},
-         giveni={H\bibinitperiod},
+      {{hash=PD}{%
+         family={Piromalis},
+         familyi={P\bibinitperiod},
+         given={Dimitrios},
+         giveni={D\bibinitperiod},
       }}%
-      {{hash=TY}{%
-         family={Tan},
-         familyi={T\bibinitperiod},
-         given={Y.},
-         giveni={Y\bibinitperiod},
+    }
+    \strng{namehash}{SAPMCAPD1}
+    \strng{fullhash}{SAPMCAPD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.33564/IJEAST.2019.v04i05.067
+    \endverb
+    \field{pages}{463\bibrangedash 470}
+    \field{title}{DESIGN OF A FLIGHT CONTROLLER AND PERIPHERALS FOR A
+  QUADCOPTER}
+    \field{volume}{4}
+    \field{journaltitle}{International Journal of Engineering Applied Sciences
+  and Technology}
+    \field{month}{09}
+    \field{year}{2019}
+  \endentry
+
+  \entry{LiPoly}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=SB}{%
+         family={Scrosati},
+         familyi={S\bibinitperiod},
+         given={B.},
+         giveni={B\bibinitperiod},
       }}%
-      {{hash=GW}{%
-         family={Glenn},
-         familyi={G\bibinitperiod},
+      {{hash=AKM}{%
+         family={Abraham},
+         familyi={A\bibinitperiod},
+         given={K.\bibnamedelima M.},
+         giveni={K\bibinitperiod\bibinitdelim M\bibinitperiod},
+      }}%
+      {{hash=SW}{%
+         family={Schalkwijk},
+         familyi={S\bibinitperiod},
          given={W.},
          giveni={W\bibinitperiod},
       }}%
-      {{hash=UR}{%
-         family={Unnithan},
-         familyi={U\bibinitperiod},
-         given={R.},
-         giveni={R\bibinitperiod},
+      {{hash=HJ}{%
+         family={Hassoun},
+         familyi={H\bibinitperiod},
+         given={J.},
+         giveni={J\bibinitperiod},
       }}%
     }
-    \keyw{indoor mapping, autonomous navigation}
-    \strng{namehash}{DLPTHITHTYGWUR1}
-    \strng{fullhash}{DLPTHITHTYGWUR1}
+    \strng{namehash}{SBAKMSWHJ1}
+    \strng{fullhash}{SBAKMSWHJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{issn}{0193-6530}
-    \field{title}{Accurate indoor mapping using an autonomous unmanned aerial
-  vehicle}
-    \field{year}{2018}
-    \warn{\item Invalid format of field 'month'}
+    \field{isbn}{1118615395}
+    \field{pages}{44}
+    \field{title}{Lithium Batteries: Advanced Technologies and Applications}
+    \field{year}{2013}
   \endentry
 
   \entry{MultiwiiFC}{misc}{}
@@ -223,6 +258,101 @@
     \field{title}{Project Redtail}
     \field{year}{2017}
     \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Dowling2018}{inproceedings}{}
+    \name{author}{7}{}{%
+      {{hash=DL}{%
+         family={Dowling},
+         familyi={D\bibinitperiod},
+         given={L.},
+         giveni={L\bibinitperiod},
+      }}%
+      {{hash=PT}{%
+         family={Poblete},
+         familyi={P\bibinitperiod},
+         given={T.},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=HI}{%
+         family={Hook},
+         familyi={H\bibinitperiod},
+         given={I.},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=TH}{%
+         family={Tang},
+         familyi={T\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=TY}{%
+         family={Tan},
+         familyi={T\bibinitperiod},
+         given={Y.},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=GW}{%
+         family={Glenn},
+         familyi={G\bibinitperiod},
+         given={W.},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=UR}{%
+         family={Unnithan},
+         familyi={U\bibinitperiod},
+         given={R.},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \keyw{indoor mapping, autonomous navigation}
+    \strng{namehash}{DLPTHITHTYGWUR1}
+    \strng{fullhash}{DLPTHITHTYGWUR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{issn}{0193-6530}
+    \field{title}{Accurate indoor mapping using an autonomous unmanned aerial
+  vehicle}
+    \field{year}{2018}
+    \warn{\item Invalid format of field 'month'}
+  \endentry
+
+  \entry{Navio2}{inproceedings}{}
+    \name{author}{1}{}{%
+      {{hash=E}{%
+         family={Emlid},
+         familyi={E\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{E2}
+    \strng{fullhash}{E2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{https://docs.emlid.com/navio2/}}
+    \field{title}{Navio2}
+  \endentry
+
+  \entry{AirPy}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=SF}{%
+         family={Scimia},
+         familyi={S\bibinitperiod},
+         given={F.},
+         giveni={F\bibinitperiod},
+      }}%
+      {{hash=MC}{%
+         family={Maugeri},
+         familyi={M\bibinitperiod},
+         given={C.},
+         giveni={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SFMC1}
+    \strng{fullhash}{SFMC1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{howpublished}{\url{http://www.air-py.com/}}
+    \field{title}{AirPy: Py-Board Based Flight Controller}
   \endentry
 
   \entry{Tuning2017}{inproceedings}{}

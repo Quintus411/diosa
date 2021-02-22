@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.22)  28 JAN 2021 09:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.22)  12 FEB 2021 08:29
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -877,7 +877,11 @@ Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 56.
 (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd
 File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
-) (c:/Users/asus/Documents/GitHub/diosa/proposal/main.aux)
+) (c:/Users/asus/Documents/GitHub/diosa/proposal/main.aux
+
+LaTeX Warning: Label `fig:motor_signals' multiply defined.
+
+)
 \openout1 = `main.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
@@ -969,7 +973,7 @@ Package biblatex Info: ... file 'main.bbl' found.
  (c:/Users/asus/Documents/GitHub/diosa/proposal/main.bbl
 
 Package biblatex Warning: BibTeX reported the following issues
-(biblatex)                with 'Dowling2018':
+(biblatex)                with 'zimmerman2016':
 (biblatex)                - Invalid format of field 'month'.
 
 
@@ -985,6 +989,11 @@ Package biblatex Warning: BibTeX reported the following issues
 
 Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with 'Redtail2017':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'Dowling2018':
 (biblatex)                - Invalid format of field 'month'.
 
 
@@ -1033,292 +1042,316 @@ Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
 ]
 Chapter 1.
+<images/droneExamples.PNG, id=24, 397.485pt x 289.08pt>
+File: images/droneExamples.PNG Graphic file (type png)
+<use images/droneExamples.PNG>
+Package pdftex.def Info: images/droneExamples.PNG  used on input line 133.
+(pdftex.def)             Requested size: 198.742pt x 144.53964pt.
+<images/fc_diag.PNG, id=26, 418.56375pt x 251.7405pt>
+File: images/fc_diag.PNG Graphic file (type png)
+<use images/fc_diag.PNG>
+Package pdftex.def Info: images/fc_diag.PNG  used on input line 141.
+(pdftex.def)             Requested size: 292.99261pt x 176.21713pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 122--139
-
- []
+LaTeX Warning: `h' float specifier changed to `ht'.
 
 
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
  [1
 
-]
+ <c:/Users/asus/Documents/GitHub/diosa/proposal/images/droneExamples.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 158--185
 
-LaTeX Warning: Citation 'OrbSlam2' on page 2 undefined on input line 153.
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--185
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 158--185
+
+ []
 
 
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [2]
+ [2 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/fc_diag.PNG>]
+<images/phawkToPi.PNG, id=36, 454.0965pt x 258.9675pt>
+File: images/phawkToPi.PNG Graphic file (type png)
+<use images/phawkToPi.PNG>
+Package pdftex.def Info: images/phawkToPi.PNG  used on input line 197.
+(pdftex.def)             Requested size: 227.04768pt x 129.48341pt.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [3]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [4 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/phawkToPi.PNG>]
 Chapter 2.
-<images/base_FC_diagram.png, id=31, 469.755pt x 207.8967pt>
-File: images/base_FC_diagram.png Graphic file (type png)
-<use images/base_FC_diagram.png>
-Package pdftex.def Info: images/base_FC_diagram.png  used on input line 169.
-(pdftex.def)             Requested size: 234.87692pt x 103.94809pt.
-<images/fc_with_rpi.png, id=32, 623.4492pt x 351.9549pt>
-File: images/fc_with_rpi.png Graphic file (type png)
-<use images/fc_with_rpi.png>
-Package pdftex.def Info: images/fc_with_rpi.png  used on input line 188.
-(pdftex.def)             Requested size: 311.72383pt x 175.97702pt.
+<images/multiwii diagram.PNG, id=44, 740.7675pt x 428.802pt>
+File: images/multiwii diagram.PNG Graphic file (type png)
+<use images/multiwii diagram.PNG>
+Package pdftex.def Info: images/multiwii diagram.PNG  used on input line 231.
+(pdftex.def)             Requested size: 370.38284pt x 214.40047pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 217--247
+
+ []
+
 
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [3
+ [5
 
- <c:/Users/asus/Documents/GitHub/diosa/proposal/images/base_FC_diagram.png>]
+]
+<images/zimmerman_high_level.PNG, id=48, 547.44525pt x 384.83775pt>
+File: images/zimmerman_high_level.PNG Graphic file (type png)
+<use images/zimmerman_high_level.PNG>
+Package pdftex.def Info: images/zimmerman_high_level.PNG  used on input line 258.
+(pdftex.def)             Requested size: 246.34808pt x 173.17538pt.
+<images/fc_block_diagram_detailed.PNG, id=49, 425.1885pt x 297.5115pt>
+File: images/fc_block_diagram_detailed.PNG Graphic file (type png)
+<use images/fc_block_diagram_detailed.PNG>
+Package pdftex.def Info: images/fc_block_diagram_detailed.PNG  used on input line 259.
+(pdftex.def)             Requested size: 191.33305pt x 133.87894pt.
+<images/Navio2Elements_main.png, id=50, 699.61375pt x 803.0pt>
+File: images/Navio2Elements_main.png Graphic file (type png)
+<use images/Navio2Elements_main.png>
+Package pdftex.def Info: images/Navio2Elements_main.png  used on input line 274.
+(pdftex.def)             Requested size: 209.88574pt x 240.90186pt.
 
-LaTeX Warning: Citation 'OrbSlam1' on page 4 undefined on input line 197.
-
-<images/orbslam1_feat_tracking.PNG, id=36, 481.8pt x 177.66376pt>
-File: images/orbslam1_feat_tracking.PNG Graphic file (type png)
-<use images/orbslam1_feat_tracking.PNG>
-Package pdftex.def Info: images/orbslam1_feat_tracking.PNG  used on input line 202.
-(pdftex.def)             Requested size: 240.8994pt x 88.83165pt.
-
-LaTeX Warning: Citation 'OrbSlam1' on page 4 undefined on input line 203.
-
-
-LaTeX Warning: Citation 'OrbSlam1' on page 4 undefined on input line 203.
-
-
-LaTeX Warning: Citation 'OrbSlam2' on page 4 undefined on input line 211.
-
-<images/orbslam2_recon.PNG, id=38, 372.1905pt x 237.88875pt>
-File: images/orbslam2_recon.PNG Graphic file (type png)
-<use images/orbslam2_recon.PNG>
-Package pdftex.def Info: images/orbslam2_recon.PNG  used on input line 217.
-(pdftex.def)             Requested size: 186.09479pt x 118.94408pt.
-
-LaTeX Warning: Citation 'OrbSlam2' on page 4 undefined on input line 218.
-
-
-LaTeX Warning: Citation 'OrbSlam2' on page 4 undefined on input line 218.
-
-
-LaTeX Warning: Citation 'FastSlam2' on page 4 undefined on input line 227.
-
-<images/fastslam2.PNG, id=39, 592.01175pt x 290.88675pt>
-File: images/fastslam2.PNG Graphic file (type png)
-<use images/fastslam2.PNG>
-Package pdftex.def Info: images/fastslam2.PNG  used on input line 232.
-(pdftex.def)             Requested size: 296.00514pt x 145.44301pt.
-
-LaTeX Warning: Citation 'FastSlam2' on page 4 undefined on input line 234.
-
-
-LaTeX Warning: Citation 'FastSlam2' on page 4 undefined on input line 234.
-
-
-LaTeX Warning: Citation 'OrbSlam1' on page 4 undefined on input line 237.
-
-
-LaTeX Warning: Citation 'OrbSlam2' on page 4 undefined on input line 237.
-
-
-LaTeX Warning: Citation 'SVO2017' on page 4 undefined on input line 246.
-
-<images/SVO_CPU_time.jpg, id=40, 595.47469pt x 89.58469pt>
-File: images/SVO_CPU_time.jpg Graphic file (type jpg)
-<use images/SVO_CPU_time.jpg>
-Package pdftex.def Info: images/SVO_CPU_time.jpg  used on input line 254.
-(pdftex.def)             Requested size: 297.7366pt x 44.79222pt.
-
-LaTeX Warning: Citation 'SVO2017' on page 4 undefined on input line 255.
-
-
-LaTeX Warning: Citation 'SVO2017' on page 4 undefined on input line 255.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--258
+Underfull \hbox (badness 10000) in paragraph at lines 248--278
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 197--258
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 197--258
-
- []
-
+ [6 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/multiwii diagram.PNG>]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
+<images/motor_signals.PNG, id=55, 584.1825pt x 380.622pt>
+File: images/motor_signals.PNG Graphic file (type png)
+<use images/motor_signals.PNG>
+Package pdftex.def Info: images/motor_signals.PNG  used on input line 290.
+(pdftex.def)             Requested size: 292.09053pt x 190.31052pt.
+<images/quad_ref_frame.PNG, id=56, 352.31625pt x 240.9pt>
+File: images/quad_ref_frame.PNG Graphic file (type png)
+<use images/quad_ref_frame.PNG>
+Package pdftex.def Info: images/quad_ref_frame.PNG  used on input line 310.
+(pdftex.def)             Requested size: 176.15768pt x 120.44969pt.
 
-Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+Underfull \hbox (badness 10000) in paragraph at lines 280--318
 
- [4 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/fc_with_rpi.png>]
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-Overfull \vbox (7.46777pt too high) has occurred while \output is active []
-
- [5 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/orbslam1_feat_tracking.PNG> <c:/Users/asus/Documents/GitHub/diosa/proposal/images/orbslam2_recon.PNG>]
-
-LaTeX Warning: Citation 'Fuel2020' on page 6 undefined on input line 268.
-
-<images/fueltest.PNG, id=49, 367.3725pt x 171.64125pt>
-File: images/fueltest.PNG Graphic file (type png)
-<use images/fueltest.PNG>
-Package pdftex.def Info: images/fueltest.PNG  used on input line 279.
-(pdftex.def)             Requested size: 183.68579pt x 85.8204pt.
-
-LaTeX Warning: Citation 'Fuel2020' on page 6 undefined on input line 280.
+ []
 
 
-LaTeX Warning: Citation 'Fuel2020' on page 6 undefined on input line 280.
-
-
-LaTeX Warning: Citation 'ProbNav' on page 6 undefined on input line 285.
-
-<images/dep_frontier.PNG, id=50, 289.68225pt x 216.20775pt>
-File: images/dep_frontier.PNG Graphic file (type png)
-<use images/dep_frontier.PNG>
-Package pdftex.def Info: images/dep_frontier.PNG  used on input line 294.
-(pdftex.def)             Requested size: 144.84076pt x 108.1036pt.
-<images/dep_dep.PNG, id=51, 289.68225pt x 217.41225pt>
-File: images/dep_dep.PNG Graphic file (type png)
-<use images/dep_dep.PNG>
-Package pdftex.def Info: images/dep_dep.PNG  used on input line 295.
-(pdftex.def)             Requested size: 144.84076pt x 108.70584pt.
-
-LaTeX Warning: Citation 'ProbNav' on page 6 undefined on input line 297.
-
-
-LaTeX Warning: Citation 'ProbNav' on page 6 undefined on input line 297.
-
-
-Overfull \vbox (7.46777pt too high) has occurred while \output is active []
-
- [6 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/fastslam2.PNG> <c:/Users/asus/Documents/GitHub/diosa/proposal/images/SVO_CPU_time.jpg>]
 Overfull \vbox (7.31458pt too high) has occurred while \output is active []
 
- [7 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/fueltest.PNG>]
+ [7 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/zimmerman_high_level.PNG> <c:/Users/asus/Documents/GitHub/diosa/proposal/images/fc_block_diagram_detailed.PNG>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [8 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/dep_frontier.PNG> <c:/Users/asus/Documents/GitHub/diosa/proposal/images/dep_dep.PNG>]
+ [8 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/Navio2Elements_main.png>]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [9 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/motor_signals.PNG> <c:/Users/asus/Documents/GitHub/diosa/proposal/images/quad_ref_frame.PNG>]
+<images/basePID.PNG, id=74, 329.43076pt x 177.66376pt>
+File: images/basePID.PNG Graphic file (type png)
+<use images/basePID.PNG>
+Package pdftex.def Info: images/basePID.PNG  used on input line 331.
+(pdftex.def)             Requested size: 164.71497pt x 88.83165pt.
+<images/controlSysExpanded.PNG, id=75, 254.75175pt x 156.585pt>
+File: images/controlSysExpanded.PNG Graphic file (type png)
+<use images/controlSysExpanded.PNG>
+Package pdftex.def Info: images/controlSysExpanded.PNG  used on input line 343.
+(pdftex.def)             Requested size: 165.58665pt x 101.77904pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 323--361
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [10 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/basePID.PNG>]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [11 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/controlSysExpanded.PNG>]
 Chapter 3.
 
+Underfull \hbox (badness 10000) in paragraph at lines 364--373
+
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 375.
+(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [9
+ [12
 
 ]
 Chapter 4.
-<images/final_FC diagram.png, id=69, 578.16pt x 306.6657pt>
-File: images/final_FC diagram.png Graphic file (type png)
-<use images/final_FC diagram.png>
-Package pdftex.def Info: images/final_FC diagram.png  used on input line 328.
-(pdftex.def)             Requested size: 289.07928pt x 153.33246pt.
-<images/board.PNG, id=70, 699.21225pt x 363.15675pt>
-File: images/board.PNG Graphic file (type png)
-<use images/board.PNG>
-Package pdftex.def Info: images/board.PNG  used on input line 340.
-(pdftex.def)             Requested size: 349.60526pt x 181.57793pt.
+<images/FC diagram_finalna.png, id=89, 379.4175pt x 306.6657pt>
+File: images/FC diagram_finalna.png Graphic file (type png)
+<use images/FC diagram_finalna.png>
+Package pdftex.def Info: images/FC diagram_finalna.png  used on input line 385.
+(pdftex.def)             Requested size: 189.70828pt x 153.33246pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 309--351
+Underfull \hbox (badness 10000) in paragraph at lines 389--406
 
  []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 309--351
-
- []
-
-
-Overfull \vbox (7.46777pt too high) has occurred while \output is active []
-
- [10
-
-]
-Overfull \vbox (7.46777pt too high) has occurred while \output is active []
-
- [11 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/final_FC diagram.png> <c:/Users/asus/Documents/GitHub/diosa/proposal/images/board.PNG>]
-Overfull \vbox (7.46777pt too high) has occurred while \output is active []
-
- [12]
-Chapter 5.
-
-LaTeX Warning: Citation 'OrbSlam2' on page 13 undefined on input line 362.
-
-
-LaTeX Warning: Citation 'SVO2017' on page 13 undefined on input line 362.
 
 
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
  [13
 
-]
-
-LaTeX Warning: Citation 'Fuel2020' on page 14 undefined on input line 368.
-
-
-LaTeX Warning: Citation 'ProbNav' on page 14 undefined on input line 369.
-
-
+ <c:/Users/asus/Documents/GitHub/diosa/proposal/images/FC diagram_finalna.png>]
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
  [14]
-Chapter 6.
-<images/gantt_chart.PNG, id=88, 681.747pt x 125.268pt>
-File: images/gantt_chart.PNG Graphic file (type png)
-<use images/gantt_chart.PNG>
-Package pdftex.def Info: images/gantt_chart.PNG  used on input line 378.
-(pdftex.def)             Requested size: 340.87265pt x 62.63383pt.
+File: images/motor_signals.PNG Graphic file (type png)
+<use images/motor_signals.PNG>
+Package pdftex.def Info: images/motor_signals.PNG  used on input line 428.
+(pdftex.def)             Requested size: 292.09053pt x 190.31052pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--470
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 432--470
+
+ []
+
 
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [15
+ [15]
+<images/error diagram.PNG, id=100, 560.0925pt x 355.3275pt>
+File: images/error diagram.PNG Graphic file (type png)
+<use images/error diagram.PNG>
+Package pdftex.def Info: images/error diagram.PNG  used on input line 473.
+(pdftex.def)             Requested size: 280.04556pt x 177.6633pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [16]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [17 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/error diagram.PNG>]
+Chapter 5.
+<images/final_FC diagram.png, id=108, 578.16pt x 306.6657pt>
+File: images/final_FC diagram.png Graphic file (type png)
+<use images/final_FC diagram.png>
+Package pdftex.def Info: images/final_FC diagram.png  used on input line 499.
+(pdftex.def)             Requested size: 289.07928pt x 153.33246pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 479--516
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 479--516
+
+ []
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [18
+
+]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [19 <c:/Users/asus/Documents/GitHub/diosa/proposal/images/final_FC diagram.png>]
+Chapter 6.
+<images/gantt_chart.PNG, id=115, 681.747pt x 125.268pt>
+File: images/gantt_chart.PNG Graphic file (type png)
+<use images/gantt_chart.PNG>
+Package pdftex.def Info: images/gantt_chart.PNG  used on input line 521.
+(pdftex.def)             Requested size: 409.05135pt x 75.16136pt.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [20
 
  <c:/Users/asus/Documents/GitHub/diosa/proposal/images/gantt_chart.PNG>]
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [16]
-LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 414.
+ [21]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 543.
  (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
 File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
 )
-Overfull \hbox (2.66777pt too wide) in paragraph at lines 417--417
+Overfull \hbox (7.66777pt too wide) in paragraph at lines 546--546
 []\OT1/ptm/m/n/10 Electronoobs, \OT1/ptm/m/it/10 Ar-duino Mul-ti-Wii Flight Con-troller\OT1/ptm/m/n/10 , $\OT1/pcr/m/n/10 http : / / www . electronoobs . com / eng _ robotica _
  []
 
 
 Overfull \vbox (7.46777pt too high) has occurred while \output is active []
 
- [17
+ [22
 
 ] (c:/Users/asus/Documents/GitHub/diosa/proposal/main.aux)
 
-LaTeX Warning: There were undefined references.
-
-
-Package biblatex Warning: Please (re)run BibTeX on the file(s):
-(biblatex)                main
-(biblatex)                and rerun LaTeX afterwards.
+LaTeX Warning: There were multiply-defined labels.
 
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 46306 strings out of 479382
- 1181430 string characters out of 5873307
- 1950203 words of memory out of 5000000
- 62781 multiletter control sequences out of 15000+600000
- 429709 words of font info for 84 fonts, out of 8000000 for 9000
+ 46369 strings out of 479382
+ 1183175 string characters out of 5873307
+ 1951427 words of memory out of 5000000
+ 62837 multiletter control sequences out of 15000+600000
+ 431649 words of font info for 87 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 94i,8n,98p,1899b,2810s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on c:/Users/asus/Documents/GitHub/diosa/proposal/main.pdf (22 pages, 2223776 bytes).
+ 94i,9n,98p,1899b,2829s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on c:/Users/asus/Documents/GitHub/diosa/proposal/main.pdf (27 pages, 2684962 bytes).
 PDF statistics:
- 120 PDF objects out of 1000 (max. 8388607)
- 70 compressed objects within 1 object stream
+ 156 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 88 words of extra memory for PDF output out of 10000 (max. 10000000)
 

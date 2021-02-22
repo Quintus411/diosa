@@ -61,7 +61,7 @@
 %% 	uct10_new.clo, uct11_new.clo, uct12_new.clo, upeeei.cls, upeeei.layout
 %%
 %% Place project title here
-\title{Autonomous 3D Indoor Mapping Using Unmanned Aerial Vehicles} 
+\title{Design of a Raspberry Pi Based Flight Controller for Multirotor Unmanned Aerial Vehicles} 
 
 %%
 %% Author information
@@ -97,16 +97,18 @@ Roxanne P. De Leon, ECE, MTM
 %Your abstract goes here...
 
 
-Multirotor unmanned aerial vehicles (or drones as they are more commonly known) are quick and versatile, often 
-proving to be a great asset for various purposes. It is because of this that a host of flight controllers
-have been developed using open-source technology
+Multirotor unmanned aerial vehicles (or drones) are quick and versatile, often 
+proving to be a great asset for various purposes. It is because of this that drones have been integrated into
+more industries and fields of study. This necessitates the development of flight controllers that are
+cost-effective, versatile and easy to develop. Meanwhile, the Raspberry Pi has shown steady development, quickly
+growing more powerful and versatile with each model released. It allows for rapid prototyping while remaining
+small and relatively inexpensive, making it a good fit to be a flight controller. Despite this, there are no
+publicly available open source flight controllers that are based solely on the Raspberry Pi.
+The goal of this project is to develop a flight controller that is readily compatible with the Raspberry Pi, 
+thereby taking advantage of the Raspberry Pi's versatility and low cost. This is in line with the Advanced 
+Defense and Aerospace Materials (ADAM) R\&D's Project Diosa, where the goal is to develop a multirotor UAV using 
+low cost materials. 
 
-The project aims to provide search and rescue
-personnel a means to efficiently map out an area, lending them a smart tool for better planning and risk assessment.
-The goal of this project is to develop a drone that can autonomously provide the user with an
-accurate 3D map of indoor spaces. This would require a robust flight controller capable of
-accurate simultaneous localization and mapping (SLAM) and efficient 3D navigation and exploration. Performance of the UAV
-will be assessed in terms of exploration speed and mapping precision.
 
 \end{abstract}
 
@@ -119,197 +121,366 @@ will be assessed in terms of exploration speed and mapping precision.
 \def\MASTERDOC{true}
 
 \chapter{Introduction}
-Unmanned aerial vehicles continue to be integrated into increasingly diverse environments and
-fields. From photography and cinematography, all the way to military applications. Similarly, mapping drones have found uses
-in fields such as archaeology and architecture, all the way to disaster risk reduction and management. They are especially
-useful for reducing the amount of risk that personnel experience by flying to places that pose a significant hazard to 
-the personnel \cite{ICNSC2010}. The problem, however, lies in mapping out indoor spaces, especially those where flight may
-be restricted by narrow paths and obstacles. Maneuvering through small spaces can prove to be difficult even for experienced
-pilots and could lead to a crash. Crashes are costly as the worst of them could require the replacement of the entire UAV.
-Furthermore, UAV flight times are restricted by their battery capacity. Hence, in order to maximize the use of the UAV, there
-must be a way to explore unknown spaces efficiently.
-One possible solution to this is the development of a mapping UAV with autonomous navigation and exploration functions. By
-limiting the amount of ways that the pilot can influence the actual movement, the risk of human error is limited \cite{AutoFunc}.
-Furthermore, we can employ various algorithms for more efficient exploration, as will be explored further in this document. 
+Unmanned aerial vehicles (UAVs) continue to be integrated into increasingly diverse environments and
+fields. From photography and cinematography, all the way to military applications and even disaster risk reduction and 
+management. They are especially useful for reducing the amount of risk that personnel experience by flying to places that 
+pose a significant hazard to personnel \cite{ICNSC2010}. Advanced Defense and Aerospace Materials (ADAM) R\&D's Project
+Diosa aims to develop a functional but low cost multirotor unmanned aerial vehicle (UAV) for use in humanitarian aid
+\cite{diosa2020}. As a part of that endeavor, this project aims to develop a cost effective but versatile flight 
+controller capable of being integrated into Project Diosa.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/droneExamples.PNG}
+    \caption{Examples of multirotor UAVs \cite{zimmerman2016}}
+    \label{fig:droneExamples}
+\end{figure}
+
+\section{An Overview of UAVs}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.7]{images/fc_diag.PNG}
+    \caption{Diagram of a quadcopter with radio transmitter\cite{fcDesign2019}}
+    \label{fig:baseQuad}
+\end{figure}
+One might view the UAV as a black box where we input certain instructions and the UAV provides output in the form of
+movement. Looking further into the system, we can see quite a bit of complexity with the internal subsystems that need
+to interact in order for the UAV to achieve stable flight.
+One of the most common types of multirotor UAVs is the quadcopter or quadrotor, so named because it uses four motors to
+move around. The system diagram of a quadcopter may be seen in figure \ref{fig:baseQuad}. Some of the vital parts that all
+multirotors have in common are:
+\begin{enumerate}
+    \item Motors
+    \item Electronic speed controllers (ESCs)
+    \item Battery
+    \item Radio transceiver
+    \item Flight controller
+\end{enumerate}
+The \textbf{motors} are the primary and often sole method of movement for the UAV. Coupled with propellers, they rotate at
+very high velocities in order to generate lift. These motors are often brushless and generate high torque in exchange for
+taking up a large amount of current \cite{fcDesign2019}. 
 \newline
 \newline
-The development of a flight controller 
-system capable of autonomous 3D indoor mapping can be divided into the development of several components; the flight 
-controller board, the SLAM (simultaneous localization and mapping) algorithm, and the autonomous navigation function.
-\section{Flight Controller Design}
-The flight controller is, as its name suggests, the central device that controls how the UAV moves and reacts to certain
+The \textbf{electronic speed controllers} are connected directly to the motors and allow you to control them through PWM
+signals from the flight controller. There is typically one ESC for each motor \cite{zimmerman2016}. The ESC we will be 
+using for the project is a 4-in-1 ESC board that can control four motors from one board. This was chosen as it was less
+costly and more lightweight than using individual ESC modules. It is important to note that although the flight controller
+can send data to the ESCs, the ESCs cannot provide direct feedback.
+\newline
+\newline
+UAVs typically use lithium polymer \textbf{batteries}. Lithium polymer batteries are one of the densest commercially
+available batteries in terms of energy \cite{LiPoly}. Because of this, they are lightweight and can provide the large 
+amounts of current that is needed by the motors. In addition, the batteries also power the flight controller as well as
+other onboard peripherals. In some instances, the flight controller may even read the voltage of the battery with respect to
+its maximum operating voltage, thereby getting a sense of the remaining battery capacity.
+\newline
+\newline
+The \textbf{radio transceiver} is the piece of hardware that allows the UAV to communicate with a base station. This allows
+a pilot to send commands to the UAV and receive data such as telemetry or GPS coordinates \cite{zimmerman2016}.
+\newline
+\newline
+The \textbf{flight controller} is, as its name suggests, the central device that controls how the UAV moves and reacts to certain
 stimuli. The flight controller contains multiple sensors including (but not limited to) a gyroscope, accelerometer, and
-barometer. These sensors allow the flight controller to get a sense of its orientation in 3D space. The flight controller 
-will also be responsible for communicating with a base station and processing commands correctly. In order to make the
-UAV easy to mass produce and more affordable, production cost was prioritized while designing the flight controller.
-Several methods for designing the flight controller were found but one was seen to be the most cost-effective and
-flexible solution. Establishing a well functioning flight controller is important as it is essentially the cornerstone of the
-UAV and will influence work on both the autonomous navigation functions as well as the simultaneous localization and
-mapping (SLAM) functions.
-\section{Simultaneous Localization and Mapping}
-Simultaneous localization and mapping (SLAM) is the process where a machine maps out its immediate environment and gets
-a sense of where it is in that environment. This is especially useful for autonomous exploration as it allows the UAV to
-formulate an obstacle-free trajectory to its target. Mapping often makes use of a lidar sensor
-\cite{Dowling2018} or one or more cameras\cite{OrbSlam2} depending on the level of accuracy and speed that is required. 
-\section{Autonomous Navigation}
-Autonomous navigation is the process where a machine navigates to a target location while avoiding obstacles. This is
-often used in tandem with SLAM and path finding algorithms such as Dijkstra's algorithm or even neural networks 
-\cite{Dowling2018}. Methods of navigation include global and local navigation however Dowling et al. note that the
-best results can be found by combining the two \cite{Dowling2018}.
+barometer. These sensors allow the flight controller to get a sense of its orientation in 3D space \cite{zimmerman2016}. The
+flight controller sends instructions to the ESCs in order to vary the throttle of each motor.
+
+\section{A Deeper Look Into Flight Controllers}
+Because of the growing interest in UAVs, various flight
+controllers have been developed such as the microcontroller-based Multiwii \cite{MultiwiiFC} and PixHawk \cite{RPiMavlink2019}.
+Microcontroller based flight controllers are ideal because they are lightweight, low-cost, and are generally versatile enough
+to accomodate the peripherals that a flight controller needs in order to function properly. On top of this, these flight controllers
+are often open-source and relatively simple to prototype with. However, due to the limited processing power available to 
+microcontroller based flight controllers, higher level functions such as automated navigation or mapping are often impossible 
+without the help of an onboard computer (often a Raspberry Pi) communicating directly with the flight controller 
+\cite{RPiMavlink2019,Redtail2017,Dowling2018,Navio2,AirPy}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/phawkToPi.PNG}
+    \caption{Connecting a Pixhawk flight controller to a Raspberry Pi \cite{RPiMavlink2019}}
+    \label{fig:phawkToPi}
+\end{figure}
+Curiously, while there are numerous flight controllers based off of microcontrollers, there are no publicly available flight 
+controllers that directly utilize an onboard computer to interface with the electronic speed controllers, thereby skipping
+the microcontroller entirely. Doing so would not only lower the cost of producing the flight controller, but it would also
+reduce the flight controller's size and weight while still allowing access to higher level UAV functions. A solution to this
+would be to develop a flight controller board built around the Raspberry Pi 4, which is the latest and currently most powerful
+version of the Raspberry Pi line of computers. Doing so would involve designing and fabricating the flight controller board (with
+the necessary peripherals) as well as modeling and programming the control system. In order to make the UAV easy to mass produce 
+and more affordable, production cost will be prioritized while designing the flight controller. 
+
 
 \chapter{Review of Related Work}
-\section{Flight Controller Board Design}
-As building a flight controller from scratch would prove to be akin to reinventing the wheel, a premade flight controller
-will be used as a base that this project will build upon. The base flight controller will be responsible for communicating
-with the electronic speed controllers (ESCs) and controlling the motors on a more basic level \cite{MultiwiiFC}. 
-The corresponding diagram for the system is represented by figure \ref{fig:base_FC_diagram}. The flight controller makes 
-use of a microcontroller that is connected to an inertial
+As mentioned previously, a vast majority of commercially available flight controllers are based on microcontrollers. In order to
+adapt this technology to single board computers such as the Raspberry Pi, it would serve well to examine microcontroller based
+implementations. We will first look into the system architecture and design on a hardware level before moving on to how to model
+the control system and program it into the hardware.
+\section{Hardware Design}
+Looking into open-source microcontroller-based flight controllers, two of the most prominent ones are the MultiWii \cite{MultiwiiFC}
+and the PixHawk family of flight controllers \cite{RPiMavlink2019}. The MultiWii is the more dated of the two systems and the PixHawk
+may also trace its origins to it. The MultiWii was
+developed to use the Arduino line of microcontrollers as a base though it can also run on other select microcontrollers. It also
+supports a variety of inertial measurement units (IMUs), which are sensor modules that carry an accelerometer and gyroscope and,
+for some modules, even a magnetometer or barometer \cite{zimmerman2016}. Figure \ref{fig:multiwiiCktDiagram} illustrates the circuit
+diagram of a basic MultiWii quadrotor UAV. In this digram, we can see that the flight controller is connected to four electronic speed
+controllers (ESCs) which then control the motors directly. The flight controller takes inputs from a receiver, detailing the levels
+of throttle, roll, pitch, and yaw as well as a few auxiliary channels which may be used for other functions such as LEDs or arming
+the motors. The flight controller also makes use of an IMU in order to get a sense of its orientation. Along with the signals from
+the receiver, it feeds this data into a PID loop (which will be discussed further on in this document) in order to maintain stable flight
+\cite{zimmerman2016}. Thus, we can infer the most important parts of a flight controller; the flight controller board and the IMU.
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/base_FC_diagram.png}
-    \caption{Diagram of base flight controller connected to ESCs and motors}
-    \label{fig:base_FC_diagram}
+    \includegraphics[scale=0.5]{images/multiwii diagram.PNG}
+    \caption{Circuit diagram of basic MultiWii multirotor UAV \cite{MultiwiiFC}}
+    \label{fig:multiwiiCktDiagram}
 \end{figure}
-measurement unit (IMU). The IMU includes an accelerometer and gyroscope that allow the flight controller to discern its 
-orientation in 3-dimensional space. Based on these readings, the flight controller will update the ESCs with the proper
-outputs. Based on figure \ref{fig:base_FC_diagram}, we will essentially be treating the base flight controller as a black
-box. The inputs would be a PPM signal containing the throttle, yaw, pitch, and roll signals \cite{MultiwiiFC}.
-The Pixhawk, another family of flight controllers, make use of MAVLink (Micro Air Vehicle Communication Protocol) to 
-deliver the necessary signals into the flight controller. MAVLink makes use of a UART
-connection to send instructions to the flight controller. 
-S. Al-Kadhim demonstrates how to makes use of a Raspberry Pi to communicate with the Pixhawk \cite{RPiMavlink2019}. This 
-allows them to interface with the UAV in a more sophisticated manner and make use of the computer's
-higher processing power. Other known applications of onboard computers on UAVs is the application of neural networks for
-autonomous flight \cite{Redtail2017}. Meanwhile, Dowling et al. use a Raspberry Pi coupled with a lidar sensor to allow the UAV
-to autonomously navigate and map out its surroundings on a 2D plane \cite{Dowling2018}. This is shown in figure 
-\ref{fig:FC_system_diagram}.
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.5]{images/fc_with_rpi.png}
-    \caption{Diagram of flight controller system with raspberry pi}
-    \label{fig:FC_system_diagram}
-\end{figure}
-The base flight controller itself is akin to a PID controller. The firmware allows us to manually tune the PID values depending 
-on the user's preference. Saengphet et al. demonstrate a more robust way of tuning the PID values as compared to the
-more traditional heuristic methods. It involves conducting piloted test flights to see how the UAV responds to certain stimuli
-\cite{Tuning2017}.
-\section{Simultaneous Localization and Mapping}
-An open-source SLAM API was proven to be functional by Mur-Artal et al\cite{OrbSlam1}. The API makes use of a monocular camera as an
-input device and is able to reconstruct both indoor and outdoor environments in real time. This SLAM system was developed
-with ground based robots and cars in mind. It essentially works by selecting a number of points of interest in one frame
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.5]{images/orbslam1_feat_tracking.PNG}
-    \caption{Frame by frame point matching by ORB SLAM 1\cite{OrbSlam1}}
-    \label{fig:orbslam1_tracking}
-\end{figure}
-of the video then matching these points to similar points of interest in the next frame. It then takes the difference in
-position of these point of interest and calculates depth from there.
-\newline
-\newline 
-The authors then further improved the accuracy in
-a second iteration\cite{OrbSlam2}. Here, they expanded the input to stereo cameras and depth cameras as these seemed to provide much more
-accurate results. The authors found that using only a monocular camera was prone to failures as more rotations were used
-in the machine's exploration. They also found that using a depth camera or multiple cameras (as in the stereo camera) significantly
-improved the accuracy of depth perception. 
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.5]{images/orbslam2_recon.PNG}
-    \caption{3D reconstruction of a room by ORB SLAM 2 using a depth camera. Marked in blue is the trajectory of the camera\cite{OrbSlam2}}
-    \label{fig:orbslam2_recon}
-\end{figure}
-Another aspect that the authors improved upon is the fact that this version
-was developed to be an out-of-the-box SLAM solution. As a result, this version provides more support for varying systems
-and is much easier to use as compared to the previous version. However this version does have its lapses where processing
-power is concerned. Due to the heavy operations being performed, it would struggle to perform even on a Raspberry Pi 4. 
 \newline
 \newline
-Looking for a lightweight SLAM solution, FastSLAM 2.0 presents a SLAM system for low-power embedded architectures \cite{FastSlam2},
-which would be more ideal for the purposes of this project. The authors used a 320x300 resolution camera connected to a
-Raspberry Pi 2B. While the system was able to function within the low-power specifications, it suffers in terms of
+Taking a step further, Sigalos et al. verify our inference in their paper entitled "Design of a Flight Controller and Peripherals 
+for a Quadcopter" \cite{fcDesign2019}. As seen in figure \ref{fig:baseQuad}, the diagram is very similar to that of the base MultiWii. 
+The biggest difference would be the addition of a power distribution board. The power distribution board is essentially just a circuit board
+where the ESCs may be connected together. This would allow us to use less wires, thereby making the physical system tidier and thus 
+easier to manage. It is also important to note that the battery voltage must be stepped up or down depending on the working voltage of
+the chosen controller. In the case of the MultiWii, the battery used is a 11.1V Lithium Polymer battery. The author states that a voltage
+converter was no longer needed as 11.1V is within the acceptable input voltage range of the Arduino Nano which the implemented MultiWii
+uses. The Arduino Nano also already comes with an internal voltage regulator capable of stepping down the 11.1V to a more manageable
+voltage. This, however, is not the case when working with the Raspberry Pi, where the input voltage must not exceed 5.1V. Thus, a
+voltage regulator must be integrated into the flight controller.
+
+Zimmerman illustrates this more clearly in their thesis "Flight Control and Hardware Design of Multi-Rotor Systems". In figure 
+\ref{fig:detailed_quad_block_diagram}, the microcontroller used in the flight controller has a working voltage of 3.3V, which is a far cry
+from the 11.1V input voltage. In order to compensate for this, they use a low dropout regulator to step the input voltage down to 3.3V. It
+is also important to note that the microcontroller communicates both with the IMU and radio receiver via SPI. The designed flight controller
+also has interfaces for PPM and UART which, as seen from the electrical architecture, were used for sonar and lidar respectively. Lidar and
+sonar, however, are not vital to the UAV's operation and are treated as peripherals. It is also to be noted that this implementation does
+not have an available I2C interface, something that the Raspberry Pi supports natively. The presence of an I2C interface would allow the
+UAV to access more sensors or external modules should they become necessary for the UAV's application.
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/fastslam2.PNG}
-    \caption{Top view of a robot navigating through a corner (A) and the corresponding Fast SLAM map (B). The robot's trajectory
-    is denoted by the blue line while obstacles are denoted by the red figures.\cite{FastSlam2}}
-    \label{fig:fastslam_results}
+    \includegraphics[scale=0.45]{images/zimmerman_high_level.PNG}
+    \includegraphics[scale=0.45]{images/fc_block_diagram_detailed.PNG}
+    \caption{Electrical architecture diagram (left) and corresponding flight controller block diagram (right)\cite{zimmerman2016}}
+    \label{fig:detailed_quad_block_diagram}
 \end{figure}
-accuracy. The system was significantly less accurate than the SLAM systems discussed previously \cite{OrbSlam1,OrbSlam2}. 
-While there were no direct measured comparisons between ORB SLAM 2 and FastSLAM2.0, FastSLAM2.0 was only able to detect 
-75\% of obstacles presented to it. As seen in figure \ref{fig:fastslam_results}, while navigating a corner of obstacles,
-the robot failed to detect 2 of the 6 obstacles. 
-The authors claim that this was due to the low resolution of the camera used and that accuracy can be further improved
-by using an encoder with a higher resolution. 
 \newline
 \newline
-Finally, Forster et al. present a lightweight but accurate solution for
-localization and mapping with Semi-direct Visual Odometry (SVO) \cite{SVO2017}. Primarily developed for use with
-UAVs and monocular cameras, SVO boasts a reduction in CPU usage of up to 79.45\% compared to ORB SLAM 1. 
-SVO is also up to 11.8 times faster while maintaining an accuracy that is 13.5 times better than that of ORB SLAM 1. 
-A summary of the comparison between monocular ORB SLAM 1 and SVO may be seen in figure \ref{fig:SVO_VS_ORB}. SVO is faster
-because it needs to process less data. While ORB SLAM 1 and 2 extract features and descriptors from every frame, SVO only
-does this for a few key frames. 
+Perhaps the device that best resembles what this project is trying to accomplish is the Navio2 \cite{Navio2}. Developed by a company called
+Emlid, the Navio2 was designed to plug directly onto the Raspberry Pi, allowing it to function as a flight controller in and of itself. It
+has two built-in IMUs as well as a barometer and a GPS module. It also supports UART as well as I2C. It does not have a built in power
+module and thus any input voltage larger than 5.1V must still be stepped down accordingly. Because the Navio2 was developed for an older
+version of the Raspberry Pi (namely the Raspberry Pi 2), it still needs to account for the lack of processing power. It does this by
+making use of an integrated microcontroller to handle the low-level functions such as processing the PPM input from the radio receiver.
+Ultimately, the Navio2 was designed more to be a solution for easy-to-use autopilot rather than a standalone flight controller. 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/SVO_CPU_time.jpg}
-    \caption{Comparison of and ORB SLAM 1 and SVO\cite{SVO2017}}
-    \label{fig:SVO_VS_ORB}
+    \includegraphics[scale=0.3]{images/Navio2Elements_main.png}
+    \caption{Navio2 Raspberry Pi hat \cite{Navio2}}
+    \label{fig:navio2}
 \end{figure}
-\section{Autonomous Navigation}
-Autonomous navigation consists of two methods; global and local. Global navigation methods involve planning out the general
-trajectory of the robot without taking into account the local movement restriction of the robot. This entails planning out
-the overall path that the robot will take when reaching its goal. By contrast, local navigation methods involve planning
-the trajectory of the robot around its direct environment. This involves more minute movements and obstacle avoidance. 
-According to Dowling et al., the best navigation results have been obtained by combining both of these methods\cite{Dowling2018}. The
-navigation system used by Dowling et al. mimics navigation systems used by ground based robots and adapts them to suit
-UAVs flying at a fixed height. Their system simulates all possible trajectories that the UAV can take and assigns a cost
-to each one. The UAV then takes the path with the smallest cost. While this method functions well for 2D mapping and
-navigation, this would be lacking for this project as we would need to navigate in 3D. Luckily, Zhou et al. present a method 
-for performing fast UAV exploration in complex environments (FUEL)\cite{Fuel2020}. It starts similarly by finding the most optimal
-global trajectory that is available to the UAV. It then continually recalculates as more and more regions are explored.
-FUEL is based on the frontier method of navigation where the UAV looks for the nearest unexplored region. The authors also
-introduce a frontier information structure (FIS) that contains information on the environment. The structure is then updated
-continuously and allows for high frequency planning. Based on the FIS, the system then generates a heirarchy of motions
-in three steps (course to fine). The heirarchical planner finds efficient global paths, selects a local set of optimal
-viewpoints, and from there, generates the best trajectory based on the minimum time. Figure \ref{fig:fueltest} shows a test
-run by using the classical frontier method as a benchmark. As we can see, the FUEL method is more efficient, generating the
-shorter path.
+
+\section{Control System Design and Programming}
+In typical multirotor UAV designs, the motor positions are static with respect to each other. This means that it is not possible to change
+the direction of an individual motor in order to influence flight. Instead, the UAV changes the angular velocity, $\omega$, of each motor according to
+the direction the pilot would like to go \cite{fcDesign2019}. Figure \ref{fig:motor_signals} gives us an idea of how adjusting the angular
+velocities of the individual motors affects the direction the UAV will fly in. First, it is important to note that not all of the motors
+(and by extension- the propellers) are rotating in the same direction. Using figure \ref{fig:motor_signals} as a reference, you would
+typically have motors 1 and 3 rotating counter clockwise while motors 2 and 4 rotate clockwise. This is because the rotation of the motors
+generates torque. If they were all rotating in the same direction, the entire UAV would continue to rotate. Thus, having the motors rotate
+in opposing directions would negate that torque. 
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/fueltest.PNG}
-    \caption{Path generated by frontier method (red) and FUEL method (blue)\cite{Fuel2020}}
-    \label{fig:fueltest}
+    \includegraphics[scale=0.5]{images/motor_signals.PNG}
+    \caption{Controlling the UAV \cite{fcDesign2019}}
+    \label{fig:motor_signals}
 \end{figure}
-Alternatively, Xu et al. present a 
-different method of navigation that deviates from the frontier method and instead adopts a method based on incremental sampling
-and a probabilistic roadmap \cite{ProbNav}. In this method, nodes are incrementally added to the explored regions to
-generate the best viewpoints for the camera system. These viewpoints are those that provide the system with the most data
-points, thereby mapping the most amount of regions in the least time. The probabilistic roadmap allows for rapid searching
-of alternative global and local paths that the UAV can take. However the authors found that the system was not able to
-locate all obstacles 100\% of the time, raising concerns with regards to the safety of the UAV while navigating. The authors
-compared the method's performance to that of the frontier method. The results may be seen in figure \ref{fig:deptest}. After 10
-minutes of exploration, the probabilistic roadmap method was able to explore more regions than the frontier method.
+\newline
+In order to be able to model the system and define the control objectives, it is important to get a sense of the parameters that determine
+how the UAV moves. For that, we have throttle, pitch, roll, and yaw. These are all illustrated by figure figure \ref{fig:motor_signals} a, b,
+c, and d respectively. Throttle dictates the angular velocity of all of the motors. It affects flight velocity as well as the altitude of the
+UAV. Pitch is what allows the UAV to move forward or backward. In order to move forward, the flight controller would instruct motors 2 and 3
+to accelerate while keeping motors 1 and 4 at a constant angular velocity. The opposite is true for flying backwards. Meanwhile, roll controls
+lateral movement. In order to fly to the left, the flight controller would instruct motors 1 and 2 to accelerate while keeping motors 4 and 3
+at constant velocity. The opposite is once again true for flying to the right. Perhaps most interesting would be how yaw controls the direction
+that the UAV is facing. It was previously discussed that the opposing motor orientations allow the UAV to negate the torque and obtain stable
+flight. Yaw takes advantage of this by accelerating either the clockwise rotating motors or the counter-clockwise rotating motors in order to
+rotate right or left respectively.
+\newline
+\newline
+With the parameters defined, Zimmerman presents a frame of reference for the UAV \cite{zimmerman2016}. This may be seen in figure \ref{fig:ref_frame}
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/dep_frontier.PNG}
-    \includegraphics[scale=0.5]{images/dep_dep.PNG}
-    \caption{Regions explored and path generated by frontier method (left) vs proposed probabilistic roadmap method (right) after
-    running for 10 minutes. \cite{ProbNav}}
-    \label{fig:deptest}
+    \includegraphics[scale=0.5]{images/quad_ref_frame.PNG}
+    \caption{UAV reference frame \cite{zimmerman2016}}
+    \label{fig:ref_frame}
 \end{figure}
-\chapter{Objectives}
-This project aims to develop a low-cost and lightweight UAV capable of autonomous 3D indoor mapping. Given an enclosed
-indoor space, the UAV should be able to autonomously and completely explore and map out all enclosed regions while navigating at
-a speed of at least 0.5m/s. 
-During flight, the UAV should be able to transmit the mapped data to the base station so that the user has real-time feedback of
-how the mission is progressing. On top of this, the UAV should also be able to function non-autonomously. The drone should be
-able to be piloted manually through a pilot interfacing with the base station. 
+They define pitch to be $\theta$, roll to be $\phi$, yaw to be $\psi$, and throttle to be $T$. These are the current values of the parameters.
+They then define $\theta_c$ to be the user commanded pitch, $\phi_c$ to be the user commanded roll, $\psi_c$ to be the user commanded yaw, and
+$T_c$ to be the user commanded T. Lastly, they define $ \dot{\theta}, \dot{\phi}, \dot{\psi}$ to be the rotational velocities. According to
+Zimmerman, the first set of control goals may be summarized by equation \ref{eq:ctrl_goals_1}.
+\begin{align}
+    \dot{\theta}&=0                      &  \dot{\phi} &=0                 &  \dot{\psi}&=0\\
+    \label{eq:ctrl_goals_1} 
+    \theta &\rightarrow \theta_c         & 
+     \phi &\rightarrow \phi_c       &  \psi &\rightarrow \psi_c &  T &\rightarrow T_c
+\end{align}
+In essence, the goal of the flight controller is to drive the parameters to the user specified values. Using these four parameters, the user
+is able to maneuver the UAV anywhere in 3D space. In order to achieve the control goals, a PID controller system is implemented. A PID controller is a
+control system that updates based on the desired output and the measured output \cite{zimmerman2016}. "PID" stands for proportional, integral,
+and derivative. This is because the system has three coefficients (P, I, and D) that characterize how the system reacts to proportional, integral, 
+and derivative errors. In their thesis, Zimmerman designed a base PID system with the UAV acting as the plant as seen in figure \ref{fig:basePID}.
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/basePID.PNG}
+    \caption{Diagram of UAV plant and control system \cite{zimmerman2016}}
+    \label{fig:basePID}
+\end{figure}
+Here, r(t) is denoted as the desired setpoint or the user commanded value. e(t) is the error or difference between the output of the UAV plant and
+r(t), and u(t) is the input to the plant after the error goes through the PID control system. As we can see, this system also takes into account
+the IMU and ESCs for feedback. The ESCs are updated according to u(t) and the corresponding movement is measure by the IMU in order to process it
+once again. However, as Zimmerman states, this system is only valid for one parameter. Therefore, there must be one system for each of pitch, roll, 
+and yaw. The system is linearized at a current point in time and therefore superposition is upheld. They expand on the control system shown in 
+figure \ref{fig:basePID} by incorporating each parameter as well as illustrating how the user commanded throttle $T_c$ fits in the picture. 
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.65]{images/controlSysExpanded.PNG}
+    \caption{Expanded view of UAV control system \cite{zimmerman2016}}
+    \label{fig:expandedPID}
+\end{figure}
+As we can see from figure \ref{fig:expandedPID}, each PID block takes in the user commanded value of the parameter as well as the parameter's
+feedback from the IMU. It then takes in the summation of all of the PID outputs with the user commanded throttle and sends the information to the
+ESCs. Zimmerman then goes on to explain how a code for the system may be written for the microcontroller they used for the thesis. While the code
+isnt directly compatible with the Raspberry Pi due to differing system architectures, the code will be used as a basis to adapt a version capable
+of running on the Raspberry Pi.
+\newline
+\newline
+Now that a control system has been established, there is still the issue of which PID coefficients to use. In order to determine the coefficients,
+UAVs often undergo tuning. This is especially important for pilots involved in the sport of drone racing as the UAV's PID coefficients heavily
+impact its flight characteristics \cite{Dowling2018}. One method of tuning a UAV is by conducting test flights where the pilot executes sharp
+maneuvers, subjecting the UAV's IMU to drastic changes and seeing how the UAV reacts or how quickly it stabilizes \cite{Tuning2017}. Once the tests
+are conducted, the pilot would then promptly land and plug the flight controller into a computer to update the PID coefficients in a trial-and-error
+manner. One benefit of using a single-board computer rather than a microcontroller for a flight controller is that there would no longer be a need
+to plug the flight controller into a separate computer just to update the coefficients. Set up correctly, this could be done mid-flight.
+
+
+\chapter{Problem Statement and Objectives}
+With the rise of research involving multirotor unmanned aerial vehicles comes the development of more advanced flight controllers to aid in the
+fabrication of these UAVs. Most (if not all) open source flight controllers are based on microcontrollers while there are no flight controllers
+built around single-board computers. Developing a flight controller built around a single-board computer would provide the UAV with access to 
+higher level functions such as automated navigation while being lighter and less expensive than microcontroller based flight controllers that
+attempt to implement the same higher level functions.
+\newline
+\newline
+This project aims to develop a general purpose flight controller built around the Raspberry Pi and without integrating an auxiliary microcontroller.
+To do this, the following objectives must be achieved: 
+\begin{enumerate}
+    \item The flight controller should be capable of running on a Raspberry Pi 4 without using an auxiliary microcontroller.
+    \item The flight controller should be able to sustain stable flight, maintaining a mean error for each parameter (pitch, roll, yaw) of at most 0.001\textdegree
+        and a standard deviation of at most 0.4816\textdegree.
+    \item The flight controller should be able to respond to commands given by the base station and send back telemetry data.
+\end{enumerate}
+
+\chapter{Methodology}
+
+\section{Flight Controller Design}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/FC diagram_finalna.png}
+    \caption{Flight controller diagram with ESC module and motors}
+    \label{fig:final_FC_diagram_na}
+\end{figure}
+A circuit board must be designed and fabricated reflecting the diagram seen in figure \ref{fig:final_FC_diagram_na}. As we can see,
+the Raspberry Pi draws inertial data directly from the IMU and gathers geographical coordinates from the GPS whenever there is a GPS
+signal available. GPS would typically only be available outdoors. The Raspberry Pi will also be directly connected to the ESCs, giving
+the Raspberry Pi full authority over them. This is in contrast with microcontroller based flight controllers, where an onboard computer
+may only send certain signals. A half duplex radio connection will be established between the flight controller and a base station. 
+This will allow the flight controller to take commands from the base station whilst simultaneously sending back telemetry data for 
+in-flight debugging. 
+\newline
+\newline
+Once we have established the hardware, the designed control system must then be adapted into code to be run on the Raspberry Pi. 
+Integration of the PID control system into the flight control code will be done with aid from Zimmerman's 
+derivation and code of his own system \cite{zimmerman2016}. Once the PID control system has been established, the other basic 
+functions may then be developed. The ADC will be set up such that it can measure the battery voltage. This will allow the UAV to
+send the battery level back to the base station. This function is important as it is vital that the pilot knows how much battery
+(and by extension, flight time) the UAV still has. The GPS module will also be set up in such a way that the UAV will be able to
+send its current coordinates back to the base station in the event that a GPS signal is detected. This function will be vital for
+tracking the UAV in the event of a crash.
+
+\section{Tuning and Experimentation}
+\subsection{Communication and UAV Response Test}
+During flight, it is important that communication between the UAV and the base station is kept. Thus, there is a need to verify that
+packets sent to and from the UAV are consistent with packets sent from and to the base station. This will require a secure shell (SSH) connection with the Raspberry Pi.
+On the base station, we will continuously send packets containing the user commanded throttle, roll, pitch, and yaw values. Each
+parameter will begin at zero and will be steadily incremented to their maximum value of 1024. Meanwhile, on the flight controller end,
+we will continuously receive the data. Once the test is done, we will plot the sent parameter values and the received parameter values
+over time to check if there are any discrepancies between the two plots. If a value in the sent parameter values does correspond to a
+received parameter value, that packet will be considered lost. The target for this test is that there should be no more than 5\% of
+packets lost.
+\subsection{Throttle Test}
+We must verify that the flight controller is able to command enough throttle from the motors such that the UAV is able to achieve
+liftoff. In other words, we must verify that, while under the command of the flight controller, the total thrust generated by all four 
+motors exceeds the weight of the entire UAV without a payload. Payload in this instance would be defined as any object on the UAV not
+vital for flight. In order to accomplish this, we must first get the weight of the UAV. The UAV will then be fastened upside down to a 
+weighing scale. This ensures that thrust from the motors will be directed downwards towards the weighing scale. The throttle will then
+be slowly increased while keeping an eye on the weighing scale reading. The generated force must exceed the UAV's weight before the
+throttle reaches 100\%.
+\subsection{Stability Tests}
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/motor_signals.PNG}
+    \caption{Controlling the UAV \cite{fcDesign2019}}
+    \label{fig:motor_signals}
+\end{figure}
+We may then move on to tuning and stability testing. As mentioned previously, test flights
+will be conducted and the PID coefficients will be adjusted to obtain the values that produce the least amount of mean error in the
+system. In order to fully test the flight parameters, four tests will be conducted, covering all axes of movement. During these tests, we will be observing the error
+responses for the roll, pitch, and yaw PID systems (recall roll, pitch, and yaw from the RRW and from figure \ref{fig:motor_signals}).
+Error in the system will be measured by taking the user commanded value of the parameter and subtracting from it the measured steady 
+state value for the corresponding parameter from the IMU. An illustration of the experiment is shown by figure \ref{fig:error_diagram}.
+\newline
+\newline
+The first is the \textbf{hover test}. The purpose of this is to establish a baseline for the succeeding tests. In this test, the pilot
+will attempt to make the UAV hover in place. While keeping the throttle at a constant value, the pilot will adjust pitch, roll, and yaw
+in order to keep the UAV hovering in one spot. Measurement of the exact coordinates is not vital as what we are really looking for is
+flight characteristics and whether or not the UAV can achieve stable flight.
+\newline
+\newline
+The next test is the \textbf{pitch test}. The purpose of this test is to isolate pitch from roll and yaw to observe the corresponding
+error response. Like the previous test, throttle will be kept at a constant value. In this test, we will also be keeping roll and yaw
+at zero. The pilot will then set pitch to a constant value, flying the UAV in a straight line. From this, we may view the steady state error
+response of pitch PID system.
+\newline
+\newline
+The third test is the \textbf{roll test}. The purpose of this test is to isolate roll from pitch and yaw to observe the corresponding
+error response. For this test, we will be keeping throttle constant and pitch and yaw at zero. Recall that roll is responsible for lateral
+movement. The pilot will then set roll to a constant value, flying the UAV left or right. From this, we may view the steady state error 
+response of pitch PID system.
+\newline
+\newline
+Lastly, we have the \textbf{yaw test}. The purpose of this test is to isolate yaw from pitch and roll to observe the corresponding
+error response. We will be keeping throttle constant and roll and pitch at zero, effectively leaving the UAV hovering in place. Recall that
+yaw is responsible for rotational movement. The pilot will then set yaw at a constant value, effectively rotating the UAV either clockwise
+or counter-clockwise to see the steady state error response.
+\newline
+\newline
+Data over the course of the tests will then be compiled and the mean error will viewed over time. In this instance, system error 
+will be measured in degrees of rotation along a certain axis. Zimmerman's microcontroller based
+flight controller has a mean error of 0.001\textdegree with a standard deviation of 0.4816\textdegree. These parameters will be
+treated as the baseline. Thus, the mean error of our end system should not exceed 0.001\textdegree and the standard deviation should 
+not exceed 0.4816\textdegree. Should the parameter error responses not meet these conditions, the PID coefficients will be changed and the
+tests will be repeated. If the conditions are met, the UAV will be considered capable of stable flight.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[scale=0.5]{images/error diagram.PNG}
+    \caption{2-Dimensional Testing diagram}
+    \label{fig:error_diagram}
+\end{figure}
+
 \chapter{Preliminary Work}
-\section{Flight Controller Design and Fabrication}
-Cost, size, and weight were the primary deciding factors for the flight controller design. For the base flight
-controller, the MultiWii was implemented as seen in figure \ref{fig:base_FC_diagram}. This allows for a much more flexible
-and cost effective solution. The microcontroller used was the Arduino Pro Mini, which provides a small
-footprint. It was then wired to send pwm signals to a 4-in-1 ESC board. A 4-in-1 ESC board was selected over
+Previous work has been done to design a flight controller based on the MultiWii flight controller discussed in the RRW. 
+The flight controller was designed under the guidance of my advisers as well as the project leaders of Project Diosa.
+I designed the flight controller so that it may be used for higher level functions but decided to pivot to focus on more fundamental aspects. 
+A diagram of the system may be seen in figure \ref{fig:final_FC_diagram}. It has an integrated
+Arduino Pro Mini microcontroller as well as an onboard IMU, GPS, ADC, power module, and radio transceiver. A 4-in-1 ESC board was selected over
 individual ESC modules because the board is lighter, smaller, and is less costly. Furthermore, less wiring will need to
 be done, leading to easier mass production. The motors are 2400KV brushless motors suitable for 5 inch propellers.
 For the inertial measurement unit, the MultiWii was connected to an MPU6050 via an I2C interface. The MPU6050 includes
@@ -318,7 +489,7 @@ options for communication between the Raspberry Pi and the Arduino; single wire 
 methods were tested to find the method with the most stable signal. It was found that the signals gained from PWM over
 multiple wires was noisy. PPM gave a much more consistent signal and so it was chosen as the mode of communication.
 The Raspberry Pi will also be receiving data from a GY-87 module, which contains an accelerometer, gyroscope, barometer, 
-and magnetometer which are all accessible via I2C protocol. This will aid the UAV with regards to SLAM and navigation. 
+and magnetometer which are all accessible via I2C protocol.  
 Aside from this, the Raspberry Pi is also connected to a GPS module which, while inoperable during indoor operations,
 will prove to be essential during outdoor missions especially when locating the UAV. For communication, the flight controller 
 employs a LoRa RA-02 module, which was chosen for its long range capabilities. The LoRa module will be communicating with a 
@@ -326,21 +497,9 @@ similar module connected to the base station. A diagram of the system may be see
 \begin{figure}[h]
     \centering
     \includegraphics[scale=0.5]{images/final_FC diagram.png}
-    \caption{Flight controller diagram with ESC module and motors}
+    \caption{MultiWii based flight controller diagram with ESC module and motors}
     \label{fig:final_FC_diagram}
 \end{figure}
-\newline
-\newline
-The flight controller board has already been designed and fabricated to include the necessary components. This can be seen
-in figure \ref{fig:fc_board}. While quantitative tests have yet to be conducted, the flight controller has been verified to
-be able to run the motors at variable speeds. Further work needs to be done in order to refine the motor control. These include
-tuning and calibration, which will be done during the project proper.
-\begin{figure}[h]
-    \centering
-    \includegraphics[scale=0.5]{images/board.PNG}
-    \caption{Flight controller board}
-    \label{fig:fc_board}
-\end{figure} 
 \newline
 \newline
 The Raspberry Pi is running the latest version of Raspbian. It also uses ROS (robot operating system) for
@@ -348,68 +507,38 @@ the UAV's processes. ROS is an open source robotics framework that was designed 
 account the multitude of processes that a robot needs to run. In the case of this project, the modularity allows for
 easier integration of different modules and functions. This in turn means that the source code will be easier to maintain
 as more and more functions are added.
-\chapter{Methodology}
-This project can be divided into three milestones; flight controller calibration, integration of SLAM, and
-finally, integration of autonomous navigation system.
-\section{Flight Controller Tuning and Calibration}
-With the flight controller fabricated, it then needs to be calibrated and tuned. Fortunately, the MultiWii also
-comes with a GUI that allows users to calibrate and tune the sensors and PID values. The gyroscope and accelerometer may
-be calibrated automatically via the GUI however the PID values must be calibrated manually. Typical heuristic methods
-involve test flights where a pilot performs sharp maneuvers in order to see how the UAV reacts. They then come back to the
-interface and adjust the PID values based on trial and error. After calibration and tuning, the UAV should function 
-similarly to an off-the-shelf quadcopter.
-\section{SLAM Integration}
-There are two outstanding choices for SLAM; Orb SLAM 2 \cite{OrbSlam2} and SVO \cite{SVO2017}. Orb SLAM 2 provides a
-powerful and fast out-of-the-box solution for SLAM however due to the processing power restrictions, SVO proves to be the
-more ideal system. Luckily, the developers have already provided a means to integrate SVO into the ROS framework.
-Therefore, applying SVO to the UAV should be a trivial matter. Data from SVO will then be communicated via the RA-02
-module back to the base station so that the pilot may have a real-time view of how the mapping operation is progressing.
-\section{Autonomous Navigation and Exploration}
-Two possible systems may be chosen for autonomous Navigation; the FUEL system\cite{Fuel2020} that is built
-upon the frontier method of navigation and the method that uses a probabilistic roadmap as demonstrated by Xu et al.\cite{ProbNav}.
-In order to see which navigation system is the best fit, both systems will be implemented and benchmark tests will be run.
-The systems will be compared in terms of exploration speed, efficiency (i.e. the tests will favor the method that generates the
-shortest flight path to completely explore a region), completeness (i.e. the method must not leave any region within the
-enclosed space unexplored), and ability to safely navigate around obstacles.
+\newline
+\newline
+Much of the existing design may be kept. However, the goal of this project is to remove the need for an auxiliary microcontroller.
+Thus, the flight controller must be redesigned and refabricated. The Arduino Pro Mini and MPU6050 will be removed and the Arduino's 
+functions will be delegated to the Raspberry Pi 4. While the existing system has not undergone quantitative tests, it has been 
+confirmed to be able to run the motors at a speed necessary for flight.
+
 \chapter{Timeline}
 \section{Gantt Chart}
 \begin{figure}[h]
     \centering
-    \includegraphics[scale=0.5]{images/gantt_chart.PNG}
+    \includegraphics[scale=0.6]{images/gantt_chart.PNG}
     \caption{Project gantt chart}
     \label{fig:gantt_chart}
 \end{figure}
 \section{Halfway Deliverables}
-By the end of March, the following deliverables should be ready:
+By the first week of April, the flight controller should be able to achieve the following specifications:
 \begin{enumerate}
-    \item Flight controller achieves the following specifications:
-    \begin{itemize}
-        \item UAV must be able to collect inertial data from the integrated IMU
-        \item GPS is able to obtain UAV's geographical coordinates and send it to the base station
-        \item Capable of sending and receiving data through integrated LoRa module
-        \item Should be able to perform stable non-autonomous flight at a fixed height for at least 10 minutes.
-    \end{itemize}
-    \item Operational SLAM system using SVO
-    \begin{itemize}
-        \item Should be able to perform SLAM in real-time
-        \item Should be able to store map data on a global scale rather than just a local one (i.e. aside from being able
-        to map out the UAV's current region, the drone must be able to store map data of other regions connected to it that
-        the UAV has already explored)
-        \item Should be able to transmit map data to base station
-    \end{itemize}
+    \item Flight controller board should be designed and fabricated
+    \item UAV should be able to collect inertial data from the integrated IMU
+    \item UAV should be able to receive instructions from the base station and send back telemetry data. Packet loss must not exceed 5\%.
+    \item UAV should be able to generate thrust greater than its total weight
 \end{enumerate}
 
 \section{End of Project Deliverables}
-In addition to the deliverables listed above, by the end of the given time period, the project must have accomplished
+In addition to the deliverables listed above, by the end of the project, the project must have accomplished
 the following:
 \begin{enumerate}
-    \item Autonomous exploration and navigation
-    \begin{itemize}
-        \item The UAV should be able to generate a complete map of all reqions within an enclosed space (i.e. There must be
-        no unexplored regions within the enclosed space after the UAV is done exploring).
-        \item The UAV should be able to autonomously navigate while flying at a speed of at least 0.5 m/s
-        \item After mapping a space, the UAV should be able to safely return to the origin
-    \end{itemize}
+    \item UAV should be able to collect its geographical coordinates via the GPS module and send the data back to the base station. Received UAV
+        coordinates should be within 5m of actual UAV coordinates.
+    \item UAV should be able to perform stable flight while correctly receiving pitch, roll, throttle, and yaw instructions (as stipulated In
+        chapter 4.2.3)
 \end{enumerate}
 \printbibliography[
 heading=bibintoc,
