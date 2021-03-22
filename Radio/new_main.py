@@ -27,49 +27,34 @@ radio = RF24(17, 0)
 
 # using the python keyword global is bad practice. Instead we'll use a 1 item
 # list to store our float number for the payloads sent/received
-def process_axes(payload):
-    throttle = payload[1]
-    roll = payload[2]
-    yaw = payload[3]
-    pitch = payload[4]
-    aux_1 = payload[5]
-    aux_2 = payload[6]
-    aux_3 = 0#payload[7]
-    aux_4 = 0#payload[8]
 
-    print(
-        "Throttle:{} | Roll:{} | Yaw:{} | Pitch:{} | Aux1: {} | Aux2: {} | Aux3: {} | Aux4: {} ".format(
-            throttle,
-            roll,
-            yaw,
-            pitch,
-            aux_1,
-            aux_2,
-            aux_3,
-            aux_4
-        )
-    )
-
-def send_telemetry():
+def send_axes():
     radio.stopListening()
     
     # use struct.pack() to packet your data into the payload
-    accelerometer = 420
-    gyroscope = 421
-    barometer = 422
-    buffer = struct.pack("sssssss", accelerometer, gyroscope, barometer, 0, 0, 0, 0)
+    command_id = 3
+    throttle = 1000
+    roll = 1001
+    yaw = 1002
+    pitch = 1003
+    aux_1 = 1004
+    aux_2 = 1005
+    aux_3 = 1006
+    aux_4 = 1007
+    buffer = struct.pack("sssssss", command_id, throttle, roll, yaw, pitch, aux_1, aux_2)#remember to put aux3 and aux4 back in
     success = False
     while not success:
         start_timer = time.monotonic_ns()  # start timer
         result = radio.write(buffer)
-        end_timer = time.monotonic_ns()  # end timer
         if not result:
             print("Transmission failed or timed out")
             time.sleep(1)
         else:
             success = True
+            await_telemetry_data()
+            end_timer = time.monotonic_ns()  # end timer
             print(
-                "Transmission successful! Time to Transmit: "
+                "Transmission successful! Roundtrip time: "
                 "{} us.".format(
                     (end_timer - start_timer) / 1000
                 )
@@ -77,10 +62,13 @@ def send_telemetry():
 
     radio.startListening()
 
-def await_request():
+
+def await_telemetry_data(timeout = 6):
     radio.startListening()  # put radio in RX mode
-    print("awaiting request...")
-    while True:
+
+    start_timer = time.monotonic()
+    telem_data_present = False
+    while ((time.monotonic() - start_timer) < timeout and not telem_data_present):
         has_payload, pipe_number = radio.available_pipe()
         if has_payload:
             # fetch 1 payload from RX FIFO
@@ -91,12 +79,17 @@ def await_request():
             # buffer[:4] truncates padded 0s in case payloadSize was not set
             payload = struct.unpack("sssssss", buffer)
             # print details about the received packet
-            
-            command_id = payload[0]
-            if command_id == 3: # process axis commands and send telemetry data
-                process_axes(payload)
-                send_telemetry()
+            print(
+                "Received {} bytes on pipe {}: {}".format(
+                    radio.payloadSize,
+                    pipe_number,
+                    payload
+                )
+            )
+            start_timer = time.monotonic()  # reset the timeout timer
+            telem_data_present = True
 
+    radio.stopListening()  # put the radio in TX mode
 
 
 
@@ -120,16 +113,16 @@ if __name__ == "__main__":
     radio.setPALevel(RF24_PA_LOW)  # RF24_PA_MAX is default
 
     # set TX address as base station address
-    radio.openWritingPipe(fc_address)  # always uses pipe 0
+    radio.openWritingPipe(base_address)  # always uses pipe 0
 
     # set RX address as flight controller address
-    radio.openReadingPipe(1, base_address)  # using pipe 1
+    radio.openReadingPipe(1, fc_address)  # using pipe 1
 
     # To save time during transmission, we'll set the payload size to be only
     # what we need. A float value occupies 4 bytes in memory using
     # struct.pack(); "<f" means a little endian unsigned float
     radio.payloadSize = 28
-    #radio.enableDynamicPayloads()
+
     # for debugging, we have 2 options that print a large block of details
     # (smaller) function that prints raw register values
     # radio.printDetails()
@@ -137,7 +130,9 @@ if __name__ == "__main__":
     # radio.printPrettyDetails()
 
     try:
-        await_request()
+        while True:
+            send_axes()
+            time.sleep(1)
     except KeyboardInterrupt:
         print(" Keyboard Interrupt detected. Exiting...")
         radio.powerDown()
