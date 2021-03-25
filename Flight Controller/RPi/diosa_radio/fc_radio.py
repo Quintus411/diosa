@@ -23,29 +23,97 @@
 
 import time
 from SX127x.LoRa import *
-#from SX127x.LoRaArgumentParser import LoRaArgumentParser
-from SX127x.board_config import BOARD
 import configparser
 import rospy
 from std_msgs.msg import Int16MultiArray
+import sys
+import struct
+from RF24 import RF24, RF24_PA_LOW
+
 
 config = configparser.ConfigParser()
 config.read('config.ini')
 
-BOARD.setup()
-BOARD.reset()
+radio = RF24(17, 0)
 #parser = LoRaArgumentParser("Lora tester")
+
+def process_axes(payload):
+    
+    throttle = payload[1]
+    roll = payload[2]
+    yaw = payload[3]
+    pitch = payload[4]
+    aux1 = payload[5]
+    aux2 = payload[6]
+    aux3 = payload[7]
+    aux4 = payload[8]
+
+    print(
+        "Throttle:{} | Roll:{} | Yaw:{} | Pitch:{} | Aux1: {} | Aux2: {} | Aux3: {} | Aux4: {} ".format(
+            throttle,
+            roll,
+            yaw,
+            pitch,
+            aux1,
+            aux2,
+            aux3,
+            aux4
+        )
+    )
+
+    msg = Int16MultiArray()
+    msg.data = [throttle, roll, yaw, pitch, aux1, aux2, aux3, aux4]
+    pub.publish(msg)
+
+def send_telemetry():
+    radio.stopListening()
+    
+    # use struct.pack() to packet your data into the payload
+    accelerometer = 420
+    gyroscope = 421
+    barometer = 422
+    buffer = struct.pack("sssssssss", accelerometer, gyroscope, barometer, 0, 0, 0, 0, 0, 0)
+    success = False
+    while not success:
+        start_timer = time.monotonic_ns()  # start timer
+        result = radio.write(buffer)
+        end_timer = time.monotonic_ns()  # end timer
+        if not result:
+            print("Transmission failed or timed out")
+            time.sleep(1)
+        else:
+            success = True
+            print(
+                "Transmission successful! Time to Transmit: "
+                "{} us.".format(
+                    (end_timer - start_timer) / 1000
+                )
+            )
+
+    radio.startListening()
+
+def await_request():
+    radio.startListening()  # put radio in RX mode
+    print("awaiting request...")
+    while True:
+        has_payload, pipe_number = radio.available_pipe()
+        if has_payload:
+            # fetch 1 payload from RX FIFO
+            #length = radio.getDynamicPayloadSize()
+            buffer = radio.read(radio.payloadSize)
+            # use struct.unpack() to convert the buffer into usable data
+            # expecting a little endian float, thus the format string "<f"
+            # buffer[:4] truncates padded 0s in case payloadSize was not set
+            payload = struct.unpack("sssssssss", buffer)
+            # print details about the received packet
+            
+            command_id = payload[0]
+            if command_id == 3: # process axis commands and send telemetry data
+                process_axes(payload)
+                send_telemetry()
 
 
 class mylora(LoRa):
-    def __init__(self, verbose=False):
-        super(mylora, self).__init__(verbose)
-        self.set_mode(MODE.SLEEP)
-        self.set_dio_mapping([0] * 6)
-        self.bound = 0
-        self.fc_id = int(config['fc_radio_main']['fc_id'])
-        self.radio_id = 0
-        self.broadcast_id = 255
 
     def on_rx_done(self):
         BOARD.led_on()
@@ -84,69 +152,30 @@ class mylora(LoRa):
                 msg = Int16MultiArray()
                 msg.data = [throttle, roll, pitch, yaw, aux1, aux2, aux3, aux4]
                 pub.publish(msg)
-                print("pitch: " + str(pitch) + "    roll: " + str(roll) + "    throttle: " + str(throttle) + "    yaw: " + str(yaw) + "    aux1: " + str(aux1) + "    aux2: " + str(aux2) + "    aux3: " + str(aux3) + "    aux4: " + str(aux4))
-                self.set_mode(MODE.TX)
-                self.write_payload([self.fc_id, sender, 0, 4]) # Send REQUEST AXES
         
         self.reset_ptr_rx()
         self.set_mode(MODE.RXCONT)
 
-    def on_tx_done(self):
-        print("\nTxDone")
-        print(self.get_irq_flags())
-
-    def on_cad_done(self):
-        print("\non_CadDone")
-        print(self.get_irq_flags())
-
-    def on_rx_timeout(self):
-        print("\non_RxTimeout")
-        print(self.get_irq_flags())
-
-    def on_valid_header(self):
-        print("\non_ValidHeader")
-        print(self.get_irq_flags())
-
-    def on_payload_crc_error(self):
-        print("\non_PayloadCrcError")
-        print(self.get_irq_flags())
-
-    def on_fhss_change_channel(self):
-        print("\non_FhssChangeChannel")
-        print(self.get_irq_flags())
-
-    def start(self):          
-        
-        rospy.init_node('lora_transceiver')
-        self.pub = rospy.Publisher('/rx_tx', Int16MultiArray, queue_size=10)
-        rate = rospy.Rate(2)
-
-        while True:
-            self.reset_ptr_rx()
-            self.set_mode(MODE.RXCONT) # Receiver mode
-            while True:
-                pass
+    
 
 if __name__ == '__main__':
 
-    lora = mylora(verbose=False)
-    #args = parser.parse_args(lora) # configs in LoRaArgumentParser.py
+    if not radio.begin():
+        raise RuntimeError("radio hardware is not responding")
+    
+    base_address = b"base_station"
+    fc_address = b"flight_controller"
 
-    #     Slow+long range  Bw = 125 kHz, Cr = 4/8, Sf = 4096chips/symbol, CRC on. 13 dBm
-    lora.set_pa_config(pa_select=1, max_power=21, output_power=15)
-    lora.set_bw(BW.BW500)
-    lora.set_freq(433.0) 
-    lora.set_coding_rate(CODING_RATE.CR4_8)
-    lora.set_spreading_factor(7)
-    lora.set_rx_crc(True)
-    #lora.set_lna_gain(GAIN.G1)
-    #lora.set_implicit_header_mode(False)
-    #lora.set_low_data_rate_optim(True)
+    radio.setPALevel(RF24_PA_LOW)
 
-    #  Medium Range  Defaults after init are 434.0MHz, Bw = 125 kHz, Cr = 4/5, Sf = 128chips/symbol, CRC on 13 dBm
-    #lora.set_pa_config(pa_select=1)
+    radio.openReadingPipe(1, base_address)
 
-    assert(lora.get_agc_auto_on() == 1)
+    radio.payloadSize = 18
 
-    lora.start()
+    rospy.init_node('radio_transceiver')
+    global pub
+    pub = rospy.Publisher('/rx_tx', Int16MultiArray, queue_size=10)
+    rate = rospy.Rate(2)
+
+    await_request()
     

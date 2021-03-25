@@ -34,8 +34,8 @@ def process_axes(payload):
     pitch = payload[4]
     aux_1 = payload[5]
     aux_2 = payload[6]
-    aux_3 = 0#payload[7]
-    aux_4 = 0#payload[8]
+    aux_3 = payload[7]
+    aux_4 = payload[8]
 
     print(
         "Throttle:{} | Roll:{} | Yaw:{} | Pitch:{} | Aux1: {} | Aux2: {} | Aux3: {} | Aux4: {} ".format(
@@ -57,7 +57,7 @@ def send_telemetry():
     accelerometer = 420
     gyroscope = 421
     barometer = 422
-    buffer = struct.pack("sssssss", accelerometer, gyroscope, barometer, 0, 0, 0, 0)
+    buffer = struct.pack("sssssssss", accelerometer, gyroscope, barometer, 0, 0, 0, 0, 0, 0)
     success = False
     while not success:
         start_timer = time.monotonic_ns()  # start timer
@@ -89,7 +89,7 @@ def await_request():
             # use struct.unpack() to convert the buffer into usable data
             # expecting a little endian float, thus the format string "<f"
             # buffer[:4] truncates padded 0s in case payloadSize was not set
-            payload = struct.unpack("sssssss", buffer)
+            payload = struct.unpack("sssssssss", buffer)
             # print details about the received packet
             
             command_id = payload[0]
@@ -128,7 +128,7 @@ if __name__ == "__main__":
     # To save time during transmission, we'll set the payload size to be only
     # what we need. A float value occupies 4 bytes in memory using
     # struct.pack(); "<f" means a little endian unsigned float
-    radio.payloadSize = 28
+    radio.payloadSize = 18
     #radio.enableDynamicPayloads()
     # for debugging, we have 2 options that print a large block of details
     # (smaller) function that prints raw register values

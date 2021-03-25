@@ -7,45 +7,41 @@ import argparse
 import time
 import struct
 from RF24 import RF24, RF24_PA_LOW
+import Adafruit_ADS1x15
+import configparser
 
+## ADC SETUP
+adc = Adafruit_ADS1x15.ADS1115()
+GAIN = 1
+stick_readings = [0]*4
 
-########### USER CONFIGURATION ###########
-# See https://github.com/TMRh20/RF24/blob/master/pyRF24/readme.md
-# Radio CE Pin, CSN Pin, SPI Speed
-# CE Pin uses GPIO number with BCM and SPIDEV drivers, other platforms use
-# their own pin numbering
-# CS Pin addresses the SPI bus number at /dev/spidev<a>.<b>
-# ie: RF24 radio(<ce_pin>, <a>*10+<b>); spidev1.0 is 10, spidev1.1 is 11 etc..
-
-# Generic:
+RF24
 radio = RF24(17, 0)
-################## Linux (BBB,x86,etc) #########################
-# See http://nRF24.github.io/RF24/pages.html for more information on usage
-# See http://iotdk.intel.com/docs/master/mraa/ for more information on MRAA
-# See https://www.kernel.org/doc/Documentation/spi/spidev for more
-# information on SPIDEV
-
-# using the python keyword global is bad practice. Instead we'll use a 1 item
-# list to store our float number for the payloads sent/received
 
 def send_axes():
     radio.stopListening()
     
     # use struct.pack() to packet your data into the payload
     command_id = 3
-    throttle = 1000
-    roll = 1001
-    yaw = 1002
-    pitch = 1003
-    aux_1 = 1004
-    aux_2 = 1005
-    aux_3 = 1006
-    aux_4 = 1007
-    buffer = struct.pack("sssssss", command_id, throttle, roll, yaw, pitch, aux_1, aux_2)#remember to put aux3 and aux4 back in
+    
+    for i in range(4):
+        stick_readings[i] = round((adc.read_adc(i, gain=GAIN) / 30700) * 1000)
+    print (stick_readings)
+    pitch = stick_readings[0] + 1000
+    roll = stick_readings[1] + 1000
+    throttle = stick_readings[2] + 1000
+    yaw = stick_readings[3] + 1000
+    aux1 = 200 + 1000
+    aux2 = 0 + 1000
+    aux3 = 0 + 1000
+    aux4 = 0 + 1000
+    
+    buffer = struct.pack("sssssssss", command_id, throttle, roll, yaw, pitch, aux1, aux2, aux3, aux4)#remember to put aux3 and aux4 back in
     success = False
     while not success:
         start_timer = time.monotonic_ns()  # start timer
         result = radio.write(buffer)
+
         if not result:
             print("Transmission failed or timed out")
             time.sleep(1)
@@ -77,7 +73,7 @@ def await_telemetry_data(timeout = 6):
             # use struct.unpack() to convert the buffer into usable data
             # expecting a little endian float, thus the format string "<f"
             # buffer[:4] truncates padded 0s in case payloadSize was not set
-            payload = struct.unpack("sssssss", buffer)
+            payload = struct.unpack("sssssssss", buffer)
             # print details about the received packet
             print(
                 "Received {} bytes on pipe {}: {}".format(
@@ -121,7 +117,7 @@ if __name__ == "__main__":
     # To save time during transmission, we'll set the payload size to be only
     # what we need. A float value occupies 4 bytes in memory using
     # struct.pack(); "<f" means a little endian unsigned float
-    radio.payloadSize = 28
+    radio.payloadSize = 18
 
     # for debugging, we have 2 options that print a large block of details
     # (smaller) function that prints raw register values
