@@ -22,13 +22,12 @@
 # <http://www.gnu.org/licenses/>.
 
 import time
-from SX127x.LoRa import *
 import configparser
 import rospy
-from std_msgs.msg import Int16MultiArray
+from std_msgs.msg import Int16MultiArray, Float32MultiArray
 import sys
 import struct
-from RF24 import RF24, RF24_PA_LOW
+from RF24 import RF24, RF24_PA_LOW, RF24_PA_MAX
 
 
 config = configparser.ConfigParser()
@@ -36,6 +35,34 @@ config.read('config.ini')
 
 radio = RF24(17, 0)
 #parser = LoRaArgumentParser("Lora tester")
+global ax
+global ay
+global az
+global gx
+global gy
+global gz
+
+ax = 0
+ay = 0
+az = 0
+gx = 0
+gy = 0
+gz = 0
+
+def update_imu_values(msg):
+    global ax
+    global ay
+    global az
+    global gx
+    global gy
+    global gz
+
+    ax = int(msg.data[0] * 360)
+    ay = int(msg.data[1] * 360)
+    az = int(msg.data[2] * 360)
+    gx = int(msg.data[3] * 360)
+    gy = int(msg.data[4] * 360)
+    gz = int(msg.data[5] * 360)
 
 def process_axes(payload):
     
@@ -68,11 +95,7 @@ def process_axes(payload):
 def send_telemetry():
     radio.stopListening()
     
-    # use struct.pack() to packet your data into the payload
-    accelerometer = 420
-    gyroscope = 421
-    barometer = 422
-    buffer = struct.pack("sssssssss", accelerometer, gyroscope, barometer, 0, 0, 0, 0, 0, 0)
+    buffer = struct.pack("sssssssss", ax, ay, az, gx, gy, gz)
     success = False
     while not success:
         start_timer = time.monotonic_ns()  # start timer
@@ -80,7 +103,7 @@ def send_telemetry():
         end_timer = time.monotonic_ns()  # end timer
         if not result:
             print("Transmission failed or timed out")
-            time.sleep(1)
+            time.sleep(0.001)
         else:
             success = True
             print(
@@ -95,7 +118,7 @@ def send_telemetry():
 def await_request():
     radio.startListening()  # put radio in RX mode
     print("awaiting request...")
-    while True:
+    while not rospy.is_shutdown():
         has_payload, pipe_number = radio.available_pipe()
         if has_payload:
             # fetch 1 payload from RX FIFO
@@ -111,54 +134,10 @@ def await_request():
             if command_id == 3: # process axis commands and send telemetry data
                 process_axes(payload)
                 send_telemetry()
-
-
-class mylora(LoRa):
-
-    def on_rx_done(self):
-        BOARD.led_on()
-        #print("\nRxDone")
-        self.clear_irq_flags(RxDone=1)
-        payload = self.read_payload(nocheck=True)
-        print ("Receive: ")
-        print(payload)
-        sender = payload[0]
-        recipient = payload[1]
-        message_type_A = payload[2]
-        message_type_B = payload[3]
-        BOARD.led_off()
-        if (recipient == self.fc_id or recipient == 255):
-            if (message_type_A == 0 and message_type_B == 0 and self.bound == 0): # BIND REQUEST
-                print("Bind request found from radio: " + str(sender))
-                self.set_mode(MODE.TX)
-                self.write_payload([self.fc_id, sender, 0, 1]) # Send BIND ACCEPT
-                print("Accept sent")
-            elif (message_type_A == 0 and message_type_B == 2 and self.bound == 0): # BIND ACCEPTANCE ACKNOWLEDGED
-                print("Bind accept acknowledged")
-                self.radio_id = sender
-                self.bound = 1
-                print("Now bound to radio" + str(sender))
-                self.set_mode(MODE.TX)
-                self.write_payload([self.fc_id, sender, 0, 4]) # Send REQUEST AXES
-            elif (message_type_A == 0 and message_type_B == 3 and self.bound == 1): # AXIS CONTROL
-                pitch = payload[4] * 256 + payload[5]
-                roll = payload[6] * 256 + payload[7]
-                throttle = payload[8] * 256 + payload[9]
-                yaw = payload[10] * 256 + payload[11]
-                aux1 = payload[12] * 256 + payload[13]
-                aux2 = payload[14] * 256 + payload[15]
-                aux3 = payload[16] * 256 + payload[17]
-                aux4 = payload[18] * 256 + payload[19]
-                msg = Int16MultiArray()
-                msg.data = [throttle, roll, pitch, yaw, aux1, aux2, aux3, aux4]
-                pub.publish(msg)
-        
-        self.reset_ptr_rx()
-        self.set_mode(MODE.RXCONT)
-
     
 
 if __name__ == '__main__':
+
 
     if not radio.begin():
         raise RuntimeError("radio hardware is not responding")
@@ -175,6 +154,7 @@ if __name__ == '__main__':
     rospy.init_node('radio_transceiver')
     global pub
     pub = rospy.Publisher('/rx_tx', Int16MultiArray, queue_size=10)
+    imu_sub = rospy.Subscriber('/imu_readings', Float32MultiArray, update_imu_values)
     rate = rospy.Rate(2)
 
     await_request()

@@ -1,28 +1,24 @@
-#!/usr/bin/python
+# This program will let you test your ESC and brushless motor.
+# Make sure your battery is not connected if you are going to calibrate it at first.
+# Since you are testing your motor, I hope you don't have your propeller attached to it otherwise you are in trouble my friend...?
+# This program is made by AGT @instructable.com. DO NOT REPUBLISH THIS PROGRAM... actually the program itself is harmful                                             pssst Its not, its safe.
 
-import os
-import rospy
-import RPi.GPIO as IO
-os.system ("sudo pigpiod")
-time.sleep(1)
-import pigpio
-import time
-import PPM
-from std_msgs.msg import Int16MultiArray
+import os     #importing os library so as to communicate with the system
+import time   #importing time library to make Rpi wait because its too impatient 
+os.system ("sudo pigpiod") #Launching GPIO library
+time.sleep(1) # As i said it is too impatient and so if this delay is removed you will get an error
+import pigpio #importing GPIO library
 
-motor1 = 23
-motor2 = 27
-motor3 = 22
-motor4 = 18
+ESC=18  #Connect the ESC in this GPIO pin MUST BE EITHER 23, 22, 27, OR 18
 
 pi = pigpio.pi()
-pi.set_servo_pulsewidth(motor1, 0)
-pi.set_servo_pulsewidth(motor2, 0)
-pi.set_servo_pulsewidth(motor3, 0)
-pi.set_servo_pulsewidth(motor4, 0) 
+pi.set_servo_pulsewidth(ESC, 0) 
 
-max_value = 2000
-min_value = 700
+max_value = 2000 #change this if your ESC's max value is different or leave it be
+min_value = 700  #change this if your ESC's min value is different or leave it be
+print( "For first time launch, select calibrate")
+print( "Type the exact word for the function you want")
+print( "calibrate OR manual OR control OR arm OR stop")
 
 def manual_drive(): #You will use this function to program your ESC if required
     print( "You have selected manual option so give a value between 0 and you max value"  )  
@@ -97,55 +93,32 @@ def control():
             print( "WHAT DID I SAID!! Press a,q,d or e")
             
 def arm(): #This is the arming procedure of an ESC 
-    
-    pi.set_servo_pulsewidth(motor1, 0)
-     pi.set_servo_pulsewidth(motor2, 0)
-      pi.set_servo_pulsewidth(motor3, 0)
-       pi.set_servo_pulsewidth(motor4, 0)
-    time.sleep(1)
-    pi.set_servo_pulsewidth(motor1, max_value)
-    pi.set_servo_pulsewidth(motor2, max_value)
-    pi.set_servo_pulsewidth(motor3, max_value)
-    pi.set_servo_pulsewidth(motor4, max_value)
-    time.sleep(1)
-    pi.set_servo_pulsewidth(motor1, min_value)
-    pi.set_servo_pulsewidth(motor2, min_value)
-    pi.set_servo_pulsewidth(motor3, min_value)
-    pi.set_servo_pulsewidth(motor4, min_value)
-    time.sleep(1)
-    #control() 
+    print( "Connect the battery and press Enter")
+    inp = input()    
+    if inp == '':
+        pi.set_servo_pulsewidth(ESC, 0)
+        time.sleep(1)
+        pi.set_servo_pulsewidth(ESC, max_value)
+        time.sleep(1)
+        pi.set_servo_pulsewidth(ESC, min_value)
+        time.sleep(1)
+        control() 
         
 def stop(): #This will stop every action your Pi is performing for ESC ofcourse.
-    pi.set_servo_pulsewidth(motor1, 0)
-    pi.set_servo_pulsewidth(motor2, 0)
-    pi.set_servo_pulsewidth(motor3, 0)
-    pi.set_servo_pulsewidth(motor4, 0)
+    pi.set_servo_pulsewidth(ESC, 0)
     pi.stop()
 
-def axis_control_callback(msg):
-    #rospy.loginfo(msg.data[1])
-    motor1_level = msg.data[0]
-    motor2_level = msg.data[1]
-    motor3_level = msg.data[2]
-    motor4_level = msg.data[3]
-
-    pi.set_servo_pulsewidth(motor1, motor1_level)
-    pi.set_servo_pulsewidth(motor2, motor2_level)
-    pi.set_servo_pulsewidth(motor3, motor3_level)
-    pi.set_servo_pulsewidth(motor4, motor4_level)
-    
-
-
-if __name__ == '__main__':
+#This is the start of the program actually, to start the function it needs to be initialized before calling... stupid python.    
+inp = input()
+if inp == "manual":
+    manual_drive()
+elif inp == "calibrate":
+    calibrate()
+elif inp == "arm":
     arm()
-    time.sleep(1)
-
-    rospy.init_node('motor_control_node')
-    rospy.loginfo('motor_control_node started')
-    rate = rospy.Rate(10)
-    sub = rospy.Subscriber('/motor_levels', Int16MultiArray, axis_control_callback)
-
-
-    rospy.spin()
-    
+elif inp == "control":
+    control()
+elif inp == "stop":
     stop()
+else :
+    print( "Thank You for not following the things I'm saying... now you gotta restart the program STUPID!!")

@@ -1,0 +1,5 @@
+<launch>
+
+    <node name="imu_node" pkg="diosa_imu" type="imu.py"/>
+
+</launch>
