@@ -6,19 +6,59 @@ import sys
 import argparse
 import time
 import struct
-from RF24 import RF24, RF24_PA_LOW
+from RF24 import RF24, RF24_PA_LOW, RF24_PA_MAX, RF24_2MBPS
 import Adafruit_ADS1x15
 import configparser
+import RPi.GPIO as GPIO
 
 ## ADC SETUP
 adc = Adafruit_ADS1x15.ADS1115()
 GAIN = 1
 stick_readings = [0]*4
 
-RF24
+GPIO.setmode(GPIO.BCM) # Broadcom pin-numbering scheme
+
+sw1 = 5
+sw2 = 6
+sw3 = 12
+sw4 = 13
+
+GPIO.setup(sw1, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(sw2, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(sw3, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+GPIO.setup(sw4, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
+global radio
 radio = RF24(17, 0)
+global packets_sent
+packets_sent = 0
+global failed_packets
+failed_packets = 0
+
+def await_telemetry_data(timeout = 6):
+    radio.startListening()  # put radio in RX mode
+
+    start_timer = time.monotonic()
+    telem_data_present = False
+    payload = []
+    while ((time.monotonic() - start_timer) < timeout and not telem_data_present):
+        has_payload, pipe_number = radio.available_pipe()
+        if has_payload:
+            # fetch 1 payload from RX FIFO
+            #length = radio.getDynamicPayloadSize()
+            buffer = radio.read(radio.payloadSize)
+            
+            payload = struct.unpack("hhhhhhhhh", buffer)
+            
+            start_timer = time.monotonic()  # reset the timeout timer
+            telem_data_present = True
+
+    radio.stopListening()  # put the radio in TX mode
+    return payload
 
 def send_axes():
+    global packets_sent
+    global failed_packets
     radio.stopListening()
     
     # use struct.pack() to packet your data into the payload
@@ -26,66 +66,40 @@ def send_axes():
     
     for i in range(4):
         stick_readings[i] = round((adc.read_adc(i, gain=GAIN) / 30700) * 1000)
-    print (stick_readings)
+    #print (stick_readings)
     pitch = stick_readings[0] + 1000
     roll = stick_readings[1] + 1000
     throttle = stick_readings[2] + 1000
     yaw = stick_readings[3] + 1000
-    aux1 = 200 + 1000
-    aux2 = 0 + 1000
-    aux3 = 0 + 1000
-    aux4 = 0 + 1000
+    aux1 = 1000 if GPIO.input(sw1) else 2000
+    aux2 = 1000 if GPIO.input(sw2) else 2000
+    aux3 = 1000 if GPIO.input(sw3) else 2000
+    aux4 = 1000 if GPIO.input(sw4) else 2000
     
-    buffer = struct.pack("sssssssss", command_id, throttle, roll, yaw, pitch, aux1, aux2, aux3, aux4)#remember to put aux3 and aux4 back in
+    buffer = struct.pack("hhhhhhhhh", command_id, throttle, roll, yaw, pitch, aux1, aux2, aux3, aux4)
     success = False
     while not success:
         start_timer = time.monotonic_ns()  # start timer
+        packets_sent = packets_sent + 1
         result = radio.write(buffer)
 
         if not result:
-            print("Transmission failed or timed out")
-            time.sleep(1)
+            #err_string = 'Transmission failed or timed out'
+            #print(err_string)
+            failed_packets = failed_packets + 1
+            
         else:
             success = True
-            await_telemetry_data()
+            #telemetry_payload = await_telemetry_data()
+            #t_pitch = telemetry_payload[0]
+            #t_roll = telemetry_payload[1]
+            #t_yaw = telemetry_payload[2]
             end_timer = time.monotonic_ns()  # end timer
-            print(
-                "Transmission successful! Roundtrip time: "
-                "{} us.".format(
-                    (end_timer - start_timer) / 1000
-                )
-            )
+            print("Packets Sent: {} | Failed Packets: {} | Round Trip Time (us): {}".format(packets_sent, failed_packets, (end_timer - start_timer) / 1000), end='\r')
+            #print((end_timer - start_timer)/1000, end='\r')
+            #print("Pitch: {} | Roll: {} | Yaw: {} | Time: {}".format(t_pitch, t_roll, t_yaw, (end_timer - start_timer) / 1000))
 
     radio.startListening()
-
-
-def await_telemetry_data(timeout = 6):
-    radio.startListening()  # put radio in RX mode
-
-    start_timer = time.monotonic()
-    telem_data_present = False
-    while ((time.monotonic() - start_timer) < timeout and not telem_data_present):
-        has_payload, pipe_number = radio.available_pipe()
-        if has_payload:
-            # fetch 1 payload from RX FIFO
-            #length = radio.getDynamicPayloadSize()
-            buffer = radio.read(radio.payloadSize)
-            # use struct.unpack() to convert the buffer into usable data
-            # expecting a little endian float, thus the format string "<f"
-            # buffer[:4] truncates padded 0s in case payloadSize was not set
-            payload = struct.unpack("sssssssss", buffer)
-            # print details about the received packet
-            print(
-                "Received {} bytes on pipe {}: {}".format(
-                    radio.payloadSize,
-                    pipe_number,
-                    payload
-                )
-            )
-            start_timer = time.monotonic()  # reset the timeout timer
-            telem_data_present = True
-
-    radio.stopListening()  # put the radio in TX mode
 
 
 
@@ -106,7 +120,8 @@ if __name__ == "__main__":
 
     # set the Power Amplifier level to -12 dBm since this test example is
     # usually run with nRF24L01 transceivers in close proximity of each other
-    radio.setPALevel(RF24_PA_LOW)  # RF24_PA_MAX is default
+    radio.setPALevel(RF24_PA_MAX)  # RF24_PA_MAX is default
+    radio.setDataRate(RF24_2MBPS)
 
     # set TX address as base station address
     radio.openWritingPipe(base_address)  # always uses pipe 0
@@ -128,7 +143,7 @@ if __name__ == "__main__":
     try:
         while True:
             send_axes()
-            time.sleep(1)
+            #time.sleep(1)
     except KeyboardInterrupt:
         print(" Keyboard Interrupt detected. Exiting...")
         radio.powerDown()

@@ -27,7 +27,7 @@ import rospy
 from std_msgs.msg import Int16MultiArray, Float32MultiArray
 import sys
 import struct
-from RF24 import RF24, RF24_PA_LOW, RF24_PA_MAX
+from RF24 import RF24, RF24_PA_LOW, RF24_PA_MAX, RF24_2MBPS
 
 
 config = configparser.ConfigParser()
@@ -35,34 +35,22 @@ config.read('config.ini')
 
 radio = RF24(17, 0)
 #parser = LoRaArgumentParser("Lora tester")
-global ax
-global ay
-global az
-global gx
-global gy
-global gz
+global imu_pitch
+global imu_roll
+global imu_yaw
 
-ax = 0
-ay = 0
-az = 0
-gx = 0
-gy = 0
-gz = 0
+imu_pitch = 0
+imu_roll = 0
+imu_yaw = 0
 
 def update_imu_values(msg):
-    global ax
-    global ay
-    global az
-    global gx
-    global gy
-    global gz
+    global imu_pitch
+    global imu_roll
+    global imu_yaw
 
-    ax = int(msg.data[0] * 360)
-    ay = int(msg.data[1] * 360)
-    az = int(msg.data[2] * 360)
-    gx = int(msg.data[3] * 360)
-    gy = int(msg.data[4] * 360)
-    gz = int(msg.data[5] * 360)
+    imu_pitch = msg.data[0]
+    imu_roll = msg.data[1]
+    imu_yaw = msg.data[2]
 
 def process_axes(payload):
     
@@ -85,7 +73,8 @@ def process_axes(payload):
             aux2,
             aux3,
             aux4
-        )
+        ),
+        end='\r'
     )
 
     msg = Int16MultiArray()
@@ -95,23 +84,24 @@ def process_axes(payload):
 def send_telemetry():
     radio.stopListening()
     
-    buffer = struct.pack("sssssssss", ax, ay, az, gx, gy, gz)
+    buffer = struct.pack("hhhhhhhhh", int(imu_pitch), int(imu_roll), int(imu_yaw), 0, 0, 0, 0, 0, 0)
     success = False
     while not success:
         start_timer = time.monotonic_ns()  # start timer
         result = radio.write(buffer)
         end_timer = time.monotonic_ns()  # end timer
         if not result:
-            print("Transmission failed or timed out")
-            time.sleep(0.001)
+            #print("Transmission failed or timed out")
+            #time.sleep(1)
+            pass
         else:
             success = True
-            print(
-                "Transmission successful! Time to Transmit: "
-                "{} us.".format(
-                    (end_timer - start_timer) / 1000
-                )
-            )
+            #print(
+            #    "Transmission successful! Time to Transmit: "
+            #    "{} us.".format(
+            #        (end_timer - start_timer) / 1000
+            #    )
+            #)
 
     radio.startListening()
 
@@ -127,13 +117,13 @@ def await_request():
             # use struct.unpack() to convert the buffer into usable data
             # expecting a little endian float, thus the format string "<f"
             # buffer[:4] truncates padded 0s in case payloadSize was not set
-            payload = struct.unpack("sssssssss", buffer)
+            payload = struct.unpack("hhhhhhhhh", buffer)
             # print details about the received packet
             
             command_id = payload[0]
             if command_id == 3: # process axis commands and send telemetry data
                 process_axes(payload)
-                send_telemetry()
+                #send_telemetry()
     
 
 if __name__ == '__main__':
@@ -145,13 +135,15 @@ if __name__ == '__main__':
     base_address = b"base_station"
     fc_address = b"flight_controller"
 
-    radio.setPALevel(RF24_PA_LOW)
+    radio.setPALevel(RF24_PA_MAX)#MAX as alternative
+    radio.setDataRate(RF24_2MBPS)
 
+    radio.openWritingPipe(fc_address)
     radio.openReadingPipe(1, base_address)
 
     radio.payloadSize = 18
 
-    rospy.init_node('radio_transceiver')
+    rospy.init_node('radio_transceiver_node')
     global pub
     pub = rospy.Publisher('/rx_tx', Int16MultiArray, queue_size=10)
     imu_sub = rospy.Subscriber('/imu_readings', Float32MultiArray, update_imu_values)

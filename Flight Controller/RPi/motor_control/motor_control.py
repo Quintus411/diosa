@@ -1,13 +1,12 @@
-#!/usr/bin/python
+#!/usr/bin/env python3
 
 import os
 import rospy
 import RPi.GPIO as IO
+import time
 os.system ("sudo pigpiod")
 time.sleep(1)
 import pigpio
-import time
-import PPM
 from std_msgs.msg import Int16MultiArray
 
 motor1 = 23
@@ -99,9 +98,9 @@ def control():
 def arm(): #This is the arming procedure of an ESC 
     
     pi.set_servo_pulsewidth(motor1, 0)
-     pi.set_servo_pulsewidth(motor2, 0)
-      pi.set_servo_pulsewidth(motor3, 0)
-       pi.set_servo_pulsewidth(motor4, 0)
+    pi.set_servo_pulsewidth(motor2, 0)
+    pi.set_servo_pulsewidth(motor3, 0)
+    pi.set_servo_pulsewidth(motor4, 0)
     time.sleep(1)
     pi.set_servo_pulsewidth(motor1, max_value)
     pi.set_servo_pulsewidth(motor2, max_value)
@@ -112,7 +111,11 @@ def arm(): #This is the arming procedure of an ESC
     pi.set_servo_pulsewidth(motor2, min_value)
     pi.set_servo_pulsewidth(motor3, min_value)
     pi.set_servo_pulsewidth(motor4, min_value)
-    time.sleep(1)
+    time.sleep(10)
+    pi.set_servo_pulsewidth(motor1, 1500)
+    pi.set_servo_pulsewidth(motor2, 1500)
+    pi.set_servo_pulsewidth(motor3, 1500)
+    pi.set_servo_pulsewidth(motor4, 1500)
     #control() 
         
 def stop(): #This will stop every action your Pi is performing for ESC ofcourse.
@@ -142,7 +145,7 @@ if __name__ == '__main__':
 
     rospy.init_node('motor_control_node')
     rospy.loginfo('motor_control_node started')
-    rate = rospy.Rate(10)
+    rate = rospy.Rate(1000)
     sub = rospy.Subscriber('/motor_levels', Int16MultiArray, axis_control_callback)
 
 

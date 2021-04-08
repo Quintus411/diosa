@@ -22,12 +22,14 @@
 # <http://www.gnu.org/licenses/>.
 
 import time
+import datetime
 import configparser
 import rospy
 from std_msgs.msg import Float32MultiArray
 import sys
 import struct
 import smbus
+import math
 
 
 def MPU6050_start():
@@ -132,19 +134,48 @@ if __name__ == '__main__':
 
     rate = rospy.Rate(1000)
 
+    total_angle_X = 0
+    total_angle_Y = 0
+    total_angle_Z = 0
+
+    x_offset = 3.3
+    y_offset = -5
+
+    current_time = datetime.datetime.now()
+
     while not rospy.is_shutdown():
+        
+        prev_time = current_time
+
         try:
             ax,ay,az,wx,wy,wz = mpu6050_conv() # read and convert mpu6050 data
             #mx,my,mz = AK8963_conv() # read and convert AK8963 magnetometer data
         except:
             continue
         
-        print('{}'.format('-'*30))
-        print('accel [g]: x = {0:2.2f}, y = {1:2.2f}, z {2:2.2f}= '.format(ax,ay,az))
-        print('gyro [dps]:  x = {0:2.2f}, y = {1:2.2f}, z = {2:2.2f}'.format(wx,wy,wz))
-        print('{}'.format('-'*30))
+        #print('{}'.format('-'*30))
+        #print('accel [g]: x = {0:2.2f}, y = {1:2.2f}, z {2:2.2f}= '.format(ax,ay,az))
+        #print('gyro [dps]:  x = {0:2.2f}, y = {1:2.2f}, z = {2:2.2f}'.format(wx,wy,wz))
+        #print('{}'.format('-'*30))
+
+        #Acceleration_angle[0] = atan( ay /sqrt(pow(ax,2) + pow((Acc_rawZ/16384.0),2)))*rad_to_deg
+
+        accel_X = math.degrees( math.atan( ay / math.sqrt( math.pow(ax, 2) + math.pow(az, 2) ) ) )
+        accel_Y = math.degrees( math.atan2( ax , math.sqrt( math.pow(ay, 2) + math.pow(az, 2) ) ) )
+        #accel_Y = math.degrees( math.atan2( ay , az ) )
+
+        current_time = datetime.datetime.now()
+        elapsed_time = (current_time - prev_time).total_seconds()
+
+        total_angle_X = 0.98 * (total_angle_X + wx * elapsed_time) + 0.02 * accel_X# + x_offset
+        total_angle_Y = 0.98 * (total_angle_Y + wy * elapsed_time) + 0.02 * accel_Y# + y_offset
+        total_angle_Z = total_angle_Z + wz * elapsed_time
+
+        print_string = 'X: ' + str(int(total_angle_X)) + '        Y: ' + str(int(total_angle_Y)) + '        Z: ' + str(int(total_angle_Z))
+        print(print_string, end = "\r")
+
         msg = Float32MultiArray()
-        msg.data = [ax, ay, az, wx, wy, wz]
+        msg.data = [total_angle_X, total_angle_Y, total_angle_Z]
         pub.publish(msg)
         rate.sleep()
 
