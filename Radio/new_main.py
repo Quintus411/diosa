@@ -90,12 +90,19 @@ def send_axes():
             
         else:
             success = True
-            #telemetry_payload = await_telemetry_data()
-            #t_pitch = telemetry_payload[0]
-            #t_roll = telemetry_payload[1]
-            #t_yaw = telemetry_payload[2]
+            has_payload, pipe_number = radio.available_pipe()
             end_timer = time.monotonic_ns()  # end timer
-            print("Packets Sent: {} | Failed Packets: {} | Round Trip Time (us): {}".format(packets_sent, failed_packets, (end_timer - start_timer) / 1000), end='\r')
+            if has_payload:
+                length = radio.getDynamicPayloadSize()
+                response_buffer = radio.read(length)
+                response = struct.unpack("hhhhhhhhh", response_buffer)
+                t_pitch = response[0]
+                t_roll = response[1]
+                t_yaw = response[2]
+                packet_loss = (failed_packets / packets_sent) * 100
+                print("Pitch: {} | Roll: {} | Yaw: {} | Packet Loss: {}% | Round Trip Time (us): {}".format(t_pitch, t_roll, t_yaw, packet_loss, (end_timer - start_timer) / 1000), end='\r')
+            else :
+                print("\nno payload")
             #print((end_timer - start_timer)/1000, end='\r')
             #print("Pitch: {} | Roll: {} | Yaw: {} | Time: {}".format(t_pitch, t_roll, t_yaw, (end_timer - start_timer) / 1000))
 
@@ -132,7 +139,8 @@ if __name__ == "__main__":
     # To save time during transmission, we'll set the payload size to be only
     # what we need. A float value occupies 4 bytes in memory using
     # struct.pack(); "<f" means a little endian unsigned float
-    radio.payloadSize = 18
+    #radio.payloadSize = 18
+    radio.enableAckPayload()
 
     # for debugging, we have 2 options that print a large block of details
     # (smaller) function that prints raw register values

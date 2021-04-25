@@ -138,13 +138,24 @@ if __name__ == '__main__':
     total_angle_Y = 0
     total_angle_Z = 0
 
-    x_offset = 3.3
-    y_offset = -5
+    x_offset = 0
+    y_offset = 0
+    z_offset = 0
 
     current_time = datetime.datetime.now()
 
+    calibration_counter = 0
+    calibration_time = 10000
+
     while not rospy.is_shutdown():
         
+        calibration_counter = calibration_counter + 1
+        if (calibration_counter == calibration_time):
+            x_offset = total_angle_X
+            y_offset = total_angle_Y
+            z_offset = total_angle_Z / calibration_time #z must be offset over time to account for drift
+            total_angle_Z = 0
+
         prev_time = current_time
 
         try:
@@ -169,13 +180,13 @@ if __name__ == '__main__':
 
         total_angle_X = 0.98 * (total_angle_X + wx * elapsed_time) + 0.02 * accel_X# + x_offset
         total_angle_Y = 0.98 * (total_angle_Y + wy * elapsed_time) + 0.02 * accel_Y# + y_offset
-        total_angle_Z = total_angle_Z + wz * elapsed_time
+        total_angle_Z = total_angle_Z + wz * elapsed_time - z_offset
 
         print_string = 'X: ' + str(int(total_angle_X)) + '        Y: ' + str(int(total_angle_Y)) + '        Z: ' + str(int(total_angle_Z))
         print(print_string, end = "\r")
 
         msg = Float32MultiArray()
-        msg.data = [total_angle_X, total_angle_Y, total_angle_Z]
+        msg.data = [total_angle_X - x_offset, total_angle_Y - y_offset, total_angle_Z]
         pub.publish(msg)
         rate.sleep()
 

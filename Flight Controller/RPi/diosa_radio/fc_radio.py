@@ -112,8 +112,8 @@ def await_request():
         has_payload, pipe_number = radio.available_pipe()
         if has_payload:
             # fetch 1 payload from RX FIFO
-            #length = radio.getDynamicPayloadSize()
-            buffer = radio.read(radio.payloadSize)
+            length = radio.getDynamicPayloadSize()
+            buffer = radio.read(length)
             # use struct.unpack() to convert the buffer into usable data
             # expecting a little endian float, thus the format string "<f"
             # buffer[:4] truncates padded 0s in case payloadSize was not set
@@ -123,6 +123,8 @@ def await_request():
             command_id = payload[0]
             if command_id == 3: # process axis commands and send telemetry data
                 process_axes(payload)
+                buffer = struct.pack("hhhhhhhhh", int(imu_pitch), int(imu_roll), int(imu_yaw), 0, 0, 0, 0, 0, 0)  # build a new ACK payload
+                radio.writeAckPayload(1, buffer)  # load ACK for next response
                 #send_telemetry()
     
 
@@ -141,7 +143,8 @@ if __name__ == '__main__':
     radio.openWritingPipe(fc_address)
     radio.openReadingPipe(1, base_address)
 
-    radio.payloadSize = 18
+    #radio.payloadSize = 18
+    radio.enableAckPayload()
 
     rospy.init_node('radio_transceiver_node')
     global pub
