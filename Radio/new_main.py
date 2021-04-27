@@ -6,15 +6,22 @@ import sys
 import argparse
 import time
 import struct
+import board
+import busio
 from RF24 import RF24, RF24_PA_LOW, RF24_PA_MAX, RF24_2MBPS
-import Adafruit_ADS1x15
+#import Adafruit_ADS1x15
+#from Adafruit_ADS1x15.analog_in import AnalogIn
+import adafruit_ads1x15.ads1115 as ADS
+from adafruit_ads1x15.analog_in import AnalogIn
 import configparser
 import RPi.GPIO as GPIO
 
 ## ADC SETUP
-adc = Adafruit_ADS1x15.ADS1115()
+#adc = Adafruit_ADS1x15.ADS1115()
+i2c = busio.I2C(board.SCL, board.SDA)
+adc = ADS.ADS1115(i2c)
+adc.gain = 2/3
 GAIN = 1
-stick_readings = [0]*4
 
 GPIO.setmode(GPIO.BCM) # Broadcom pin-numbering scheme
 
@@ -35,26 +42,33 @@ packets_sent = 0
 global failed_packets
 failed_packets = 0
 
-def await_telemetry_data(timeout = 6):
-    radio.startListening()  # put radio in RX mode
+time.sleep(1)
 
-    start_timer = time.monotonic()
-    telem_data_present = False
-    payload = []
-    while ((time.monotonic() - start_timer) < timeout and not telem_data_present):
-        has_payload, pipe_number = radio.available_pipe()
-        if has_payload:
-            # fetch 1 payload from RX FIFO
-            #length = radio.getDynamicPayloadSize()
-            buffer = radio.read(radio.payloadSize)
-            
-            payload = struct.unpack("hhhhhhhhh", buffer)
-            
-            start_timer = time.monotonic()  # reset the timeout timer
-            telem_data_present = True
+pitch_pin = AnalogIn(adc, ADS.P0)
+roll_pin = AnalogIn(adc, ADS.P1)
+throttle_pin = AnalogIn(adc, ADS.P2)
+yaw_pin = AnalogIn(adc, ADS.P3)
 
-    radio.stopListening()  # put the radio in TX mode
-    return payload
+global throttle_offset
+global pitch_offset
+global yaw_offset
+global roll_offset
+pitch_offset = pitch_pin.value#adc.read_adc(0, gain=GAIN)
+time.sleep(0.01)
+pitch_offset = pitch_pin.value
+time.sleep(0.01)
+roll_offset = roll_pin.value#adc.read_adc(1, gain=GAIN)
+time.sleep(0.01)
+roll_offset = roll_pin.value
+time.sleep(0.01)
+throttle_offset = throttle_pin.value#adc.read_adc(2, gain=GAIN)
+time.sleep(0.01)
+throttle_offset = throttle_pin.value
+time.sleep(0.01)
+yaw_offset = yaw_pin.value#adc.read_adc(3, gain=GAIN)
+time.sleep(0.01)
+yaw_offset = yaw_pin.value
+time.sleep(0.01)
 
 def send_axes():
     global packets_sent
@@ -63,14 +77,24 @@ def send_axes():
     
     # use struct.pack() to packet your data into the payload
     command_id = 3
+
+    pitch_reading = pitch_pin.value
+    pitch_reading = pitch_pin.value
+    time.sleep(0.01)
+    roll_reading = roll_pin.value
+    roll_reading = roll_pin.value
+    time.sleep(0.01)
+    throttle_reading = throttle_pin.value
+    throttle_reading = throttle_pin.value
+    time.sleep(0.01)
+    yaw_reading = yaw_pin.value
+    yaw_reading = yaw_pin.value
+    time.sleep(0.01)
     
-    for i in range(4):
-        stick_readings[i] = round((adc.read_adc(i, gain=GAIN) / 30700) * 1000)
-    #print (stick_readings)
-    pitch = stick_readings[0] + 1000
-    roll = stick_readings[1] + 1000
-    throttle = stick_readings[2] + 1000
-    yaw = stick_readings[3] + 1000
+    pitch = round(((pitch_reading - pitch_offset) / 30700) * 180)
+    roll = round(((roll_reading - roll_offset) / 30700) * 180) 
+    throttle = round(((throttle_reading - throttle_offset) / 30700) * 180)
+    yaw = round(((yaw_reading - yaw_offset) / 30700) * 180)
     aux1 = 1000 if GPIO.input(sw1) else 2000
     aux2 = 1000 if GPIO.input(sw2) else 2000
     aux3 = 1000 if GPIO.input(sw3) else 2000
@@ -151,7 +175,7 @@ if __name__ == "__main__":
     try:
         while True:
             send_axes()
-            #time.sleep(1)
+            #time.sleep(5)
     except KeyboardInterrupt:
         print(" Keyboard Interrupt detected. Exiting...")
         radio.powerDown()
