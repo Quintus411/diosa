@@ -4,5 +4,6 @@
     <node name="pid_node" pkg="diosa_pid" type="pid.py"/>
     <node name="motor_control_node" pkg="diosa_motor_control" type="motor_control.py"/>
     <node name="radio_transceiver_node" pkg="diosa_radio" type="fc_radio.py"/>
+    <node name="gps_node" pkg="diosa_gps" type="gps.py"/>
 
 </launch>
