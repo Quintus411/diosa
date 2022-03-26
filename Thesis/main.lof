@@ -1,0 +1,70 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\babel@toc {english}{}
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Examples of multirotor UAVs \cite {zimmerman2016}\relax }}{1}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Diagram of a quadcopter with radio transmitter\cite {fcDesign2019}\relax }}{2}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {1.3}{\ignorespaces Connecting a Pixhawk flight controller to a Raspberry Pi \cite {RPiMavlink2019}\relax }}{4}{}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Circuit diagram of basic MultiWii multirotor UAV \cite {MultiwiiFC}\relax }}{6}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Electrical architecture diagram (left) and corresponding flight controller block diagram (right)\cite {zimmerman2016}\relax }}{7}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Navio2 Raspberry Pi hat \cite {Navio2}\relax }}{8}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Controlling the UAV \cite {fcDesign2019}\relax }}{9}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.5}{\ignorespaces UAV reference frame \cite {zimmerman2016}\relax }}{9}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Diagram of UAV plant and control system \cite {zimmerman2016}\relax }}{10}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Expanded view of UAV control system \cite {zimmerman2016}\relax }}{11}{}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Project Diosa prototype chassis with electronics installed\relax }}{13}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Flight controller diagram with ESC module and motors\relax }}{14}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Diagram of ROS nodes and topics\relax }}{15}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.4}{\ignorespaces nRF24L01 transceiver module with antenna\cite {EDWNrf24}\relax }}{16}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Diagram of communication between base station and flight controller over time\relax }}{16}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces UBLOX NEO-6M GPS Module\cite {EDWGPS}\relax }}{17}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.7}{\ignorespaces MPU6050+HMC5883L+BMP180 Gyro/Magnetometer/Accelerometer/Altimeter Sensor Module\cite {EDWIMU}\relax }}{18}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.8}{\ignorespaces Schematic of the flight controller\relax }}{20}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.9}{\ignorespaces Layout of the flight controller circuit board\relax }}{21}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.10}{\ignorespaces Fabricated and assembled flight controller placed inside the Project Diosa chassis\relax }}{22}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.11}{\ignorespaces Assembled mobile base station\relax }}{23}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.12}{\ignorespaces Controlling the UAV \cite {fcDesign2019}\relax }}{23}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.13}{\ignorespaces 2-Dimensional Testing diagram\relax }}{24}{}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Packet loss plot with respect to time\relax }}{26}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {5.2}{\ignorespaces Pitch (blue, solid), Roll (red, dotted), and Yaw (green, solid) control errors with respect to time in response to the hover test\relax }}{27}{}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Project gantt chart\relax }}{30}{}%

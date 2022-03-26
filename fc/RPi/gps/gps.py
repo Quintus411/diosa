@@ -4,7 +4,7 @@ import os
 import rospy
 import RPi.GPIO as IO
 import pigpio
-from std_msgs.msg import Float16MultiArray
+from std_msgs.msg import Float32MultiArray
 import serial               #import serial pacakge
 from time import sleep
 import sys                  #import system package
@@ -51,7 +51,7 @@ if __name__ == '__main__':
     rospy.loginfo('gps_node started')
     rate = rospy.Rate(1000)
     global pub
-    pub = rospy.Publisher('/gps_data', Float16MultiArray, queue_size=10)
+    pub = rospy.Publisher('/gps_data', Float32MultiArray, queue_size=10)
 
     while not rospy.is_shutdown():
 
@@ -65,12 +65,12 @@ if __name__ == '__main__':
                 GPS_Info()                                          #get time, latitude, longitude
     
                 print("lat in degrees:", lat_in_degrees," long in degree: ", long_in_degrees, '\n')
-                msg = Float16MultiArray()
+                msg = Float32MultiArray()
                 msg.data = [lat_in_degrees, long_in_degrees]#ADD GPS DATA HERE
                 pub.publish(msg)
 
             except ValueError:
                 print('No signal')
-                msg = Float16MultiArray()
-                msg.data = [0, 0]#ADD GPS DATA HERE
+                msg = Float32MultiArray()
+                msg.data = [float(0), float(0)]#ADD GPS DATA HERE
                 pub.publish(msg)

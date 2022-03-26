@@ -111,11 +111,11 @@ def arm(): #This is the arming procedure of an ESC
     pi.set_servo_pulsewidth(motor2, min_value)
     pi.set_servo_pulsewidth(motor3, min_value)
     pi.set_servo_pulsewidth(motor4, min_value)
-    time.sleep(10)
-    pi.set_servo_pulsewidth(motor1, 1500)
-    pi.set_servo_pulsewidth(motor2, 1500)
-    pi.set_servo_pulsewidth(motor3, 1500)
-    pi.set_servo_pulsewidth(motor4, 1500)
+    time.sleep(1)
+    pi.set_servo_pulsewidth(motor1, 1510)
+    pi.set_servo_pulsewidth(motor2, 1510)
+    pi.set_servo_pulsewidth(motor3, 1510)
+    pi.set_servo_pulsewidth(motor4, 1510)
     #control() 
         
 def stop(): #This will stop every action your Pi is performing for ESC ofcourse.

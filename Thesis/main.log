@@ -1,0 +1,1490 @@
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/W32TeX) (preloaded format=pdflatex 2020.12.22)  14 JUL 2021 13:54
+entering extended mode
+ restricted \write18 enabled.
+ file:line:error style messages enabled.
+ %&-line parsing enabled.
+**c:/Users/asus/Documents/GitHub/diosa/Thesis/main.tex
+(c:/Users/asus/Documents/GitHub/diosa/Thesis/main.tex
+LaTeX2e <2020-10-01> patch level 2
+L3 programming layer <2020-12-07> xparse <2020-03-03> (c:/Users/asus/Documents/GitHub/diosa/Thesis/upeeei.cls
+Document Class: upeeei 2011/11/22 v0.1 UP EEEI Thesis Class
+(c:/Users/asus/Documents/GitHub/diosa/Thesis/uct11_new.clo (c:/texlive/2020/texmf-dist/tex/latex/geometry/geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (c:/texlive/2020/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks15
+) (c:/texlive/2020/texmf-dist/tex/generic/iftex/ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (c:/texlive/2020/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2020/03/06 v1.0d TeX engine tests
+))
+\Gm@cnth=\count177
+\Gm@cntv=\count178
+\c@Gm@tempcnt=\count179
+\Gm@bindingoffset=\dimen138
+\Gm@wd@mp=\dimen139
+\Gm@odd@mp=\dimen140
+\Gm@even@mp=\dimen141
+\Gm@layoutwidth=\dimen142
+\Gm@layoutheight=\dimen143
+\Gm@layouthoffset=\dimen144
+\Gm@layoutvoffset=\dimen145
+\Gm@dimlist=\toks16
+))
+\descriptionmargin=\dimen146
+\c@part=\count180
+\c@chapter=\count181
+\c@section=\count182
+\c@subsection=\count183
+\c@subsubsection=\count184
+\c@paragraph=\count185
+\c@subparagraph=\count186
+\c@figure=\count187
+\c@table=\count188
+) (c:/texlive/2020/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2020/08/01 v1.3d Input encoding file
+\inpenc@prehook=\toks17
+\inpenc@posthook=\toks18
+ (c:/texlive/2020/texmf-dist/tex/latex/base/latin9.def
+File: latin9.def 2020/08/01 v1.3d Input encoding file
+)) (c:/texlive/2020/texmf-dist/tex/latex/srcltx/srcltx.sty
+Package: srcltx 2006/11/12 v1.6 Source specials for inverse search in DVI files
+ (c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\src@lastline=\count189
+\src@new@everypar=\toks19
+\src@new@output=\toks20
+) (c:/texlive/2020/texmf-dist/tex/latex/units/units.sty
+Package: units 1998/08/04 v0.9b Typesetting units
+ (c:/texlive/2020/texmf-dist/tex/latex/units/nicefrac.sty
+Package: nicefrac 1998/08/04 v0.9b Nice fractions
+\L@UnitsRaiseDisplaystyle=\skip47
+\L@UnitsRaiseTextstyle=\skip48
+\L@UnitsRaiseScriptstyle=\skip49
+)) (c:/texlive/2020/texmf-dist/tex/latex/parskip/parskip.sty
+Package: parskip 2020-06-15 v2.0f non-zero parskip adjustments
+ (c:/texlive/2020/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
+ (c:/texlive/2020/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (c:/texlive/2020/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+)) (c:/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count190
+)
+Couldn't patch \@startsection
+) (c:/texlive/2020/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2020/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
+ (c:/texlive/2020/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
+) (c:/texlive/2020/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
+File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
+)
+Package graphics Info: Driver file: pdftex.def on input line 105.
+Package srcltx Info: Expanded filename `pdftex.def' to `pdftex.def.tex' on input line 106.
+
+:<+ pdftex.def.tex
+(c:/texlive/2020/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
+)
+:<-
+)
+\Gin@req@height=\dimen147
+\Gin@req@width=\dimen148
+) (c:/texlive/2020/texmf-dist/tex/latex/subfigure/subfigure.sty
+Package: subfigure 2002/03/15 v2.1.5 subfigure package
+\subfigtopskip=\skip50
+\subfigcapskip=\skip51
+\subfigcaptopadj=\dimen149
+\subfigbottomskip=\skip52
+\subfigcapmargin=\dimen150
+\subfiglabelskip=\skip53
+\c@subfigure=\count191
+\c@lofdepth=\count192
+\c@subtable=\count193
+\c@lotdepth=\count194
+
+****************************************
+* Local config file subfigure.cfg used *
+****************************************
+(c:/texlive/2020/texmf-dist/tex/latex/subfigure/subfigure.cfg)
+\subfig@top=\skip54
+\subfig@bottom=\skip55
+) (c:/texlive/2020/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip16
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+) (c:/texlive/2020/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2020/09/23 v2.17i AMS math features
+\@mathmargin=\skip56
+
+For additional information on amsmath, use the `?' option.
+(c:/texlive/2020/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2000/06/29 v2.01 AMS text
+ (c:/texlive/2020/texmf-dist/tex/latex/amsmath/amsgen.sty
+File: amsgen.sty 1999/11/30 v2.0 generic functions
+\@emptytoks=\toks21
+\ex@=\dimen151
+)) (c:/texlive/2020/texmf-dist/tex/latex/amsmath/amsbsy.sty
+Package: amsbsy 1999/11/29 v1.2d Bold Symbols
+\pmbraise@=\dimen152
+) (c:/texlive/2020/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2016/03/08 v2.02 operator names
+)
+\inf@bad=\count195
+LaTeX Info: Redefining \frac on input line 234.
+\uproot@=\count196
+\leftroot@=\count197
+LaTeX Info: Redefining \overline on input line 399.
+\classnum@=\count198
+\DOTSCASE@=\count199
+LaTeX Info: Redefining \ldots on input line 496.
+LaTeX Info: Redefining \dots on input line 499.
+LaTeX Info: Redefining \cdots on input line 620.
+\Mathstrutbox@=\box47
+\strutbox@=\box48
+\big@size=\dimen153
+LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
+LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
+\macc@depth=\count266
+\c@MaxMatrixCols=\count267
+\dotsspace@=\muskip17
+\c@parentequation=\count268
+\dspbrk@lvl=\count269
+\tag@help=\toks22
+\row@=\count270
+\column@=\count271
+\maxfields@=\count272
+\andhelp@=\toks23
+\eqnshift@=\dimen154
+\alignsep@=\dimen155
+\tagshift@=\dimen156
+\tagwidth@=\dimen157
+\totwidth@=\dimen158
+\lineht@=\dimen159
+\@envbody=\toks24
+\multlinegap=\skip57
+\multlinetaggap=\skip58
+\mathdisplay@stack=\toks25
+LaTeX Info: Redefining \[ on input line 2923.
+LaTeX Info: Redefining \] on input line 2924.
+) (c:/texlive/2020/texmf-dist/tex/latex/tools/array.sty
+Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
+\col@sep=\dimen160
+\ar@mcellbox=\box49
+\extrarowheight=\dimen161
+\NC@list=\toks26
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box50
+) (c:/texlive/2020/texmf-dist/tex/latex/caption/caption.sty
+Package: caption 2020/10/26 v3.5g Customizing captions (AR)
+ (c:/texlive/2020/texmf-dist/tex/latex/caption/caption3.sty
+Package: caption3 2020/10/21 v2.2e caption3 kernel (AR)
+\captionmargin=\dimen162
+\captionmargin@=\dimen163
+\captionwidth=\dimen164
+\caption@tempdima=\dimen165
+\caption@indent=\dimen166
+\caption@parindent=\dimen167
+\caption@hangindent=\dimen168
+\abovecaptionskip=\skip61
+\belowcaptionskip=\skip62
+Package caption Info: Unknown document class (or package),
+(caption)             standard defaults will be used.
+Package caption Info: \@makecaption = \long macro:#1#2->\par \ifdim \prevdepth >-\p@ \vskip 10\p@ \relax \fi \setbox \@tempboxa \hbox {\vbox to\topskip {}#1: #2\unskip \strut }\ifdim \wd \@tempboxa >\hsize {\ssp #1: #2\unskip \strut \par } \else \hbox to\hsize {\hfil \unhbox \@tempboxa \hfil }\fi  on input line 1139.
+)
+
+Package caption Warning: Unknown document class (or package),
+(caption)                standard defaults will be used.
+See the caption package documentation for explanation.
+
+\c@caption@flags=\count273
+\c@continuedfloat=\count274
+Package caption Info: subfigure package is loaded.
+) (c:/texlive/2020/texmf-dist/tex/latex/tools/afterpage.sty
+Package: afterpage 2014/10/28 v1.08 After-Page Package (DPC)
+\AP@output=\toks27
+\AP@partial=\box51
+\AP@footins=\box52
+) (c:/texlive/2020/texmf-dist/tex/latex/base/textcomp.sty
+Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
+) (c:/texlive/2020/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+) (c:/texlive/2020/texmf-dist/tex/latex/sttools/stfloats.sty
+Package: stfloats 2017/03/27 v3.3 Improve float mechanism and baselineskip settings
+\@dblbotnum=\count275
+\c@dblbotnumber=\count276
+) (c:/texlive/2020/texmf-dist/tex/latex/hyphenat/hyphenat.sty
+Package: hyphenat 2009/09/02 v2.3c hyphenation utilities
+\langwohyphens=\language86
+LaTeX Info: Redefining \_ on input line 43.
+) (c:/texlive/2020/texmf-dist/tex/latex/base/makeidx.sty
+Package: makeidx 2014/09/29 v1.0m Standard LaTeX package
+) (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/amssymb.sty
+Package: amssymb 2013/01/14 v3.01 AMS font symbols
+ (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/amsfonts.sty
+Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
+\symAMSa=\mathgroup4
+\symAMSb=\mathgroup5
+LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
+LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
+(Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
+)) (c:/texlive/2020/texmf-dist/tex/latex/psnfss/times.sty
+Package: times 2020/03/25 PSNFSS-v9.3 (SPQR) 
+) (c:/texlive/2020/texmf-dist/tex/latex/multirow/multirow.sty
+Package: multirow 2019/05/31 v2.5 Span multiple rows of a table
+\multirow@colwidth=\skip63
+\multirow@cntb=\count277
+\multirow@dima=\skip64
+\bigstrutjot=\dimen169
+) (c:/texlive/2020/texmf-dist/tex/latex/circuitikz/circuitikz.sty
+Package: circuitikz 2020/12/16{} The CircuiTikz circuit drawing package version 1.2.6
+ (c:/texlive/2020/texmf-dist/tex/latex/pgf/frontendlayer/tikz.sty (c:/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgf.sty (c:/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfrcs.sty (c:/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.tex
+\pgfutil@everybye=\toks28
+\pgfutil@tempdima=\dimen170
+\pgfutil@tempdimb=\dimen171
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-lists.tex)) (c:/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfutil-latex.def
+\pgfutil@abb=\box53
+)
+Package srcltx Info: Expanded filename `pgfrcs.code.tex' to `pgfrcs.code.tex' on input line 13.
+
+:<+ pgfrcs.code.tex
+(c:/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfrcs.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgf/pgf.revision.tex)
+Package: pgfrcs 2020/12/01 v3.1.7a (3.1.7a)
+)
+:<-
+)
+Package: pgf 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/latex/pgf/basiclayer/pgfcore.sty (c:/texlive/2020/texmf-dist/tex/latex/pgf/systemlayer/pgfsys.sty
+Package srcltx Info: Expanded filename `pgfsys.code.tex' to `pgfsys.code.tex' on input line 16.
+
+:<+ pgfsys.code.tex
+(c:/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys.code.tex
+Package: pgfsys 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
+\pgfkeys@pathtoks=\toks29
+\pgfkeys@temptoks=\toks30
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.code.tex
+\pgfkeys@tmptoks=\toks31
+))
+\pgf@x=\dimen172
+\pgf@y=\dimen173
+\pgf@xa=\dimen174
+\pgf@ya=\dimen175
+\pgf@xb=\dimen176
+\pgf@yb=\dimen177
+\pgf@xc=\dimen178
+\pgf@yc=\dimen179
+\pgf@xd=\dimen180
+\pgf@yd=\dimen181
+\w@pgf@writea=\write3
+\r@pgf@reada=\read2
+\c@pgf@counta=\count278
+\c@pgf@countb=\count279
+\c@pgf@countc=\count280
+\c@pgf@countd=\count281
+\t@pgf@toka=\toks32
+\t@pgf@tokb=\toks33
+\t@pgf@tokc=\toks34
+\pgf@sys@id@count=\count282
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgf.cfg
+File: pgf.cfg 2020/12/01 v3.1.7a (3.1.7a)
+)
+Driver file for pgf: pgfsys-pdftex.def
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-pdftex.def
+File: pgfsys-pdftex.def 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsys-common-pdf.def
+File: pgfsys-common-pdf.def 2020/12/01 v3.1.7a (3.1.7a)
+)))
+:<-
+Package srcltx Info: Expanded filename `pgfsyssoftpath.code.tex' to `pgfsyssoftpath.code.tex' on input line 17.
+:<+ pgfsyssoftpath.code.tex
+(c:/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsyssoftpath.code.tex
+File: pgfsyssoftpath.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfsyssoftpath@smallbuffer@items=\count283
+\pgfsyssoftpath@bigbuffer@items=\count284
+)
+:<-
+Package srcltx Info: Expanded filename `pgfsysprotocol.code.tex' to `pgfsysprotocol.code.tex' on input line 18.
+:<+ pgfsysprotocol.code.tex
+(c:/texlive/2020/texmf-dist/tex/generic/pgf/systemlayer/pgfsysprotocol.code.tex
+File: pgfsysprotocol.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+)
+:<-
+) (c:/texlive/2020/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
+ (c:/texlive/2020/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package xcolor Info: Driver file: pdftex.def on input line 225.
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
+Package xcolor Info: Model `RGB' extended on input line 1364.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
+)
+Package srcltx Info: Expanded filename `pgfcore.code.tex' to `pgfcore.code.tex' on input line 17.
+
+:<+ pgfcore.code.tex
+(c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcore.code.tex
+Package: pgfcore 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
+\pgfmath@dimen=\dimen182
+\pgfmath@count=\count285
+\pgfmath@box=\box54
+\pgfmath@toks=\toks35
+\pgfmath@stack@operand=\toks36
+\pgfmath@stack@operation=\toks37
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.basic.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.trigonometric.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.random.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.comparison.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.base.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.round.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.misc.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.integerarithmetics.code.tex))) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
+\c@pgfmathroundto@lastzeros=\count286
+)) (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfint.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepoints.code.tex
+File: pgfcorepoints.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@picminx=\dimen183
+\pgf@picmaxx=\dimen184
+\pgf@picminy=\dimen185
+\pgf@picmaxy=\dimen186
+\pgf@pathminx=\dimen187
+\pgf@pathmaxx=\dimen188
+\pgf@pathminy=\dimen189
+\pgf@pathmaxy=\dimen190
+\pgf@xx=\dimen191
+\pgf@xy=\dimen192
+\pgf@yx=\dimen193
+\pgf@yy=\dimen194
+\pgf@zx=\dimen195
+\pgf@zy=\dimen196
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathconstruct.code.tex
+File: pgfcorepathconstruct.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@path@lastx=\dimen197
+\pgf@path@lasty=\dimen198
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathusage.code.tex
+File: pgfcorepathusage.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@shorten@end@additional=\dimen199
+\pgf@shorten@start@additional=\dimen256
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorescopes.code.tex
+File: pgfcorescopes.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfpic=\box55
+\pgf@hbox=\box56
+\pgf@layerbox@main=\box57
+\pgf@picture@serial@count=\count287
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoregraphicstate.code.tex
+File: pgfcoregraphicstate.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgflinewidth=\dimen257
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransformations.code.tex
+File: pgfcoretransformations.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@pt@x=\dimen258
+\pgf@pt@y=\dimen259
+\pgf@pt@temp=\dimen260
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorequick.code.tex
+File: pgfcorequick.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreobjects.code.tex
+File: pgfcoreobjects.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepathprocessing.code.tex
+File: pgfcorepathprocessing.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorearrows.code.tex
+File: pgfcorearrows.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfarrowsep=\dimen261
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreshade.code.tex
+File: pgfcoreshade.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@max=\dimen262
+\pgf@sys@shading@range@num=\count288
+\pgf@shadingcount=\count289
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreimage.code.tex
+File: pgfcoreimage.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoreexternal.code.tex
+File: pgfcoreexternal.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfexternal@startupbox=\box58
+)) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorelayers.code.tex
+File: pgfcorelayers.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcoretransparency.code.tex
+File: pgfcoretransparency.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorepatterns.code.tex
+File: pgfcorepatterns.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/basiclayer/pgfcorerdf.code.tex
+File: pgfcorerdf.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+))
+:<-
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleshapes.code.tex
+File: pgfmoduleshapes.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfnodeparttextbox=\box59
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduleplot.code.tex
+File: pgfmoduleplot.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+) (c:/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-0-65.sty
+Package: pgfcomp-version-0-65 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@nodesepstart=\dimen263
+\pgf@nodesepend=\dimen264
+) (c:/texlive/2020/texmf-dist/tex/latex/pgf/compatibility/pgfcomp-version-1-18.sty
+Package: pgfcomp-version-1-18 2020/12/01 v3.1.7a (3.1.7a)
+)) (c:/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgffor.sty (c:/texlive/2020/texmf-dist/tex/latex/pgf/utilities/pgfkeys.sty
+Package srcltx Info: Expanded filename `pgfkeys.code.tex' to `pgfkeys.code.tex' on input line 10.
+
+:<+ pgfkeys.code.tex
+(c:/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex)
+:<-
+) (c:/texlive/2020/texmf-dist/tex/latex/pgf/math/pgfmath.sty
+Package srcltx Info: Expanded filename `pgfmath.code.tex' to `pgfmath.code.tex' on input line 11.
+
+:<+ pgfmath.code.tex
+(c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+:<-
+)
+Package srcltx Info: Expanded filename `pgffor.code.tex' to `pgffor.code.tex' on input line 14.
+
+:<+ pgffor.code.tex
+(c:/texlive/2020/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
+Package: pgffor 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex)
+\pgffor@iter=\dimen265
+\pgffor@skip=\dimen266
+\pgffor@stack=\toks38
+\pgffor@toks=\toks39
+)
+:<-
+)
+Package srcltx Info: Expanded filename `tikz.code.tex' to `tikz.code.tex' on input line 13.
+
+:<+ tikz.code.tex
+(c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/tikz.code.tex
+Package: tikz 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplothandlers.code.tex
+File: pgflibraryplothandlers.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@plot@mark@count=\count290
+\pgfplotmarksize=\dimen267
+)
+\tikz@lastx=\dimen268
+\tikz@lasty=\dimen269
+\tikz@lastxsaved=\dimen270
+\tikz@lastysaved=\dimen271
+\tikz@lastmovetox=\dimen272
+\tikz@lastmovetoy=\dimen273
+\tikzleveldistance=\dimen274
+\tikzsiblingdistance=\dimen275
+\tikz@figbox=\box60
+\tikz@figbox@bg=\box61
+\tikz@tempbox=\box62
+\tikz@tempbox@bg=\box63
+\tikztreelevel=\count291
+\tikznumberofchildren=\count292
+\tikznumberofcurrentchild=\count293
+\tikz@fig@count=\count294
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulematrix.code.tex
+File: pgfmodulematrix.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfmatrixcurrentrow=\count295
+\pgfmatrixcurrentcolumn=\count296
+\pgf@matrix@numberofcolumns=\count297
+)
+\tikz@expandcount=\count298
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
+File: tikzlibrarytopaths.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+))
+:<-
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgfarrowinset=\dimen276
+\pgfarrowlength=\dimen277
+\pgfarrowwidth=\dimen278
+\pgfarrowlinewidth=\dimen279
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.code.tex
+File: pgfmodulebending.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineartransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgftransformnonlinearflatness=\dimen280
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvilinear.code.tex
+File: pgflibrarycurvilinear.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+\pgf@curvilinear@time@a=\dimen281
+\pgf@curvilinear@length@a=\dimen282
+\pgf@curvilinear@length@b=\dimen283
+\pgf@curvilinear@length@c=\dimen284
+\pgf@curvilinear@length@d=\dimen285
+)
+\pgf@arrows@the@rigidity=\dimen286
+)) (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcirc.defines.tex
+\pgf@circ@count@a=\count299
+\pgf@circ@count@b=\count300
+\pgf@circ@count@c=\count301
+\pgf@circ@res@up=\dimen287
+\pgf@circ@res@down=\dimen288
+\pgf@circ@res@zero=\dimen289
+\pgf@circ@res@left=\dimen290
+\pgf@circ@res@right=\dimen291
+\pgf@circ@res@other=\dimen292
+\pgf@circ@res@step=\dimen293
+\pgf@circ@res@temp=\dimen294
+\pgf@circ@Rlen=\dimen295
+\pgf@circ@scaled@Rlen=\dimen296
+\pgfstartlinewidth=\dimen297
+) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircutils.tex) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircshapes.tex) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircmonopoles.tex) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircbipoles.tex) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcirctripoles.tex
+\pgf@circ@res@count=\count302
+) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircquadpoles.tex) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircmultipoles.tex) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcirclabel.tex) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircvoltage.tex
+\pgfcirc@labelshift=\dimen298
+) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex) (c:/texlive/2020/texmf-dist/tex/generic/circuitikz/pgfcircpath.tex)
+
+Package circuitikz Warning: You did not specify one of the voltage directions:
+(circuitikz)                  oldvoltagedirection, nooldvoltagedirection, 
+(circuitikz)                  RPvoltages or EFvoltages 
+(circuitikz)                Default directions may have changed, 
+(circuitikz)                please check the manual.
+
+) (c:/texlive/2020/texmf-dist/tex/latex/biblatex/biblatex.sty
+Package: biblatex 2020/08/23 v3.15a programmable bibliographies (PK/MW)
+ (c:/texlive/2020/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+ (c:/texlive/2020/texmf-dist/tex/generic/infwarerr/infwarerr.sty
+Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
+)
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+) (c:/texlive/2020/texmf-dist/tex/latex/logreq/logreq.sty
+Package: logreq 2010/08/04 v1.0 xml request logger
+\lrq@indent=\count303
+Package srcltx Info: Expanded filename `logreq.def' to `logreq.def.tex' on input line 235.
+
+:<+ logreq.def.tex
+(c:/texlive/2020/texmf-dist/tex/latex/logreq/logreq.def
+File: logreq.def 2010/08/04 v1.0 logreq spec v1.0
+)
+:<-
+)
+\c@tabx@nest=\count304
+\c@listtotal=\count305
+\c@listcount=\count306
+\c@liststart=\count307
+\c@liststop=\count308
+\c@citecount=\count309
+\c@citetotal=\count310
+\c@multicitecount=\count311
+\c@multicitetotal=\count312
+\c@instcount=\count313
+\c@maxnames=\count314
+\c@minnames=\count315
+\c@maxitems=\count316
+\c@minitems=\count317
+\c@citecounter=\count318
+\c@maxcitecounter=\count319
+\c@savedcitecounter=\count320
+\c@uniquelist=\count321
+\c@uniquename=\count322
+\c@refsection=\count323
+\c@refsegment=\count324
+\c@maxextratitle=\count325
+\c@maxextratitleyear=\count326
+\c@maxextraname=\count327
+\c@maxextradate=\count328
+\c@maxextraalpha=\count329
+\c@abbrvpenalty=\count330
+\c@highnamepenalty=\count331
+\c@lownamepenalty=\count332
+\c@maxparens=\count333
+\c@parenlevel=\count334
+\blx@tempcnta=\count335
+\blx@tempcntb=\count336
+\blx@tempcntc=\count337
+\blx@maxsection=\count338
+\blx@maxsegment@0=\count339
+\blx@notetype=\count340
+\blx@parenlevel@text=\count341
+\blx@parenlevel@foot=\count342
+\blx@sectionciteorder@0=\count343
+\blx@entrysetcounter=\count344
+\blx@biblioinstance=\count345
+\labelnumberwidth=\skip65
+\labelalphawidth=\skip66
+\biblabelsep=\skip67
+\bibitemsep=\skip68
+\bibnamesep=\skip69
+\bibinitsep=\skip70
+\bibparsep=\skip71
+\bibhang=\skip72
+\blx@bcfin=\read3
+\blx@bcfout=\write4
+\blx@langwohyphens=\language87
+\c@mincomprange=\count346
+\c@maxcomprange=\count347
+\c@mincompwidth=\count348
+Package biblatex Info: Trying to load biblatex default data model...
+Package biblatex Info: ... file 'blx-dm.def' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/blx-dm.def
+File: blx-dm.def 2020/08/23 v3.15a biblatex localization (PK/MW)
+)
+Package biblatex Info: Trying to load biblatex citestyle data model...
+Package biblatex Info: ... file 'numeric-comp.dbx' not found.
+Package biblatex Info: Trying to load biblatex bibstyle data model...
+Package biblatex Info: ... file 'ieee.dbx' not found.
+Package biblatex Info: Trying to load biblatex custom data model...
+Package biblatex Info: ... file 'biblatex-dm.cfg' not found.
+\c@afterword=\count349
+\c@savedafterword=\count350
+\c@annotator=\count351
+\c@savedannotator=\count352
+\c@author=\count353
+\c@savedauthor=\count354
+\c@bookauthor=\count355
+\c@savedbookauthor=\count356
+\c@commentator=\count357
+\c@savedcommentator=\count358
+\c@editor=\count359
+\c@savededitor=\count360
+\c@editora=\count361
+\c@savededitora=\count362
+\c@editorb=\count363
+\c@savededitorb=\count364
+\c@editorc=\count365
+\c@savededitorc=\count366
+\c@foreword=\count367
+\c@savedforeword=\count368
+\c@holder=\count369
+\c@savedholder=\count370
+\c@introduction=\count371
+\c@savedintroduction=\count372
+\c@namea=\count373
+\c@savednamea=\count374
+\c@nameb=\count375
+\c@savednameb=\count376
+\c@namec=\count377
+\c@savednamec=\count378
+\c@translator=\count379
+\c@savedtranslator=\count380
+\c@shortauthor=\count381
+\c@savedshortauthor=\count382
+\c@shorteditor=\count383
+\c@savedshorteditor=\count384
+\c@labelname=\count385
+\c@savedlabelname=\count386
+\c@institution=\count387
+\c@savedinstitution=\count388
+\c@lista=\count389
+\c@savedlista=\count390
+\c@listb=\count391
+\c@savedlistb=\count392
+\c@listc=\count393
+\c@savedlistc=\count394
+\c@listd=\count395
+\c@savedlistd=\count396
+\c@liste=\count397
+\c@savedliste=\count398
+\c@listf=\count399
+\c@savedlistf=\count400
+\c@location=\count401
+\c@savedlocation=\count402
+\c@organization=\count403
+\c@savedorganization=\count404
+\c@origlocation=\count405
+\c@savedoriglocation=\count406
+\c@origpublisher=\count407
+\c@savedorigpublisher=\count408
+\c@publisher=\count409
+\c@savedpublisher=\count410
+\c@language=\count411
+\c@savedlanguage=\count412
+\c@origlanguage=\count413
+\c@savedoriglanguage=\count414
+\c@pageref=\count415
+\c@savedpageref=\count416
+\shorthandwidth=\skip73
+\shortjournalwidth=\skip74
+\shortserieswidth=\skip75
+\shorttitlewidth=\skip76
+\shortauthorwidth=\skip77
+\shorteditorwidth=\skip78
+\locallabelnumberwidth=\skip79
+\locallabelalphawidth=\skip80
+\localshorthandwidth=\skip81
+\localshortjournalwidth=\skip82
+\localshortserieswidth=\skip83
+\localshorttitlewidth=\skip84
+\localshortauthorwidth=\skip85
+\localshorteditorwidth=\skip86
+Package biblatex Info: Trying to load compatibility code...
+Package biblatex Info: ... file 'blx-compat.def' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/blx-compat.def
+File: blx-compat.def 2020/08/23 v3.15a biblatex compatibility (PK/MW)
+) (c:/texlive/2020/texmf-dist/tex/latex/l3kernel/expl3.sty
+Package: expl3 2020-12-07 L3 programming layer (loader) 
+ (c:/texlive/2020/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2020-09-24 L3 backend support: PDF output (pdfTeX)
+\l__kernel_color_stack_int=\count417
+\l__pdf_internal_box=\box64
+))
+Package biblatex Info: expl3
+(biblatex)             2020-12-07 L3 programming layer (loader) 
+(biblatex)             is new enough (at least 2020/04/06),
+(biblatex)             setting 'casechanger=expl3'.
+Package biblatex Info: Trying to load expl3 case changing code...
+Package biblatex Info: ... file 'blx-case-expl3.def' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/blx-case-expl3.def (c:/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse.sty
+Package: xparse 2020-10-27 L3 Experimental document command parser
+ (c:/texlive/2020/texmf-dist/tex/latex/l3packages/xparse/xparse-generic.tex))
+File: blx-case-expl3 2020/08/23 v3.15a expl3 case changing code for biblatex
+)
+Package biblatex Info: Trying to load BibTeX backend compatibility...
+Package biblatex Info: ... file 'blx-bibtex.def' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/blx-bibtex.def
+File: blx-bibtex.def 2020/08/23 v3.15a biblatex compatibility (PK/MW)
+
+
+Package biblatex Warning: Using fall-back BibTeX(8) backend:
+(biblatex)                functionality may be reduced/unavailable.
+
+)
+Package biblatex Info: Trying to load generic definitions...
+Package biblatex Info: ... file 'biblatex.def' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/biblatex.def
+File: biblatex.def 2020/08/23 v3.15a biblatex compatibility (PK/MW)
+\c@textcitecount=\count418
+\c@textcitetotal=\count419
+\c@textcitemaxnames=\count420
+\c@biburlbigbreakpenalty=\count421
+\c@biburlbreakpenalty=\count422
+\c@biburlnumpenalty=\count423
+\c@biburlucpenalty=\count424
+\c@biburllcpenalty=\count425
+\biburlbigskip=\muskip18
+\biburlnumskip=\muskip19
+\biburlucskip=\muskip20
+\biburllcskip=\muskip21
+\c@smartand=\count426
+)
+Package biblatex Info: Trying to load bibliography style 'ieee'...
+Package biblatex Info: ... file 'ieee.bbx' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex-ieee/ieee.bbx
+File: ieee.bbx 2020/08/31 v1.3c biblatex bibliography style
+Package biblatex Info: Trying to load bibliography style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.bbx' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/bbx/numeric-comp.bbx
+File: numeric-comp.bbx 2020/08/23 v3.15a biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'numeric'...
+Package biblatex Info: ... file 'numeric.bbx' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/bbx/numeric.bbx
+File: numeric.bbx 2020/08/23 v3.15a biblatex bibliography style (PK/MW)
+Package biblatex Info: Trying to load bibliography style 'standard'...
+Package biblatex Info: ... file 'standard.bbx' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/bbx/standard.bbx
+File: standard.bbx 2020/08/23 v3.15a biblatex bibliography style (PK/MW)
+\c@bbx:relatedcount=\count427
+\c@bbx:relatedtotal=\count428
+))))
+Package biblatex Info: Trying to load citation style 'numeric-comp'...
+Package biblatex Info: ... file 'numeric-comp.cbx' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/cbx/numeric-comp.cbx
+File: numeric-comp.cbx 2020/08/23 v3.15a biblatex citation style (PK/MW)
+\c@cbx@tempcnta=\count429
+\c@cbx@tempcntb=\count430
+\c@cbx@tempcntc=\count431
+\c@cbx@tempcntd=\count432
+Package biblatex Info: Redefining '\cite'.
+Package biblatex Info: Redefining '\parencite'.
+Package biblatex Info: Redefining '\footcite'.
+Package biblatex Info: Redefining '\footcitetext'.
+Package biblatex Info: Redefining '\smartcite'.
+Package biblatex Info: Redefining '\supercite'.
+Package biblatex Info: Redefining '\textcite'.
+Package biblatex Info: Redefining '\textcites'.
+Package biblatex Info: Redefining '\cites'.
+Package biblatex Info: Redefining '\parencites'.
+Package biblatex Info: Redefining '\smartcites'.
+)
+Package biblatex Info: Trying to load configuration file...
+Package biblatex Info: ... file 'biblatex.cfg' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/biblatex.cfg
+File: biblatex.cfg 
+)) (c:/texlive/2020/texmf-dist/tex/latex/pgfplots/pgfplots.sty (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.revision.tex)
+Package: pgfplots 2020/02/29 v1.17 Data Visualization (1.17)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotscore.code.tex
+\t@pgfplots@toka=\toks40
+\t@pgfplots@tokb=\toks41
+\t@pgfplots@tokc=\toks42
+\pgfplots@tmpa=\dimen299
+\c@pgfplots@coordindex=\count433
+\c@pgfplots@scanlineindex=\count434
+ (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgfplotssysgeneric.code.tex)) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/libs/pgfplotslibrary.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/oldpgfcompatib/pgfplotsoldpgfsupp_loader.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructure.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsliststructureext.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsarray.code.tex
+\c@pgfplotsarray@tmp=\count435
+) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsmatrix.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/numtable/pgfplotstableshared.code.tex
+\c@pgfplotstable@counta=\count436
+\t@pgfplotstable@a=\toks43
+) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/liststructure/pgfplotsdeque.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsbinary.data.code.tex)) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotsutil.verb.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/libs/pgflibrarypgfplots.surfshading.code.tex
+\c@pgfplotslibrarysurf@no=\count437
+ (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/sys/pgflibrarypgfplots.surfshading.pgfsys-pdftex.def))) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotscolormap.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/util/pgfplotscolor.code.tex)) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsstackedplots.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsplothandlers.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplothandler.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsmeshplotimage.code.tex))) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.scaling.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotscoordprocessing.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.errorbars.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.markers.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplotsticks.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgfplots/pgfplots.paths.code.tex) (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgf/modules/pgfmoduledecorations.code.tex
+\pgfdecoratedcompleteddistance=\dimen300
+\pgfdecoratedremainingdistance=\dimen301
+\pgfdecoratedinputsegmentcompleteddistance=\dimen302
+\pgfdecoratedinputsegmentremainingdistance=\dimen303
+\pgf@decorate@distancetomove=\dimen304
+\pgf@decorate@repeatstate=\count438
+\pgfdecorationsegmentamplitude=\dimen305
+\pgfdecorationsegmentlength=\dimen306
+)
+\tikz@lib@dec@box=\box65
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathmorphing.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathmorphing.code.tex)) (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarydecorations.pathreplacing.code.tex (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/decorations/pgflibrarydecorations.pathreplacing.code.tex))
+\pgfplots@numplots=\count439
+\pgfplots@xmin@reg=\dimen307
+\pgfplots@xmax@reg=\dimen308
+\pgfplots@ymin@reg=\dimen309
+\pgfplots@ymax@reg=\dimen310
+\pgfplots@zmin@reg=\dimen311
+\pgfplots@zmax@reg=\dimen312
+) (c:/texlive/2020/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryplotmarks.code.tex
+File: tikzlibraryplotmarks.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+ (c:/texlive/2020/texmf-dist/tex/generic/pgf/libraries/pgflibraryplotmarks.code.tex
+File: pgflibraryplotmarks.code.tex 2020/12/01 v3.1.7a (3.1.7a)
+))) (c:/texlive/2020/texmf-dist/tex/latex/subfig/subfig.sty
+Package: subfig 2005/06/28 ver: 1.3 subfig package
+\c@KVtest=\count440
+\sf@farskip=\skip87
+\sf@captopadj=\dimen313
+\sf@capskip=\skip88
+\sf@nearskip=\skip89
+\sf@top=\skip90
+\sf@bottom=\skip91
+) (c:/texlive/2020/texmf-dist/tex/generic/babel/babel.sty
+Package: babel 2020/12/16 3.52 The Babel package
+ (c:/texlive/2020/texmf-dist/tex/generic/babel/babel.def
+File: babel.def 2020/12/16 3.52 Babel common definitions
+\babel@savecnt=\count441
+\U@D=\dimen314
+\l@babelnohyphens=\language88
+ (c:/texlive/2020/texmf-dist/tex/generic/babel/txtbabel.def)
+\bbl@readstream=\read4
+)
+\bbl@dirlevel=\count442
+ (c:/texlive/2020/texmf-dist/tex/generic/babel-english/english.ldf
+Language: english 2017/06/06 v3.3r English support from the babel system
+Package babel Info: \l@canadian = using hyphenrules for english
+(babel)             (\language0) on input line 102.
+Package babel Info: \l@australian = using hyphenrules for ukenglish
+(babel)             (\language21) on input line 105.
+Package babel Info: \l@newzealand = using hyphenrules for ukenglish
+(babel)             (\language21) on input line 108.
+))
+
+Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
+(biblatex)                Loading 'csquotes' recommended.
+
+\@quotelevel=\count443
+\@quotereset=\count444
+LaTeX Font Info:    Trying to load font information for OT1+ptm on input line 58.
+(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1ptm.fd
+File: ot1ptm.fd 2001/06/04 font definitions for OT1/ptm.
+) (c:/Users/asus/Documents/GitHub/diosa/Thesis/main.aux
+
+LaTeX Warning: Label `fig:motor_signals' multiply defined.
+
+)
+\openout1 = `main.aux'.
+
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 58.
+LaTeX Font Info:    ... okay on input line 58.
+
+*geometry* driver: auto-detecting
+*geometry* detected driver: pdftex
+*geometry* verbose mode - [ preamble ] result:
+* driver: pdftex
+* paper: letterpaper
+* layout: <same size as paper>
+* layoutoffset:(h,v)=(0.0pt,0.0pt)
+* modes: includefoot 
+* h-part:(L,W,R)=(73.7157pt, 466.8636pt, 73.7157pt)
+* v-part:(T,H,B)=(90.3375pt, 629.47218pt, 75.16031pt)
+* \paperwidth=614.295pt
+* \paperheight=794.96999pt
+* \textwidth=466.8636pt
+* \textheight=629.47218pt
+* \oddsidemargin=1.44571pt
+* \evensidemargin=1.44571pt
+* \topmargin=-18.06749pt
+* \headheight=0.0pt
+* \headsep=36.135pt
+* \topskip=10.0pt
+* \footskip=0.0pt
+* \marginparwidth=0.0pt
+* \marginparsep=0.0pt
+* \columnsep=0.0pt
+* \skip\footins=12.0pt plus 4.0pt minus 4.0pt
+* \hoffset=0.0pt
+* \voffset=0.0pt
+* \mag=1000
+* \@twocolumnfalse
+* \@twosidefalse
+* \@mparswitchfalse
+* \@reversemarginfalse
+* (1in=72.27pt=25.4mm, 1cm=28.453pt)
+
+(c:/texlive/2020/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count445
+\scratchdimen=\dimen315
+\scratchbox=\box66
+\nofMPsegments=\count446
+\nofMParguments=\count447
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count448
+\MPscratchDim=\dimen316
+\MPnumerator=\count449
+\makeMPintoPDFobject=\count450
+\everyMPtoPDFconversion=\toks45
+) (c:/texlive/2020/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+ (c:/texlive/2020/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
+Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: subfig package v1.3 is loaded.
+Package caption Info: End \AtBeginDocument code.
+Package biblatex Info: Trying to load language 'english'...
+Package biblatex Info: ... file 'english.lbx' found.
+ (c:/texlive/2020/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+File: english.lbx 2020/08/23 v3.15a biblatex localization (PK/MW)
+)
+Package biblatex Info: Input encoding 'latin9' detected.
+Package biblatex Info: Automatic encoding selection.
+(biblatex)             Assuming data encoding 'latin9'.
+Package biblatex Info: Input encoding 'latin9' specified.
+Package biblatex Info: Data encoding 'latin9' specified.
+(biblatex)             No need to reencode data.
+\openout4 = `main-blx.bib'.
+
+Package biblatex Info: Trying to load bibliographic data...
+Package biblatex Info: ... file 'main.bbl' found.
+ (c:/Users/asus/Documents/GitHub/diosa/Thesis/main.bbl
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'zimmerman2016':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'MultiwiiFC':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'RPiMavlink2019':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'Redtail2017':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'Dowling2018':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'Tuning2017':
+(biblatex)                - Invalid format of field 'month'.
+
+)
+Package biblatex Info: Reference section=0 on input line 58.
+Package biblatex Info: Reference segment=0 on input line 58.
+
+Package pgfplots notification 'compat/show suggested version=true': you might benefit from \pgfplotsset{compat=1.17} (current compat level: 1.14).
+
+LaTeX Font Info:    Trying to load font information for U+msa on input line 95.
+(c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Trying to load font information for U+msb on input line 95.
+ (c:/texlive/2020/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+) [1
+
+{c:/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [1] (c:/Users/asus/Documents/GitHub/diosa/Thesis/main.toc
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [1
+
+])
+\tf@toc=\write5
+\openout5 = `main.toc'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [2] (c:/Users/asus/Documents/GitHub/diosa/Thesis/main.lof
+Overfull \hbox (16.02675pt too wide) in paragraph at lines 44--44
+ [][] []\OT1/ptm/m/n/10.95 MPU6050+HMC5883L+BMP180 Gyro/Magnetometer/Accelerometer/Altimeter Sen-sor Mod- 
+ []
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [3
+
+])
+\tf@lof=\write6
+\openout6 = `main.lof'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [4]
+Chapter 1.
+<images/droneExamples.PNG, id=27, 397.485pt x 289.08pt>
+File: images/droneExamples.PNG Graphic file (type png)
+<use images/droneExamples.PNG>
+Package pdftex.def Info: images/droneExamples.PNG  used on input line 140.
+(pdftex.def)             Requested size: 198.742pt x 144.53964pt.
+<images/fc_diag.PNG, id=29, 418.56375pt x 251.7405pt>
+File: images/fc_diag.PNG Graphic file (type png)
+<use images/fc_diag.PNG>
+Package pdftex.def Info: images/fc_diag.PNG  used on input line 148.
+(pdftex.def)             Requested size: 292.99261pt x 176.21713pt.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [1
+
+ <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/droneExamples.PNG>]
+Underfull \hbox (badness 10000) in paragraph at lines 165--192
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--192
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--192
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--192
+
+ []
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [2 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/fc_diag.PNG>]
+<images/phawkToPi.PNG, id=39, 454.0965pt x 258.9675pt>
+File: images/phawkToPi.PNG Graphic file (type png)
+<use images/phawkToPi.PNG>
+Package pdftex.def Info: images/phawkToPi.PNG  used on input line 204.
+(pdftex.def)             Requested size: 227.04768pt x 129.48341pt.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [3]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [4 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/phawkToPi.PNG>]
+Chapter 2.
+<images/multiwii diagram.PNG, id=47, 740.7675pt x 428.802pt>
+File: images/multiwii diagram.PNG Graphic file (type png)
+<use images/multiwii diagram.PNG>
+Package pdftex.def Info: images/multiwii diagram.PNG  used on input line 238.
+(pdftex.def)             Requested size: 370.38284pt x 214.40047pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--254
+
+ []
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [5
+
+]
+<images/zimmerman_high_level.PNG, id=51, 547.44525pt x 384.83775pt>
+File: images/zimmerman_high_level.PNG Graphic file (type png)
+<use images/zimmerman_high_level.PNG>
+Package pdftex.def Info: images/zimmerman_high_level.PNG  used on input line 265.
+(pdftex.def)             Requested size: 246.34808pt x 173.17538pt.
+<images/fc_block_diagram_detailed.PNG, id=52, 425.1885pt x 297.5115pt>
+File: images/fc_block_diagram_detailed.PNG Graphic file (type png)
+<use images/fc_block_diagram_detailed.PNG>
+Package pdftex.def Info: images/fc_block_diagram_detailed.PNG  used on input line 266.
+(pdftex.def)             Requested size: 191.33305pt x 133.87894pt.
+<images/Navio2Elements_main.png, id=53, 699.61375pt x 803.0pt>
+File: images/Navio2Elements_main.png Graphic file (type png)
+<use images/Navio2Elements_main.png>
+Package pdftex.def Info: images/Navio2Elements_main.png  used on input line 281.
+(pdftex.def)             Requested size: 209.88574pt x 240.90186pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 255--285
+
+ []
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [6 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/multiwii diagram.PNG>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/motor_signals.PNG, id=58, 584.1825pt x 380.622pt>
+File: images/motor_signals.PNG Graphic file (type png)
+<use images/motor_signals.PNG>
+Package pdftex.def Info: images/motor_signals.PNG  used on input line 297.
+(pdftex.def)             Requested size: 292.09053pt x 190.31052pt.
+<images/quad_ref_frame.PNG, id=59, 352.31625pt x 240.9pt>
+File: images/quad_ref_frame.PNG Graphic file (type png)
+<use images/quad_ref_frame.PNG>
+Package pdftex.def Info: images/quad_ref_frame.PNG  used on input line 317.
+(pdftex.def)             Requested size: 176.15768pt x 120.44969pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 287--325
+
+ []
+
+
+Overfull \vbox (7.31458pt too high) has occurred while \output is active []
+
+ [7 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/zimmerman_high_level.PNG> <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/fc_block_diagram_detailed.PNG>]
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [8 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/Navio2Elements_main.png>]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [9 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/motor_signals.PNG> <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/quad_ref_frame.PNG>]
+<images/basePID.PNG, id=77, 329.43076pt x 177.66376pt>
+File: images/basePID.PNG Graphic file (type png)
+<use images/basePID.PNG>
+Package pdftex.def Info: images/basePID.PNG  used on input line 338.
+(pdftex.def)             Requested size: 164.71497pt x 88.83165pt.
+<images/controlSysExpanded.PNG, id=78, 254.75175pt x 156.585pt>
+File: images/controlSysExpanded.PNG Graphic file (type png)
+<use images/controlSysExpanded.PNG>
+Package pdftex.def Info: images/controlSysExpanded.PNG  used on input line 350.
+(pdftex.def)             Requested size: 165.58665pt x 101.77904pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 330--368
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [10 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/basePID.PNG>]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [11 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/controlSysExpanded.PNG>]
+Chapter 3.
+
+Underfull \hbox (badness 10000) in paragraph at lines 371--380
+
+ []
+
+LaTeX Font Info:    Trying to load font information for TS1+ptm on input line 382.
+(c:/texlive/2020/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [12
+
+]
+Chapter 4.
+<images/diosa_full.PNG, id=92, 465.53925pt x 240.9pt>
+File: images/diosa_full.PNG Graphic file (type png)
+<use images/diosa_full.PNG>
+Package pdftex.def Info: images/diosa_full.PNG  used on input line 391.
+(pdftex.def)             Requested size: 232.76904pt x 120.44969pt.
+<images/FC diagram_finalna.png, id=93, 379.4175pt x 306.6657pt>
+File: images/FC diagram_finalna.png Graphic file (type png)
+<use images/FC diagram_finalna.png>
+Package pdftex.def Info: images/FC diagram_finalna.png  used on input line 404.
+(pdftex.def)             Requested size: 189.70828pt x 153.33246pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [13
+
+ <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/diosa_full.PNG>]
+<images/rostopics.png, id=99, 352.4367pt x 336.5373pt>
+File: images/rostopics.png Graphic file (type png)
+<use images/rostopics.png>
+Package pdftex.def Info: images/rostopics.png  used on input line 425.
+(pdftex.def)             Requested size: 211.46365pt x 201.92393pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [14 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/FC diagram_finalna.png>]
+<images/nrf24.jpg, id=103, 642.4pt x 481.8pt>
+File: images/nrf24.jpg Graphic file (type jpg)
+<use images/nrf24.jpg>
+Package pdftex.def Info: images/nrf24.jpg  used on input line 447.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+<images/commsSetup.png, id=104, 252.945pt x 308.5929pt>
+File: images/commsSetup.png Graphic file (type png)
+<use images/commsSetup.png>
+Package pdftex.def Info: images/commsSetup.png  used on input line 453.
+(pdftex.def)             Requested size: 151.76816pt x 185.15715pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 442--465
+
+ []
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [15 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/rostopics.png>]
+<images/gps_module.jpg, id=108, 642.4pt x 481.8pt>
+File: images/gps_module.jpg Graphic file (type jpg)
+<use images/gps_module.jpg>
+Package pdftex.def Info: images/gps_module.jpg  used on input line 473.
+(pdftex.def)             Requested size: 192.72148pt x 144.5411pt.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [16 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/nrf24.jpg> <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/commsSetup.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 479--489
+
+ []
+
+<images/imu_module.jpg, id=112, 770.88pt x 693.59125pt>
+File: images/imu_module.jpg Graphic file (type jpg)
+<use images/imu_module.jpg>
+Package pdftex.def Info: images/imu_module.jpg  used on input line 492.
+(pdftex.def)             Requested size: 192.71953pt x 173.39738pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [17 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/gps_module.jpg>]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [18 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/imu_module.jpg>]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [19]
+<images/fc_schematic.PNG, id=126, 820.2645pt x 489.62926pt>
+File: images/fc_schematic.PNG Graphic file (type png)
+<use images/fc_schematic.PNG>
+Package pdftex.def Info: images/fc_schematic.PNG  used on input line 575.
+(pdftex.def)             Requested size: 492.16249pt x 293.77982pt.
+
+Overfull \hbox (25.29889pt too wide) in paragraph at lines 575--576
+ [][] 
+ []
+
+<images/fc_layout.PNG, id=127, 863.6265pt x 451.08525pt>
+File: images/fc_layout.PNG Graphic file (type png)
+<use images/fc_layout.PNG>
+Package pdftex.def Info: images/fc_layout.PNG  used on input line 581.
+(pdftex.def)             Requested size: 431.8122pt x 225.54207pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<images/fc_fab.PNG, id=128, 410.7345pt x 212.59425pt>
+File: images/fc_fab.PNG Graphic file (type png)
+<use images/fc_fab.PNG>
+Package pdftex.def Info: images/fc_fab.PNG  used on input line 587.
+(pdftex.def)             Requested size: 410.73349pt x 212.59372pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [20 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/fc_schematic.PNG>]
+<images/diosa_base_station.PNG, id=133, 525.76425pt x 271.0125pt>
+File: images/diosa_base_station.PNG Graphic file (type png)
+<use images/diosa_base_station.PNG>
+Package pdftex.def Info: images/diosa_base_station.PNG  used on input line 601.
+(pdftex.def)             Requested size: 315.46097pt x 162.60875pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [21 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/fc_layout.PNG>]
+File: images/motor_signals.PNG Graphic file (type png)
+<use images/motor_signals.PNG>
+Package pdftex.def Info: images/motor_signals.PNG  used on input line 620.
+(pdftex.def)             Requested size: 292.09053pt x 190.31052pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 624--652
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 624--652
+
+ []
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [22 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/fc_fab.PNG>]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [23 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/diosa_base_station.PNG>]
+<images/error diagram.PNG, id=146, 560.0925pt x 355.3275pt>
+File: images/error diagram.PNG Graphic file (type png)
+<use images/error diagram.PNG>
+Package pdftex.def Info: images/error diagram.PNG  used on input line 655.
+(pdftex.def)             Requested size: 280.04556pt x 177.6633pt.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [24 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/error diagram.PNG>]
+Chapter 5.
+<images/comms_plot.png, id=151, 803.0pt x 803.0pt>
+File: images/comms_plot.png Graphic file (type png)
+<use images/comms_plot.png>
+Package pdftex.def Info: images/comms_plot.png  used on input line 672.
+(pdftex.def)             Requested size: 240.90186pt x 240.90186pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 677--702
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 677--702
+
+ []
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [25
+
+]
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [26 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/comms_plot.png>]
+<images/pid_plot.png, id=160, 803.0pt x 803.0pt>
+File: images/pid_plot.png Graphic file (type png)
+<use images/pid_plot.png>
+Package pdftex.def Info: images/pid_plot.png  used on input line 705.
+(pdftex.def)             Requested size: 240.90186pt x 240.90186pt.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [27 <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/pid_plot.png>]
+Chapter 6.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [28
+
+]
+Chapter 7.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [29
+
+]
+Chapter 8.
+<images/gantt_chart.PNG, id=171, 618.51076pt x 257.763pt>
+File: images/gantt_chart.PNG Graphic file (type png)
+<use images/gantt_chart.PNG>
+Package pdftex.def Info: images/gantt_chart.PNG  used on input line 731.
+(pdftex.def)             Requested size: 371.10931pt x 154.659pt.
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [30
+
+ <c:/Users/asus/Documents/GitHub/diosa/Thesis/images/gantt_chart.PNG>]
+LaTeX Font Info:    Trying to load font information for OT1+pcr on input line 736.
+ (c:/texlive/2020/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
+Overfull \hbox (7.66777pt too wide) in paragraph at lines 739--739
+[]\OT1/ptm/m/n/10 Electronoobs, \OT1/ptm/m/it/10 Ar-duino Mul-ti-Wii Flight Con-troller\OT1/ptm/m/n/10 , $\OT1/pcr/m/n/10 http : / / www . electronoobs . com / eng _ robotica _
+ []
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [31
+
+]
+Overfull \hbox (9.24664pt too wide) in paragraph at lines 739--739
+[]\OT1/ptm/m/n/10 ||, \OT1/ptm/m/it/10 MPU6050+HMC5883L+BMP180 Gyro/Magnetometer/Accelerometer/Altimeter Sen-sor Mod-ule\OT1/ptm/m/n/10 , $\OT1/pcr/m/n/10 https :
+ []
+
+
+Overfull \vbox (7.46777pt too high) has occurred while \output is active []
+
+ [32] (c:/Users/asus/Documents/GitHub/diosa/Thesis/main.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package logreq Info: Writing requests to 'main.run.xml'.
+\openout1 = `main.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 46467 strings out of 479382
+ 1185350 string characters out of 5873307
+ 1952826 words of memory out of 5000000
+ 62923 multiletter control sequences out of 15000+600000
+ 431649 words of font info for 87 fonts, out of 8000000 for 9000
+ 1141 hyphenation exceptions out of 8191
+ 94i,9n,98p,1897b,2829s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}<c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb><c:/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on c:/Users/asus/Documents/GitHub/diosa/Thesis/main.pdf (38 pages, 4566537 bytes).
+PDF statistics:
+ 224 PDF objects out of 1000 (max. 8388607)
+ 125 compressed objects within 2 object streams
+ 0 named destinations out of 1000 (max. 500000)
+ 143 words of extra memory for PDF output out of 10000 (max. 10000000)
+

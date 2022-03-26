@@ -4,7 +4,7 @@ import os
 import rospy
 import pigpio
 import time
-from std_msgs.msg import Int16MultiArray, Float32MultiArray
+from std_msgs.msg import Int16MultiArray, Float32MultiArray, String
 import datetime
 import math
 import configparser
@@ -29,7 +29,7 @@ global aux2
 global aux3
 global aux4
 
-throttle = 1500
+throttle = 1520
 roll = 0
 pitch = 0
 yaw = 0
@@ -99,8 +99,8 @@ if __name__ == '__main__':
     height = 0.200#float(config['vars']['height'])
     mass = 1.2#float(config['vars']['mass'])
 
-    max_motor_speed = 2500#int(config['vars']['max_motor_speed'])
-    min_motor_speed = 500#int(config['vars']['min_motor_speed'])
+    max_motor_speed = 1700#int(config['vars']['max_motor_speed'])
+    min_motor_speed = 1500#int(config['vars']['min_motor_speed'])
 
     motor1 = 0
     motor2 = 0
@@ -115,6 +115,10 @@ if __name__ == '__main__':
     imu_sub = rospy.Subscriber('/imu_readings', Float32MultiArray, update_imu_values)
     global pub
     pub = rospy.Publisher('/motor_levels', Int16MultiArray, queue_size=10)
+    global console_logger
+    console_logger = rospy.Publisher('/system_prints', String, queue_size=10)
+
+    time.sleep(10)
     
     current_time = datetime.datetime.now()
     T = [0, 0, 0, 0]
